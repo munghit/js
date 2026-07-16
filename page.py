@@ -2,9 +2,9 @@ import streamlit as st
 import streamlit.components.v1 as components
 
 
-# ---------------------------------
+# =========================
 # 페이지 설정
-# ---------------------------------
+# =========================
 
 st.set_page_config(
     page_title="Jessica Detective Agency",
@@ -14,9 +14,9 @@ st.set_page_config(
 )
 
 
-# ---------------------------------
+# =========================
 # Streamlit 기본 UI 제거
-# ---------------------------------
+# =========================
 
 st.markdown("""
 <style>
@@ -45,17 +45,31 @@ padding:0;
 }
 
 
-</style>
+.main{
 
+background:
+
+linear-gradient(
+180deg,
+#050505 0%,
+#090018 45%,
+#050505 100%
+);
+
+}
+
+
+</style>
 """, unsafe_allow_html=True)
 
 
 
-# ---------------------------------
-# 메인 스타일
-# ---------------------------------
+# =========================
+# 전체 디자인 CSS
+# =========================
 
 st.markdown("""
+
 <style>
 
 
@@ -73,15 +87,11 @@ background:#050505;
 
 
 
-.main{
-
-background:#050505;
-
-}
 
 
-
-/* HERO */
+/* =====================
+   HERO
+===================== */
 
 
 .hero{
@@ -102,22 +112,56 @@ justify-content:center;
 align-items:center;
 
 
+
 background:
 
+
 radial-gradient(
-circle at center,
-rgba(123,44,255,.25),
-transparent 55%
+
+ellipse at 50% 20%,
+
+rgba(123,44,255,.35),
+
+transparent 45%
+
 ),
 
-#050505;
+
+radial-gradient(
+
+ellipse at 50% 80%,
+
+rgba(90,0,180,.25),
+
+transparent 60%
+
+),
+
+
+linear-gradient(
+
+180deg,
+
+#050505,
+
+#090018,
+
+#050505
+
+);
+
 
 
 text-align:center;
 
 
-}
+position:relative;
 
+
+overflow:hidden;
+
+
+}
 
 
 
@@ -128,16 +172,16 @@ text-align:center;
 font-family:'Orbitron';
 
 
-font-size:20px;
+font-size:22px;
 
 
-letter-spacing:8px;
+letter-spacing:10px;
 
 
 color:#FFD369;
 
 
-margin-bottom:25px;
+margin-bottom:30px;
 
 
 }
@@ -167,6 +211,12 @@ color:white;
 line-height:1;
 
 
+text-shadow:
+
+0 0 20px rgba(255,255,255,.3);
+
+
+
 }
 
 
@@ -179,19 +229,19 @@ line-height:1;
 font-family:'Orbitron';
 
 
-font-size:35px;
+font-size:38px;
 
 
-letter-spacing:10px;
+letter-spacing:12px;
 
 
-color:#7B2CFF;
+color:#9b55ff;
 
 
 margin-top:20px;
 
 
-margin-bottom:35px;
+margin-bottom:40px;
 
 
 }
@@ -215,16 +265,15 @@ line-height:1.8;
 color:#ddd;
 
 
-margin-bottom:35px;
-
-
 }
 
 
 
 
 
-/* 카드 */
+/* =====================
+   카드
+===================== */
 
 
 .cards{
@@ -239,7 +288,40 @@ justify-content:center;
 gap:30px;
 
 
-margin-top:70px;
+padding-top:100px;
+
+
+padding-bottom:120px;
+
+
+width:100%;
+
+
+
+background:
+
+
+radial-gradient(
+
+circle at center,
+
+rgba(123,44,255,.18),
+
+transparent 60%
+
+),
+
+
+linear-gradient(
+
+180deg,
+
+transparent,
+
+rgba(20,0,40,.9)
+
+);
+
 
 
 flex-wrap:wrap;
@@ -257,15 +339,17 @@ flex-wrap:wrap;
 width:250px;
 
 
-padding:30px;
+padding:35px;
 
 
 border-radius:25px;
 
 
+
 background:
 
-rgba(255,255,255,.05);
+rgba(255,255,255,.06);
+
 
 
 border:
@@ -273,7 +357,11 @@ border:
 1px solid rgba(255,255,255,.15);
 
 
-backdrop-filter:blur(20px);
+
+backdrop-filter:
+
+blur(20px);
+
 
 
 transition:.4s;
@@ -304,19 +392,16 @@ box-shadow:
 
 
 
-
 .icon{
 
 
-font-size:50px;
+font-size:55px;
 
 
-margin-bottom:15px;
+margin-bottom:20px;
 
 
 }
-
-
 
 
 
@@ -343,7 +428,6 @@ margin-bottom:15px;
 
 
 
-
 .cardText{
 
 
@@ -353,25 +437,26 @@ font-family:'Noto Sans KR';
 font-size:15px;
 
 
-color:#ccc;
-
-
 line-height:1.7;
+
+
+color:#ccc;
 
 
 }
 
 
-
 </style>
+
 
 """, unsafe_allow_html=True)
 
 
 
-# ---------------------------------
-# HERO HTML
-# ---------------------------------
+# =========================
+# 메인
+# =========================
+
 
 st.markdown("""
 <div class="hero">
@@ -384,11 +469,13 @@ JESSICA
 </div>
 
 
+
 <div class="title">
 
 DETECTIVE
 
 </div>
+
 
 
 <div class="subtitle">
@@ -414,9 +501,10 @@ AGENCY
 
 
 
-# ---------------------------------
+# =========================
 # 의뢰 버튼
-# ---------------------------------
+# =========================
+
 
 components.html(
 
@@ -437,7 +525,7 @@ justify-content:center;
 
 align-items:center;
 
-height:120px;
+height:130px;
 
 }
 
@@ -448,8 +536,8 @@ height:120px;
 
 width:280px;
 
-
 height:80px;
+
 
 
 display:flex;
@@ -463,6 +551,7 @@ justify-content:center;
 
 
 position:relative;
+
 
 
 border-radius:18px;
@@ -496,7 +585,9 @@ color:#FFD369;
 font-family:'Noto Sans KR';
 
 
+
 font-size:22px;
+
 
 
 font-weight:700;
@@ -517,11 +608,13 @@ cursor:pointer;
 
 box-shadow:
 
+
 0 0 25px rgba(255,211,105,.3);
 
 
 
 transition:.5s;
+
 
 
 }
@@ -533,7 +626,6 @@ transition:.5s;
 
 
 content:"";
-
 
 position:absolute;
 
@@ -575,7 +667,6 @@ transform:skewX(-25deg);
 animation:shine 3s infinite;
 
 
-
 }
 
 
@@ -591,7 +682,6 @@ left:-120%;
 }
 
 
-
 40%{
 
 left:130%;
@@ -599,13 +689,11 @@ left:130%;
 }
 
 
-
 100%{
 
 left:130%;
 
 }
-
 
 
 }
@@ -616,6 +704,7 @@ left:130%;
 
 
 transform:translateY(-6px);
+
 
 
 color:white;
@@ -635,8 +724,8 @@ box-shadow:
 0 0 90px rgba(123,44,255,.6);
 
 
-
 }
+
 
 
 </style>
@@ -652,28 +741,25 @@ box-shadow:
 
 """,
 
-height=120
+height=130
 
 )
 
 
 
-# ---------------------------------
+# =========================
 # 서비스 카드
-# ---------------------------------
+# =========================
+
 
 st.markdown("""
+
 <div class="cards">
 
 
 <div class="card">
 
-<div class="icon">
-
-🔍
-
-</div>
-
+<div class="icon">🔍</div>
 
 <div class="cardTitle">
 
@@ -684,9 +770,9 @@ st.markdown("""
 
 <div class="cardText">
 
-실종자 및 연락이 끊긴 사람을<br>
+실종자 및 연락 두절 관련<br>
 
-찾기 위한 상담 서비스
+상담 서비스를 제공합니다.
 
 </div>
 
@@ -696,12 +782,7 @@ st.markdown("""
 
 <div class="card">
 
-<div class="icon">
-
-📁
-
-</div>
-
+<div class="icon">📁</div>
 
 <div class="cardTitle">
 
@@ -714,7 +795,7 @@ st.markdown("""
 
 공개 자료 기반<br>
 
-사실관계 분석
+사실관계를 분석합니다.
 
 </div>
 
@@ -724,12 +805,7 @@ st.markdown("""
 
 <div class="card">
 
-<div class="icon">
-
-💻
-
-</div>
-
+<div class="icon">💻</div>
 
 <div class="cardTitle">
 
@@ -740,9 +816,9 @@ st.markdown("""
 
 <div class="cardText">
 
-디지털 자료 분석<br>
+디지털 자료 분석과<br>
 
-상담 서비스
+상담을 제공합니다.
 
 </div>
 
@@ -752,12 +828,7 @@ st.markdown("""
 
 <div class="card">
 
-<div class="icon">
-
-🏢
-
-</div>
-
+<div class="icon">🏢</div>
 
 <div class="cardTitle">
 
@@ -768,9 +839,9 @@ st.markdown("""
 
 <div class="cardText">
 
-기업 관련 공개 정보<br>
+기업 관련 공개 정보를<br>
 
-분석 서비스
+분석합니다.
 
 </div>
 
