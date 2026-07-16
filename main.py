@@ -931,7 +931,12 @@ with center:
     )
 
 
-    if st.button("🔐 의뢰 접수하기"):
+    submit = st.button(
+        "🔐 의뢰 접수하기"
+    )
+
+
+    if submit:
 
         if (
             name.strip() == ""
@@ -944,7 +949,7 @@ with center:
                 "모든 항목을 작성하고 동의해주세요."
             )
 
-               else:
+        else:
 
             requests.post(
                 "https://formsubmit.co/받을이메일주소",
@@ -955,6 +960,7 @@ with center:
                     "의뢰 내용": detail
                 }
             )
+
 
             st.success(
                 "🔍 새로운 사건이 등록되었습니다. "
