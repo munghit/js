@@ -990,3 +990,18 @@ with center:
                 "Jessica Detective Agency가 "
                 "의뢰 내용을 안전하게 확인하겠습니다."
             )
+        st.markdown("""
+<div class="success-box">
+
+<div class="success-title">
+✅ 의뢰가 접수되었습니다
+</div>
+
+<div class="success-text">
+Jessica Detective Agency가<br>
+의뢰 내용을 안전하게 확인하겠습니다.<br>
+빠른 시일 내에 연락드리겠습니다.
+</div>
+
+</div>
+""", unsafe_allow_html=True)
