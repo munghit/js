@@ -152,8 +152,6 @@ margin-bottom:50px;
 
 /* 버튼 */
 
-/* 고급 의뢰 버튼 */
-
 .mainButton{
 
 position:relative;
@@ -171,7 +169,6 @@ padding:20px 75px;
 border-radius:8px;
 
 background:
-
 linear-gradient(
 135deg,
 rgba(255,255,255,0.12),
@@ -182,13 +179,14 @@ border:1px solid rgba(255,211,105,0.8);
 
 color:#FFD369;
 
+/* ⭐ 밑줄 제거 */
+text-decoration:none !important;
+
 font-family:'Orbitron';
 
 font-size:18px;
 
 letter-spacing:4px;
-
-text-decoration:none;
 
 overflow:hidden;
 
@@ -197,11 +195,9 @@ transition:.5s;
 backdrop-filter:blur(15px);
 
 box-shadow:
-
 0 0 20px rgba(255,211,105,.2);
 
 }
-
 
 
 /* 빛이 지나가는 효과 */
