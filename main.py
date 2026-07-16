@@ -933,40 +933,38 @@ with center:
 
     if st.button("🔐 의뢰 접수하기"):
 
-        if (
-            name.strip() == ""
-            or contact.strip() == ""
-            or detail.strip() == ""
-            or not agree
-        ):
+    if (
+        name.strip() == ""
+        or contact.strip() == ""
+        or detail.strip() == ""
+        or not agree
+    ):
 
-            st.warning(
-                "모든 항목을 작성하고 동의해주세요."
+        st.warning(
+            "모든 항목을 작성하고 동의해주세요."
+        )
+
+    else:
+
+        response = requests.post(
+            "https://script.google.com/macros/s/AKfycbzpaZjxOilIceKnLZewySnZ_38ZKDAkcC2EPn6G6gRDrSA9GNy_4b5A91zNH99e2C4/exec",
+            json={
+                "category": category,
+                "name": name,
+                "contact": contact,
+                "detail": detail
+            }
+        )
+
+
+        if response.status_code == 200:
+
+            st.success(
+                "🔍 새로운 사건이 등록되었습니다.\n\nJessica Detective Agency가 분석을 시작합니다."
             )
 
         else:
 
-           response = requests.post(
-    "https://script.google.com/macros/s/AKfycbzpaZjxOilIceKnLZewySnZ_38ZKDAkcC2EPn6G6gRDrSA9GNy_4b5A91zNH99e2C4/exec",
-    json={
-        "category": category,
-        "name": name,
-        "contact": contact,
-        "detail": detail
-    }
-)
-            
-
-
-            if response.status_code == 200:
-
-                st.success(
-                    "🔍 새로운 사건이 등록되었습니다. "
-                    "Jessica Detective Agency가 분석을 시작합니다."
-                )
-
-            else:
-
-                st.error(
-                    "의뢰 전송에 실패했습니다."
-                )
+            st.error(
+                "의뢰 전송에 실패했습니다."
+            )
