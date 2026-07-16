@@ -16,22 +16,22 @@ st.set_page_config(
 
 
 # =========================
-# 기본 UI 제거 + 전체 배경
+# 기본 설정 + 전체 배경
 # =========================
 
 st.markdown("""
 <style>
 
 #MainMenu{
-visibility:hidden;
+display:none;
 }
 
 footer{
-visibility:hidden;
+display:none;
 }
 
 header{
-visibility:hidden;
+display:none;
 }
 
 
@@ -46,11 +46,6 @@ padding:0;
 
 }
 
-
-
-/* =========================
-   전체 배경 수정 부분
-========================= */
 
 
 .stApp{
@@ -106,14 +101,13 @@ min-height:100vh;
 }
 
 
-
 </style>
 """, unsafe_allow_html=True)
 
 
 
 # =========================
-# CSS
+# 디자인 CSS
 # =========================
 
 st.markdown("""
@@ -138,7 +132,6 @@ padding-bottom:180px;
 
 /* HERO */
 
-
 .hero{
 
 
@@ -161,7 +154,6 @@ text-align:center;
 
 
 }
-
 
 
 
@@ -259,8 +251,18 @@ color:#ddd;
 }
 
 
-/* 카드 */
 
+/* 숨겨진 Streamlit 버튼 */
+
+div[data-testid="stButton"] button{
+
+display:none;
+
+}
+
+
+
+/* 카드 */
 
 .cards{
 
@@ -278,7 +280,6 @@ flex-wrap:wrap;
 
 
 }
-
 
 
 
@@ -320,7 +321,6 @@ transition:.4s;
 
 
 
-
 .card:hover{
 
 
@@ -337,74 +337,55 @@ box-shadow:
 0 0 40px rgba(123,44,255,.7);
 
 
-
 }
-
 
 
 
 .icon{
 
-
 font-size:55px;
-
 
 margin-bottom:20px;
 
-
 }
-
 
 
 
 .cardTitle{
 
-
 font-family:'Noto Sans KR';
-
 
 font-size:25px;
 
-
 font-weight:700;
-
 
 color:white;
 
-
 margin-bottom:15px;
 
-
 }
-
 
 
 
 .cardText{
 
-
 font-family:'Noto Sans KR';
-
 
 font-size:15px;
 
-
 line-height:1.7;
 
-
 color:#ccc;
-
 
 }
 
 
 </style>
+
 """, unsafe_allow_html=True)
 
-
-
 # =========================
-# 메인 영역
+# 메인 화면
 # =========================
 
 st.markdown("""
@@ -452,13 +433,24 @@ AGENCY
 
 
 # =========================
-# 의뢰하기 버튼
+# 페이지 이동용 숨겨진 버튼
+# =========================
+
+if st.button("move"):
+
+    st.switch_page("pages/의뢰하기.py")
+
+
+
+# =========================
+# 디자인 버튼
 # =========================
 
 components.html(
 """
 
 <style>
+
 
 body{
 
@@ -481,7 +473,6 @@ width:300px;
 
 
 height:75px;
-
 
 
 display:flex;
@@ -546,11 +537,11 @@ box-shadow:
 
 
 
-transition:.4s;
-
-
-
 cursor:pointer;
+
+
+
+transition:.4s;
 
 
 }
@@ -577,6 +568,7 @@ box-shadow:
 0 0 100px rgba(123,44,255,.8);
 
 
+
 }
 
 
@@ -585,8 +577,11 @@ box-shadow:
 
 
 <div
+
 class="btn"
-onclick="window.parent.location.href='/1_의뢰하기';"
+
+onclick="document.querySelector('button').click();"
+
 >
 
 🔐 의뢰하기
@@ -600,20 +595,18 @@ height=120
 
 
 
-# =========================
-# HERO 종료
-# =========================
-
 st.markdown("""
 </div>
 
+
+
+<!-- 카드 영역 -->
 
 
 <div class="cards">
 
 
 <div class="card">
-
 
 <div class="icon">
 
@@ -645,7 +638,6 @@ st.markdown("""
 
 <div class="card">
 
-
 <div class="icon">
 
 📁
@@ -675,7 +667,6 @@ st.markdown("""
 
 
 <div class="card">
-
 
 <div class="icon">
 
@@ -707,7 +698,6 @@ st.markdown("""
 
 <div class="card">
 
-
 <div class="icon">
 
 🏢
@@ -732,6 +722,7 @@ st.markdown("""
 
 
 </div>
+
 
 
 </div>
