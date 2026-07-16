@@ -21,10 +21,6 @@ st.set_page_config(
 st.markdown("""
 <style>
 
-[data-testid="stSidebar"]{
-display:none;
-}
-
 #MainMenu{
 visibility:hidden;
 }
@@ -35,6 +31,11 @@ visibility:hidden;
 
 header{
 visibility:hidden;
+}
+
+
+[data-testid="stSidebar"]{
+display:none;
 }
 
 
@@ -50,7 +51,6 @@ background:#050505;
 padding:0;
 
 }
-
 
 </style>
 """, unsafe_allow_html=True)
@@ -68,15 +68,6 @@ st.markdown("""
 @import url(
 'https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Orbitron:wght@500;700&family=Noto+Sans+KR:wght@300;500;700&display=swap'
 );
-
-
-
-html,body{
-
-background:#050505;
-
-}
-
 
 
 
@@ -128,16 +119,17 @@ min-height:100vh;
 
 padding-bottom:150px;
 
-
 }
 
 
+
+/* HERO */
 
 
 .hero{
 
 
-height:85vh;
+height:75vh;
 
 
 display:flex;
@@ -150,7 +142,6 @@ justify-content:center;
 
 
 align-items:center;
-
 
 
 text-align:center;
@@ -206,7 +197,6 @@ text-shadow:
 0 0 25px rgba(255,255,255,.4);
 
 
-
 }
 
 
@@ -258,6 +248,120 @@ color:#ddd;
 
 
 
+/* 의뢰 버튼 */
+
+
+.request-area{
+
+
+display:flex;
+
+justify-content:center;
+
+margin-top:-80px;
+
+margin-bottom:120px;
+
+}
+
+
+
+.request-area button{
+
+
+width:280px;
+
+
+height:80px;
+
+
+
+border-radius:18px;
+
+
+
+background:
+
+
+linear-gradient(
+
+135deg,
+
+rgba(255,255,255,.15),
+
+rgba(255,255,255,.03)
+
+);
+
+
+
+border:1px solid #FFD369;
+
+
+
+color:#FFD369;
+
+
+
+font-family:'Noto Sans KR';
+
+
+
+font-size:22px;
+
+
+
+font-weight:700;
+
+
+
+letter-spacing:4px;
+
+
+
+cursor:pointer;
+
+
+
+box-shadow:
+
+
+0 0 25px rgba(255,211,105,.3);
+
+
+
+transition:.5s;
+
+
+}
+
+
+
+
+.request-area button:hover{
+
+
+transform:translateY(-6px);
+
+
+border-color:#7B2CFF;
+
+
+
+box-shadow:
+
+
+0 0 40px #7B2CFF;
+
+
+
+}
+
+
+
+/* 카드 */
+
+
 .cards{
 
 
@@ -271,7 +375,6 @@ gap:30px;
 
 
 flex-wrap:wrap;
-
 
 
 }
@@ -317,7 +420,6 @@ transition:.4s;
 
 
 
-
 .card:hover{
 
 
@@ -336,7 +438,6 @@ box-shadow:
 
 
 }
-
 
 
 
@@ -402,15 +503,12 @@ color:#ccc;
 
 
 
-
-
 # =========================
 # 메인 화면
 # =========================
 
 
 st.markdown("""
-
 <div class="page">
 
 
@@ -452,139 +550,124 @@ AGENCY
 
 </div>
 
+</div>
+
+""", unsafe_allow_html=True)
 
 
 
+# =========================
+# 의뢰하기 버튼
+# =========================
 
+
+st.markdown(
+"""
+<div class="request-area">
+""",
+unsafe_allow_html=True
+)
+
+
+if st.button("🔐 의뢰하기"):
+
+    st.switch_page("pages/1_의뢰하기.py")
+
+
+st.markdown(
+"""
+</div>
+""",
+unsafe_allow_html=True
+)
+
+
+
+# =========================
+# 카드
+# =========================
+
+
+st.markdown("""
 <div class="cards">
 
 
-
 <div class="card">
 
 <div class="icon">
-
 🔍
-
 </div>
 
-
 <div class="cardTitle">
-
 사람 찾기
-
 </div>
 
-
 <div class="cardText">
-
 실종자 및 연락 두절 관련<br>
-
 상담 서비스를 제공합니다.
-
 </div>
 
-
 </div>
-
-
 
 
 
 <div class="card">
 
 <div class="icon">
-
 📁
-
 </div>
 
-
 <div class="cardTitle">
-
 사실 조사
-
 </div>
 
-
 <div class="cardText">
-
 공개 자료 기반<br>
-
 사실관계를 분석합니다.
-
 </div>
 
-
 </div>
-
-
 
 
 
 <div class="card">
 
 <div class="icon">
-
 💻
-
 </div>
-
 
 <div class="cardTitle">
-
 디지털 분석
-
 </div>
-
 
 <div class="cardText">
-
 디지털 자료 분석과<br>
-
 상담을 제공합니다.
-
 </div>
 
-
 </div>
-
-
 
 
 
 <div class="card">
 
 <div class="icon">
-
 🏢
-
 </div>
-
 
 <div class="cardTitle">
-
 기업 조사
-
 </div>
-
 
 <div class="cardText">
-
 기업 관련 공개 정보를<br>
-
 분석합니다.
+</div>
 
 </div>
 
 
 </div>
 
-
-
-</div>
-
-
-</div>
 
 """, unsafe_allow_html=True)
