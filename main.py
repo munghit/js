@@ -15,7 +15,7 @@ st.set_page_config(
 
 
 # =========================
-# 숨김 UI + 배경
+# 기본 UI 제거 + 배경
 # =========================
 
 st.markdown("""
@@ -37,7 +37,6 @@ display:none;
 [data-testid="stSidebar"]{
 display:none;
 }
-
 
 
 .block-container{
@@ -78,7 +77,6 @@ min-height:100vh;
 
 }
 
-
 </style>
 """, unsafe_allow_html=True)
 
@@ -90,6 +88,7 @@ min-height:100vh;
 
 st.markdown("""
 <style>
+
 
 @import url(
 'https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Orbitron:wght@500;700&family=Noto+Sans+KR:wght@300;500;700&display=swap'
@@ -141,6 +140,7 @@ letter-spacing:18px;
 
 color:white;
 
+
 text-shadow:
 
 0 0 25px rgba(255,255,255,.4);
@@ -181,7 +181,7 @@ color:#ddd;
 
 
 
-/* Streamlit 버튼 디자인 */
+/* 버튼 */
 
 div.stButton{
 
@@ -219,19 +219,21 @@ rgba(123,44,255,.35)
 border:1px solid #FFD369;
 
 
+
 color:#FFD369;
 
-
-font-family:'Noto Sans KR';
 
 
 font-size:24px;
 
 
+
 font-weight:700;
 
 
+
 letter-spacing:5px;
+
 
 
 box-shadow:
@@ -256,19 +258,15 @@ translateY(-8px)
 scale(1.05);
 
 
-
 box-shadow:
 
 0 0 50px #FFD369,
 
 0 0 100px rgba(123,44,255,.8);
 
-
 }
 
 
-
-/* 카드 */
 
 
 .cards{
@@ -299,12 +297,15 @@ background:
 rgba(255,255,255,.07);
 
 
+
 border:
 
 1px solid rgba(255,255,255,.18);
 
 
+
 backdrop-filter:blur(20px);
+
 
 }
 
@@ -317,6 +318,7 @@ font-size:55px;
 margin-bottom:20px;
 
 }
+
 
 
 .cardTitle{
@@ -332,6 +334,7 @@ color:white;
 margin-bottom:15px;
 
 }
+
 
 
 .cardText{
@@ -367,7 +370,6 @@ JESSICA
 </div>
 
 
-
 <div class="title">
 
 DETECTIVE
@@ -375,13 +377,11 @@ DETECTIVE
 </div>
 
 
-
 <div class="subtitle">
 
 AGENCY
 
 </div>
-
 
 
 <div class="desc">
@@ -399,16 +399,16 @@ AGENCY
 
 
 # =========================
-# 의뢰하기 버튼
+# 의뢰하기 이동 버튼
 # =========================
 
 if st.button(
     "🔐 의뢰하기",
-    key="request_button"
+    key="request"
 ):
 
     st.switch_page(
-        "pages/request.py"
+        "pages/1_Request.py"
     )
 
 
@@ -418,7 +418,6 @@ if st.button(
 # =========================
 
 st.markdown("""
-
 <div class="cards">
 
 
@@ -490,5 +489,4 @@ st.markdown("""
 
 
 </div>
-
 """, unsafe_allow_html=True)
