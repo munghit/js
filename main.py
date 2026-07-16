@@ -16,7 +16,7 @@ st.set_page_config(
 
 
 # =========================
-# 기본 설정 + 전체 배경
+# 기본 UI + 배경
 # =========================
 
 st.markdown("""
@@ -41,9 +41,7 @@ display:none;
 
 
 .block-container{
-
 padding:0;
-
 }
 
 
@@ -65,7 +63,6 @@ transparent 45%
 ),
 
 
-
 radial-gradient(
 
 ellipse at 50% 70%,
@@ -75,7 +72,6 @@ rgba(90,0,180,.25),
 transparent 55%
 
 ),
-
 
 
 linear-gradient(
@@ -99,7 +95,6 @@ min-height:100vh;
 
 
 }
-
 
 </style>
 """, unsafe_allow_html=True)
@@ -129,8 +124,6 @@ padding-bottom:180px;
 }
 
 
-
-/* HERO */
 
 .hero{
 
@@ -252,17 +245,7 @@ color:#ddd;
 
 
 
-/* 숨겨진 Streamlit 버튼 */
 
-div[data-testid="stButton"] button{
-
-display:none;
-
-}
-
-
-
-/* 카드 */
 
 .cards{
 
@@ -283,6 +266,8 @@ flex-wrap:wrap;
 
 
 
+
+
 .card{
 
 
@@ -295,16 +280,13 @@ padding:35px;
 border-radius:25px;
 
 
-
 background:
-
 
 rgba(255,255,255,.07);
 
 
 
 border:
-
 
 1px solid rgba(255,255,255,.18);
 
@@ -321,6 +303,7 @@ transition:.4s;
 
 
 
+
 .card:hover{
 
 
@@ -333,11 +316,11 @@ border-color:#7B2CFF;
 
 box-shadow:
 
-
 0 0 40px rgba(123,44,255,.7);
 
 
 }
+
 
 
 
@@ -348,6 +331,7 @@ font-size:55px;
 margin-bottom:20px;
 
 }
+
 
 
 
@@ -367,6 +351,7 @@ margin-bottom:15px;
 
 
 
+
 .cardText{
 
 font-family:'Noto Sans KR';
@@ -381,11 +366,12 @@ color:#ccc;
 
 
 </style>
-
 """, unsafe_allow_html=True)
 
+
+
 # =========================
-# 메인 화면
+# 메인
 # =========================
 
 st.markdown("""
@@ -433,24 +419,13 @@ AGENCY
 
 
 # =========================
-# 페이지 이동용 숨겨진 버튼
-# =========================
-
-if st.button("move"):
-
-    st.switch_page("pages/의뢰하기.py")
-
-
-
-# =========================
-# 디자인 버튼
+# 의뢰하기 버튼
 # =========================
 
 components.html(
 """
 
 <style>
-
 
 body{
 
@@ -568,7 +543,6 @@ box-shadow:
 0 0 100px rgba(123,44,255,.8);
 
 
-
 }
 
 
@@ -580,7 +554,7 @@ box-shadow:
 
 class="btn"
 
-onclick="document.querySelector('button').click();"
+onclick="window.parent.location.href='/의뢰하기';"
 
 >
 
@@ -599,10 +573,6 @@ st.markdown("""
 </div>
 
 
-
-<!-- 카드 영역 -->
-
-
 <div class="cards">
 
 
@@ -614,13 +584,11 @@ st.markdown("""
 
 </div>
 
-
 <div class="cardTitle">
 
 사람 찾기
 
 </div>
-
 
 <div class="cardText">
 
@@ -629,7 +597,6 @@ st.markdown("""
 상담 서비스를 제공합니다.
 
 </div>
-
 
 </div>
 
@@ -644,13 +611,11 @@ st.markdown("""
 
 </div>
 
-
 <div class="cardTitle">
 
 사실 조사
 
 </div>
-
 
 <div class="cardText">
 
@@ -659,7 +624,6 @@ st.markdown("""
 사실관계를 분석합니다.
 
 </div>
-
 
 </div>
 
@@ -674,13 +638,11 @@ st.markdown("""
 
 </div>
 
-
 <div class="cardTitle">
 
 디지털 분석
 
 </div>
-
 
 <div class="cardText">
 
@@ -689,7 +651,6 @@ st.markdown("""
 상담을 제공합니다.
 
 </div>
-
 
 </div>
 
@@ -704,13 +665,11 @@ st.markdown("""
 
 </div>
 
-
 <div class="cardTitle">
 
 기업 조사
 
 </div>
-
 
 <div class="cardText">
 
@@ -720,9 +679,7 @@ st.markdown("""
 
 </div>
 
-
 </div>
-
 
 
 </div>
