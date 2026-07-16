@@ -958,5 +958,8 @@ with center:
            
 
             st.success(
-                "✅ 의뢰가 접수되었습니다."
+                "🔐 사건 접수가 완료되었습니다.
+
+Jessica Detective Agency가
+진실을 향한 첫 번째 분석을 시작합니다."
             )
