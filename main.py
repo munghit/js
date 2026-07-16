@@ -931,12 +931,7 @@ with center:
     )
 
 
-    submit = st.button(
-        "🔐 의뢰 접수하기"
-    )
-
-
-    if submit:
+    if st.button("🔐 의뢰 접수하기"):
 
         if (
             name.strip() == ""
@@ -952,20 +947,26 @@ with center:
         else:
 
             response = requests.post(
-    "https://formsubmit.co/ajax/내이메일@gmail.com",
-    data={
-        "의뢰 유형": category,
-        "의뢰인 이름": name,
-        "연락 방법": contact,
-        "의뢰 내용": detail,
-        "_subject": "🔍 Jessica Detective Agency 새로운 의뢰"
-    }
-)
-
-st.write(response.status_code)
-st.write(response.text)
-
-            st.success(
-                "🔍 새로운 사건이 등록되었습니다. "
-                "Jessica Detective Agency가 진실을 찾습니다."
+                "https://formsubmit.co/ajax/사용자이메일주소",
+                data={
+                    "의뢰 유형": category,
+                    "의뢰인 이름": name,
+                    "연락 방법": contact,
+                    "의뢰 내용": detail,
+                    "_subject": "🔍 Jessica Detective Agency 새로운 의뢰"
+                }
             )
+
+
+            if response.status_code == 200:
+
+                st.success(
+                    "🔍 새로운 사건이 등록되었습니다. "
+                    "Jessica Detective Agency가 분석을 시작합니다."
+                )
+
+            else:
+
+                st.error(
+                    "의뢰 전송에 실패했습니다."
+                )
