@@ -16,7 +16,7 @@ st.set_page_config(
 
 
 # =========================
-# 기본 UI 제거
+# 기본 UI 제거 + 전체 배경
 # =========================
 
 st.markdown("""
@@ -40,18 +40,72 @@ display:none;
 }
 
 
-.stApp{
-
-background:#050505;
-
-}
-
-
 .block-container{
 
 padding:0;
 
 }
+
+
+
+/* =========================
+   전체 배경 수정 부분
+========================= */
+
+
+.stApp{
+
+
+background:
+
+
+radial-gradient(
+
+ellipse at 50% 10%,
+
+rgba(123,44,255,.4),
+
+transparent 45%
+
+),
+
+
+
+radial-gradient(
+
+ellipse at 50% 70%,
+
+rgba(90,0,180,.25),
+
+transparent 55%
+
+),
+
+
+
+linear-gradient(
+
+180deg,
+
+#050505,
+
+#100020,
+
+#050505
+
+);
+
+
+
+background-attachment:fixed;
+
+
+min-height:100vh;
+
+
+}
+
+
 
 </style>
 """, unsafe_allow_html=True)
@@ -73,35 +127,6 @@ st.markdown("""
 
 
 .page{
-
-
-background:
-
-
-radial-gradient(
-ellipse at 50% 10%,
-rgba(123,44,255,.4),
-transparent 45%
-),
-
-
-radial-gradient(
-ellipse at 50% 70%,
-rgba(90,0,180,.25),
-transparent 55%
-),
-
-
-linear-gradient(
-180deg,
-#050505,
-#100020,
-#050505
-);
-
-
-
-min-height:100vh;
 
 width:100%;
 
@@ -232,8 +257,6 @@ color:#ddd;
 
 
 }
-
-
 
 
 /* 카드 */
@@ -376,334 +399,4 @@ color:#ccc;
 
 
 </style>
-""", unsafe_allow_html=True)
-
-
-
-# =========================
-# 상단 영역
-# =========================
-
-st.markdown("""
-<div class="page">
-
-
-<div class="hero">
-
-
-<div class="logo">
-
-JESSICA
-
-</div>
-
-
-
-<div class="title">
-
-DETECTIVE
-
-</div>
-
-
-
-<div class="subtitle">
-
-AGENCY
-
-</div>
-
-
-
-<div class="desc">
-
-진실은 언제나 흔적을 남깁니다.<br>
-
-당신의 의뢰는 안전하게 보호됩니다.
-
-</div>
-
-""", unsafe_allow_html=True)
-
-
-
-# =========================
-# 버튼
-# =========================
-
-components.html(
-"""
-
-<style>
-
-
-body{
-
-margin:0;
-
-background:transparent;
-
-display:flex;
-
-justify-content:center;
-
-}
-
-
-
-.btn{
-
-
-width:300px;
-
-
-height:75px;
-
-
-display:flex;
-
-
-align-items:center;
-
-
-justify-content:center;
-
-
-
-border-radius:20px;
-
-
-
-background:
-
-
-linear-gradient(
-
-135deg,
-
-rgba(255,211,105,.25),
-
-rgba(123,44,255,.35)
-
-);
-
-
-
-border:
-
-
-1px solid #FFD369;
-
-
-
-color:#FFD369;
-
-
-
-font-family:'Noto Sans KR';
-
-
-
-font-size:24px;
-
-
-
-font-weight:700;
-
-
-
-letter-spacing:5px;
-
-
-
-box-shadow:
-
-
-0 0 25px rgba(255,211,105,.5);
-
-
-
-transition:.4s;
-
-
-
-cursor:pointer;
-
-
-}
-
-
-
-.btn:hover{
-
-
-transform:
-
-translateY(-8px)
-
-scale(1.05);
-
-
-
-box-shadow:
-
-
-0 0 50px #FFD369,
-
-
-0 0 100px rgba(123,44,255,.8);
-
-
-
-}
-
-
-</style>
-
-
-
-<div 
-class="btn"
-onclick="window.parent.location.href='/1_의뢰하기';"
->
-
-🔐 의뢰하기
-
-</div>
-
-
-""",
-height=120
-)
-
-
-
-st.markdown("""
-</div>
-
-
-
-<div class="cards">
-
-
-<div class="card">
-
-<div class="icon">
-
-🔍
-
-</div>
-
-
-<div class="cardTitle">
-
-사람 찾기
-
-</div>
-
-
-<div class="cardText">
-
-실종자 및 연락 두절 관련<br>
-
-상담 서비스를 제공합니다.
-
-</div>
-
-
-</div>
-
-
-
-<div class="card">
-
-<div class="icon">
-
-📁
-
-</div>
-
-
-<div class="cardTitle">
-
-사실 조사
-
-</div>
-
-
-<div class="cardText">
-
-공개 자료 기반<br>
-
-사실관계를 분석합니다.
-
-</div>
-
-
-</div>
-
-
-
-<div class="card">
-
-<div class="icon">
-
-💻
-
-</div>
-
-
-<div class="cardTitle">
-
-디지털 분석
-
-</div>
-
-
-<div class="cardText">
-
-디지털 자료 분석과<br>
-
-상담을 제공합니다.
-
-</div>
-
-
-</div>
-
-
-
-<div class="card">
-
-<div class="icon">
-
-🏢
-
-</div>
-
-
-<div class="cardTitle">
-
-기업 조사
-
-</div>
-
-
-<div class="cardText">
-
-기업 관련 공개 정보를<br>
-
-분석합니다.
-
-</div>
-
-
-</div>
-
-
-</div>
-
-
-</div>
-
 """, unsafe_allow_html=True)
