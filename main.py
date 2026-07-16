@@ -955,12 +955,12 @@ with center:
 
 
 
-    # =========================
-    # 접수 버튼
-    # =========================
+  # =========================
+# 접수 버튼
+# =========================
 
 
- if st.button("🔐 의뢰 접수하기"):
+if st.button("🔐 의뢰 접수하기"):
 
     if (
         name.strip() == ""
@@ -986,10 +986,16 @@ with center:
         })
 
 
-        st.success(
-            "의뢰가 접수되었습니다."
-        )
+        st.markdown("""
+        <div class="success-box">
+
+
+        <div class="success-title">
+
+        의뢰가 접수되었습니다
+
         </div>
+
 
 
         <div class="success-text">
@@ -1002,5 +1008,5 @@ with center:
 
 
         </div>
-        """,
-        unsafe_allow_html=True)
+
+        """, unsafe_allow_html=True)ml=True)
