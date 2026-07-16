@@ -58,7 +58,7 @@ padding:0;
 
 
 # =========================
-# 전체 CSS
+# CSS
 # =========================
 
 st.markdown("""
@@ -73,46 +73,28 @@ st.markdown("""
 
 .page{
 
-
 background:
 
-
 radial-gradient(
-
 ellipse at 50% 10%,
-
 rgba(123,44,255,.4),
-
 transparent 45%
-
 ),
-
 
 
 radial-gradient(
-
 ellipse at 50% 70%,
-
 rgba(90,0,180,.25),
-
 transparent 55%
-
 ),
-
 
 
 linear-gradient(
-
 180deg,
-
 #050505,
-
 #100020,
-
 #050505
-
 );
-
 
 
 min-height:100vh;
@@ -123,29 +105,23 @@ padding-bottom:150px;
 
 
 
+
 /* HERO */
 
 
 .hero{
 
-
-height:75vh;
-
+height:70vh;
 
 display:flex;
 
-
 flex-direction:column;
-
 
 justify-content:center;
 
-
 align-items:center;
 
-
 text-align:center;
-
 
 }
 
@@ -154,21 +130,15 @@ text-align:center;
 
 .logo{
 
-
 font-family:'Orbitron';
-
 
 font-size:22px;
 
-
 letter-spacing:12px;
-
 
 color:#FFD369;
 
-
 margin-bottom:30px;
-
 
 }
 
@@ -177,25 +147,18 @@ margin-bottom:30px;
 
 .title{
 
-
 font-family:'Cinzel';
-
 
 font-size:100px;
 
-
 letter-spacing:18px;
-
 
 color:white;
 
 
-
 text-shadow:
 
-
 0 0 25px rgba(255,255,255,.4);
-
 
 }
 
@@ -204,24 +167,17 @@ text-shadow:
 
 .subtitle{
 
-
 font-family:'Orbitron';
-
 
 font-size:38px;
 
-
 letter-spacing:12px;
-
 
 color:#9b55ff;
 
-
 margin-top:20px;
 
-
 margin-bottom:40px;
-
 
 }
 
@@ -230,37 +186,35 @@ margin-bottom:40px;
 
 .desc{
 
-
 font-family:'Noto Sans KR';
-
 
 font-size:22px;
 
-
 line-height:1.8;
-
 
 color:#ddd;
 
+margin-bottom:35px;
 
 }
 
 
 
 
-/* 의뢰 버튼 */
+/* 버튼 */
 
 
 .request-area{
-
 
 display:flex;
 
 justify-content:center;
 
-margin-top:-80px;
+align-items:center;
 
-margin-bottom:120px;
+margin-top:-20px;
+
+margin-bottom:80px;
 
 }
 
@@ -269,15 +223,12 @@ margin-bottom:120px;
 .request-area button{
 
 
-width:280px;
+width:300px !important;
+
+height:75px !important;
 
 
-height:80px;
-
-
-
-border-radius:18px;
-
+border-radius:20px !important;
 
 
 background:
@@ -287,19 +238,21 @@ linear-gradient(
 
 135deg,
 
-rgba(255,255,255,.15),
+rgba(255,211,105,.18),
 
-rgba(255,255,255,.03)
+rgba(123,44,255,.25)
 
-);
-
-
-
-border:1px solid #FFD369;
+) !important;
 
 
 
-color:#FFD369;
+border:
+
+1px solid #FFD369 !important;
+
+
+
+color:#FFD369 !important;
 
 
 
@@ -307,7 +260,7 @@ font-family:'Noto Sans KR';
 
 
 
-font-size:22px;
+font-size:24px !important;
 
 
 
@@ -315,43 +268,43 @@ font-weight:700;
 
 
 
-letter-spacing:4px;
-
-
-
-cursor:pointer;
+letter-spacing:5px;
 
 
 
 box-shadow:
 
 
-0 0 25px rgba(255,211,105,.3);
+0 0 25px rgba(255,211,105,.35);
 
 
 
-transition:.5s;
+transition:.4s;
+
 
 
 }
 
 
 
-
 .request-area button:hover{
 
 
-transform:translateY(-6px);
+transform:
 
+translateY(-8px)
 
-border-color:#7B2CFF;
+scale(1.05);
 
 
 
 box-shadow:
 
 
-0 0 40px #7B2CFF;
+0 0 45px #FFD369,
+
+
+0 0 90px rgba(123,44,255,.6);
 
 
 
@@ -364,18 +317,13 @@ box-shadow:
 
 .cards{
 
-
 display:flex;
-
 
 justify-content:center;
 
-
 gap:30px;
 
-
 flex-wrap:wrap;
-
 
 }
 
@@ -384,16 +332,12 @@ flex-wrap:wrap;
 
 .card{
 
-
 width:250px;
-
 
 padding:35px;
 
 
-
 border-radius:25px;
-
 
 
 background:
@@ -401,20 +345,15 @@ background:
 rgba(255,255,255,.07);
 
 
-
 border:
 
 1px solid rgba(255,255,255,.18);
 
 
-
 backdrop-filter:blur(20px);
 
 
-
 transition:.4s;
-
-
 
 }
 
@@ -426,9 +365,7 @@ transition:.4s;
 transform:translateY(-12px);
 
 
-
 border-color:#7B2CFF;
-
 
 
 box-shadow:
@@ -444,12 +381,9 @@ box-shadow:
 
 .icon{
 
-
 font-size:55px;
 
-
 margin-bottom:20px;
-
 
 }
 
@@ -458,21 +392,15 @@ margin-bottom:20px;
 
 .cardTitle{
 
-
 font-family:'Noto Sans KR';
-
 
 font-size:25px;
 
-
 font-weight:700;
-
 
 color:white;
 
-
 margin-bottom:15px;
-
 
 }
 
@@ -481,18 +409,13 @@ margin-bottom:15px;
 
 .cardText{
 
-
 font-family:'Noto Sans KR';
-
 
 font-size:15px;
 
-
 line-height:1.7;
 
-
 color:#ccc;
-
 
 }
 
@@ -504,9 +427,8 @@ color:#ccc;
 
 
 # =========================
-# 메인 화면
+# 상단 영역
 # =========================
-
 
 st.markdown("""
 <div class="page">
@@ -522,7 +444,6 @@ JESSICA
 </div>
 
 
-
 <div class="title">
 
 DETECTIVE
@@ -530,13 +451,11 @@ DETECTIVE
 </div>
 
 
-
 <div class="subtitle">
 
 AGENCY
 
 </div>
-
 
 
 <div class="desc">
@@ -550,8 +469,6 @@ AGENCY
 
 </div>
 
-</div>
-
 """, unsafe_allow_html=True)
 
 
@@ -559,7 +476,6 @@ AGENCY
 # =========================
 # 의뢰하기 버튼
 # =========================
-
 
 st.markdown(
 """
@@ -569,9 +485,11 @@ unsafe_allow_html=True
 )
 
 
+
 if st.button("🔐 의뢰하기"):
 
     st.switch_page("pages/1_의뢰하기.py")
+
 
 
 st.markdown(
@@ -584,9 +502,8 @@ unsafe_allow_html=True
 
 
 # =========================
-# 카드
+# 카드 영역
 # =========================
-
 
 st.markdown("""
 <div class="cards">
@@ -611,6 +528,7 @@ st.markdown("""
 
 
 
+
 <div class="card">
 
 <div class="icon">
@@ -630,6 +548,7 @@ st.markdown("""
 
 
 
+
 <div class="card">
 
 <div class="icon">
@@ -646,6 +565,7 @@ st.markdown("""
 </div>
 
 </div>
+
 
 
 
@@ -669,5 +589,7 @@ st.markdown("""
 
 </div>
 
+
+</div>
 
 """, unsafe_allow_html=True)
