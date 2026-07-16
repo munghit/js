@@ -963,6 +963,6 @@ with center:
 
         else:
 
-    st.success(
-        "✅ 의뢰가 접수되었습니다."
-    )
+        st.success(
+            "✅ 의뢰가 접수되었습니다."
+         )
