@@ -39,6 +39,16 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
+
+
+# =========================
+# 의뢰하기 페이지 이동 버튼
+# =========================
+col1, col2, col3 = st.columns([1, 2, 1])
+with col2:
+    if st.button("🔐 의뢰하기"):
+        st.switch_page("pages/1_의뢰하기.py")
+        
 # 페이지 내용
 st.markdown('<div class="title">REQUEST</div>', unsafe_allow_html=True)
 
