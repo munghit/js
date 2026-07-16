@@ -931,7 +931,11 @@ with center:
     )
 
 
-    if st.button("🔐 의뢰 접수하기"):
+# =========================
+# 의뢰 접수
+# =========================
+
+if st.button("🔐 의뢰 접수하기"):
 
     if (
         name.strip() == ""
@@ -955,7 +959,6 @@ with center:
                 "detail": detail
             }
         )
-
 
         if response.status_code == 200:
 
