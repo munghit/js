@@ -960,8 +960,7 @@ with center:
     # =========================
 
 
-  if st.button("🔐 의뢰 접수하기"):
-
+ if st.button("🔐 의뢰 접수하기"):
 
     if (
         name.strip() == ""
@@ -974,13 +973,9 @@ with center:
             "모든 항목을 작성하고 동의해주세요."
         )
 
-
     else:
 
-
-        db.collection(
-            "requests"
-        ).add({
+        db.collection("requests").add({
 
             "category": category,
             "name": name,
@@ -994,7 +989,6 @@ with center:
         st.success(
             "의뢰가 접수되었습니다."
         )
-      
         </div>
 
 
