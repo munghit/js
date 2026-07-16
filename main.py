@@ -1,5 +1,4 @@
 import streamlit as st
-import streamlit.components.v1 as components
 
 st.set_page_config(page_title="Jessica Detective Agency", layout="wide", initial_sidebar_state="collapsed")
 
@@ -12,19 +11,38 @@ header{ visibility:hidden; }
 .block-container{ padding:0; }
 
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Orbitron:wght@500;700&family=Noto+Sans+KR:wght@300;500;700&display=swap');
-html,body{ background:#050505; }
+html,body{ background:#050505; margin:0; padding:0; }
 
 .page{
+    /* 배경이 화면 전체에 고정되어 꽉 차도록 수정 */
     background: radial-gradient(ellipse at 50% 10%, rgba(123,44,255,.4), transparent 45%),
                 radial-gradient(ellipse at 50% 70%, rgba(90,0,180,.25), transparent 55%),
                 linear-gradient(180deg, #050505, #100020, #050505);
-    min-height:100vh; padding-bottom:80px;
+    background-attachment: fixed;
+    min-height: 100vh;
+    width: 100%;
+    padding-bottom: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .hero{ height:60vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; }
 .logo{ font-family:'Orbitron'; font-size:22px; letter-spacing:12px; color:#FFD369; margin-bottom:30px; }
 .title{ font-family:'Cinzel'; font-size:100px; letter-spacing:18px; color:white; text-shadow:0 0 25px rgba(255,255,255,.5); }
 .subtitle{ font-family:'Orbitron'; font-size:38px; letter-spacing:12px; color:#9b55ff; margin-top:20px; margin-bottom:40px; }
 .desc{ font-family:'Noto Sans KR'; font-size:22px; line-height:1.8; color:#ddd; margin-bottom: 20px; }
+
+/* 중앙 정렬을 위한 컨테이너 */
+.btn-container { display: flex; justify-content: center; width: 100%; margin-bottom: 50px; }
+
+div[data-testid="stButton"] button {
+    width: 280px !important; height: 65px !important;
+    font-size: 19px !important; font-weight: 700 !important;
+    letter-spacing: 3px !important; border-radius: 50px !important;
+    background: linear-gradient(135deg, #4A1291 0%, #1A0033 100%) !important;
+    color: #E2D5F5 !important; border: 2px solid #7B2CFF !important;
+    box-shadow: 0 0 20px rgba(123, 44, 255, 0.4) !important;
+}
 
 .cards{ display:flex; justify-content:center; gap:30px; flex-wrap:wrap; margin-top: 50px; }
 .card{ width:250px; padding:35px; border-radius:25px; background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.18); backdrop-filter:blur(20px); transition:.4s; }
@@ -42,31 +60,13 @@ st.markdown("""
         <div class="title">DETECTIVE</div>
         <div class="subtitle">AGENCY</div>
         <div class="desc">진실은 언제나 흔적을 남깁니다.<br>당신의 의뢰는 안전하게 보호됩니다.</div>
+    </div>
 """, unsafe_allow_html=True)
 
-# HTML 버튼으로 강제 중앙 정렬
-components.html("""
-<style>
-    .btn-wrapper { display: flex; justify-content: center; width: 100%; padding: 20px 0; }
-    .custom-btn {
-        width: 280px; height: 65px; font-size: 19px; font-weight: 700;
-        font-family: 'Noto Sans KR', sans-serif; letter-spacing: 3px;
-        border-radius: 50px; cursor: pointer;
-        background: linear-gradient(135deg, #4A1291 0%, #1A0033 100%);
-        color: #E2D5F5; border: 2px solid #7B2CFF;
-        box-shadow: 0 0 20px rgba(123, 44, 255, 0.4);
-        transition: 0.3s;
-    }
-    .custom-btn:hover { transform: scale(1.05); color: white; border-color: #9B55FF; }
-</style>
-<div class="btn-wrapper">
-    <button class="custom-btn" onclick="window.parent.postMessage({type: 'streamlit:setComponentValue', value: true}, '*')">🔐 의뢰하기</button>
-</div>
-""", height=100)
-
-# 버튼 클릭 처리
-if st.session_state.get('btn_clicked', False):
+st.markdown('<div class="btn-container">', unsafe_allow_html=True)
+if st.button("🔐 의뢰하기"):
     st.switch_page("pages/1_의뢰하기.py")
+st.markdown('</div>', unsafe_allow_html=True)
 
 st.markdown("""
     <div class="cards">
