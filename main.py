@@ -946,16 +946,15 @@ with center:
 
         else:
 
-            response = requests.post(
-                "https://formsubmit.co/ruddms080924@gmail.com",
-                data={
-                    "의뢰 유형": category,
-                    "의뢰인 이름": name,
-                    "연락 방법": contact,
-                    "의뢰 내용": detail,
-                    "_subject": "🔍 Jessica Detective Agency 새로운 의뢰"
-                }
-            )
+           response = requests.post(
+    "https://script.google.com/macros/s/AKfycbzpaZjxOilIceKnLZewySnZ_38ZKDAkcC2EPn6G6gRDrSA9GNy_4b5A91zNH99e2C4/exec",
+    json={
+        "category": category,
+        "name": name,
+        "contact": contact,
+        "detail": detail
+    }
+)
             
 
 
