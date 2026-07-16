@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "jessica-detective",
+  "private_key_id": "6776bfeab55a74b19a6929d00cf3d87618e9fe9c",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCXrrKcIEQP7yNX\ngqTPvX1VYHtnz8tzhoXwzcqZsniBDYUub1DmurpN/YPPPsPm5/xgD5gAg2JhlhRr\n15HxqIjf6CfIuNGQse51kxi3Y9cvM6QP2atfCyyHFoaJ+GqPDuiHRYi9L4q9vsY9\naRhgN6PKjthDEKqNc4A+3aOYHtWhxwKvWIuNal7isIijyNgyLvuFgQlOQKARtwl0\n1yJwGH2JkC/cj24c1jENrK5OenNVtlKyajf2ubssBS29Ikmq7Fv7HAYUVvUzyoqL\nOuyMm868+ARV26kCZNCfjweC/2MAxQDm+0hk5WeVSjwJAQh6ErTkc4Kh5DkzJZnN\nZgwBJfwdAgMBAAECggEAFgV+N2YE06ZlpGcae/GYEGzjRblYoZNaf1E1VJahYaUf\nnJP7NCBQe5GukQhdAzlTffPNnud0QVQ7b0O7E9Fi29UV75GLlV0L0ISUXk2vuFHg\nRA/XTkNuSceGrWHEQLRKpJb/CO5tz2ny2IgZSqDRVg9ijOwOwt4NtLLTdTqmy+eC\nPuonBaL6GbJSGEIU8XA3P1RkaXTFaLq0QqwFpz2ZN66ij/NcR8EEjGGXkf88lOb+\nWlbm/sxW1I/+7Fil1vZfTVcNpAqeCBKKVqSDQWFA6qEzMdYAiShgra9iTGAilzwl\nEqqOe3Lu4d1BLL5R/QJJA9tx3IQKWoc0S0zpqG7zkQKBgQDHCDwDgzWNTPiji0JZ\n82ONro5PeoLE6yKY5cUmG/d5QSH1Ilvh6rYJSH/KOgtg0Qm9itYV3UuUp9KDTwnZ\nfyDZU2UCY8Nxi7ViWeTdG8iq7B7QaYb4qa+ExcKmSON0cTnqTZaX0Pa1d0HHpgC0\n4wRt484gquFlitUC0PPYnTBCkQKBgQDDGPxChYBQ7lqt6sLL70VYxXZlNo3hWjja\ncvyWQwzz+HibvyJGVs2pUQ98A2hnhBmyuLvzgcSUyqem0n3k554BgmFr5/DlGMgR\nciK0/mUg329TyrhubGs6xwloqod5dSY5cLceJpchG7xS/zcdEFGTBvTbHXfv2JGE\njIbWpPDOzQKBgEhUtMKuB2MviticfmOEMTTHMA6wPh/kN/GK5yffWANn6ThV4UBr\n9PXQtChBCeuIbFrGvuC5SINgrf9sVO8G5WA1j2rb6KY2GJgChUrZkwaSwuwIvbVW\nrWO6HvAhYw/pKhv9UHIhzdbK3Uv6Bx21tuFcvYdfsoQdfSYF2+hnz6cRAoGBAL6r\nwo54zulJqdHjaDHLTKjvg0BzysH9XScRzg5ExXoC0kzUxficiS77C/kVk4nnrv3e\nUcIwhyEr1iHSAjweqWusMu40plggmheCxqzBG7C+7ZykuQ8iYsH1GBr03qYzegIV\nSMHs0TMIWkt7Ji//bNoWqGMlL7x2mfFDLdzFIpvZAoGBAMYLbv+9FPRYoiiGsB+D\nWrIK/Cd/BzsPCIEn5+9XlWJvZRTdWPMpajJpMp2WaH/SEVckCekuOis/rTqclNcA\nFNFmDB3jbYzJwLvhhpA6KQdYa5kOlwl7JxZZ964lSdwsGhzOEhmJGP6hEnmgBMJZ\nHoFmN48UAS5BwA9HKX2FZmBq\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-fbsvc@jessica-detective.iam.gserviceaccount.com",
+  "client_id": "109381420496880018071",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-fbsvc%40jessica-detective.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
