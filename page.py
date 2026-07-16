@@ -156,17 +156,15 @@ margin-bottom:50px;
 
 position:relative;
 
-display:inline-flex;
+display:flex;
 
 align-items:center;
-
 justify-content:center;
 
-gap:15px;
+width:260px;
+height:70px;
 
-padding:20px 75px;
-
-border-radius:8px;
+border-radius:12px;
 
 background:
 linear-gradient(
@@ -178,6 +176,27 @@ rgba(255,255,255,0.03)
 border:1px solid rgba(255,211,105,0.8);
 
 color:#FFD369;
+
+text-decoration:none !important;
+
+font-family:'Orbitron';
+
+font-size:20px;
+
+font-weight:600;
+
+letter-spacing:3px;
+
+line-height:1;
+
+backdrop-filter:blur(15px);
+
+transition:.5s;
+
+box-shadow:
+0 0 20px rgba(255,211,105,.2);
+
+}
 
 /* ⭐ 밑줄 제거 */
 text-decoration:none !important;
