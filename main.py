@@ -963,57 +963,62 @@ with center:
     if st.button("🔐 의뢰 접수하기"):
 
 
-        if (
-            name.strip() == ""
-            or contact.strip() == ""
-            or detail.strip() == ""
-            or not agree
-        ):
+    # 필수 입력 확인
+
+    if (
+        name.strip() == ""
+        or contact.strip() == ""
+        or detail.strip() == ""
+        or not agree
+    ):
+
+        st.warning(
+            "모든 항목을 작성하고 동의해주세요."
+        )
 
 
-            st.warning(
-                "모든 항목을 작성하고 동의해주세요."
-            )
+    else:
 
 
-        else:
+        # Firebase Firestore 저장
+
+        db.collection(
+            "requests"
+        ).add({
+
+            "category": category,
+
+            "name": name,
+
+            "contact": contact,
+
+            "detail": detail,
+
+            "status": "접수 완료"
+
+        })
 
 
-            st.markdown("""
-            <div class="success-box">
+        st.markdown("""
+        <div class="success-box">
 
 
-            <div style="
-            font-size:50px;
-            margin-bottom:15px;
-            ">
-            🔐
-            </div>
+        <div class="success-title">
+
+        의뢰가 접수되었습니다
+
+        </div>
 
 
+        <div class="success-text">
 
-            <div class="success-title">
+        Jessica Detective Agency가<br>
+        의뢰 내용을 안전하게 확인하겠습니다.<br>
+        빠른 시일 내에 연락드리겠습니다.
 
-            의뢰가 접수되었습니다
-
-            </div>
-
-
-
-            <div class="success-text">
-
-            Jessica Detective Agency가<br>
-
-            의뢰 내용을 안전하게 확인하겠습니다.<br>
-
-            빠른 시일 내에 연락드리겠습니다.
-
-            </div>
+        </div>
 
 
-
-            </div>
-
-            """,
-            unsafe_allow_html=True)
-
+        </div>
+        """,
+        unsafe_allow_html=True)
