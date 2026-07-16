@@ -3,7 +3,7 @@ import streamlit.components.v1 as components
 
 
 # =========================
-# 페이지 설정
+# 설정
 # =========================
 
 st.set_page_config(
@@ -15,26 +15,26 @@ st.set_page_config(
 
 
 # =========================
-# Streamlit 기본 UI 제거
+# 기본 제거
 # =========================
 
 st.markdown("""
 <style>
 
 [data-testid="stSidebar"]{
-    display:none;
+display:none;
 }
 
 #MainMenu{
-    visibility:hidden;
+visibility:hidden;
 }
 
 footer{
-    visibility:hidden;
+visibility:hidden;
 }
 
 header{
-    visibility:hidden;
+visibility:hidden;
 }
 
 
@@ -45,27 +45,13 @@ padding:0;
 }
 
 
-.main{
-
-background:
-
-linear-gradient(
-180deg,
-#050505 0%,
-#090018 45%,
-#050505 100%
-);
-
-}
-
-
 </style>
 """, unsafe_allow_html=True)
 
 
 
 # =========================
-# 전체 디자인 CSS
+# 전체 페이지 CSS
 # =========================
 
 st.markdown("""
@@ -74,30 +60,57 @@ st.markdown("""
 
 
 @import url(
-'https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Orbitron:wght@500;700&family=Noto+Sans+KR:wght@300;500;700&display=swap'
+'https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Orbitron:wght@600&family=Noto+Sans+KR:wght@400;700&display=swap'
 );
 
 
 
-html,body{
+.page{
 
-background:#050505;
+
+min-height:100vh;
+
+
+background:
+
+
+radial-gradient(
+ellipse at 50% 15%,
+rgba(123,44,255,.45),
+transparent 40%
+),
+
+
+radial-gradient(
+ellipse at 50% 55%,
+rgba(100,0,200,.25),
+transparent 55%
+),
+
+
+linear-gradient(
+180deg,
+#030303 0%,
+#100020 45%,
+#060008 100%
+);
+
+
+
+padding-bottom:120px;
+
 
 }
 
 
 
-
-
-/* =====================
-   HERO
-===================== */
+/* HERO */
 
 
 .hero{
 
 
-min-height:100vh;
+height:650px;
 
 
 display:flex;
@@ -112,53 +125,7 @@ justify-content:center;
 align-items:center;
 
 
-
-background:
-
-
-radial-gradient(
-
-ellipse at 50% 20%,
-
-rgba(123,44,255,.35),
-
-transparent 45%
-
-),
-
-
-radial-gradient(
-
-ellipse at 50% 80%,
-
-rgba(90,0,180,.25),
-
-transparent 60%
-
-),
-
-
-linear-gradient(
-
-180deg,
-
-#050505,
-
-#090018,
-
-#050505
-
-);
-
-
-
 text-align:center;
-
-
-position:relative;
-
-
-overflow:hidden;
 
 
 }
@@ -175,7 +142,7 @@ font-family:'Orbitron';
 font-size:22px;
 
 
-letter-spacing:10px;
+letter-spacing:12px;
 
 
 color:#FFD369;
@@ -199,22 +166,16 @@ font-family:'Cinzel';
 font-size:100px;
 
 
-font-weight:700;
-
-
-letter-spacing:15px;
+letter-spacing:18px;
 
 
 color:white;
 
 
-line-height:1;
-
-
 text-shadow:
 
-0 0 20px rgba(255,255,255,.3);
 
+0 0 30px rgba(255,255,255,.4);
 
 
 }
@@ -235,17 +196,16 @@ font-size:38px;
 letter-spacing:12px;
 
 
-color:#9b55ff;
+color:#a56cff;
 
 
 margin-top:20px;
 
 
-margin-bottom:40px;
+margin-bottom:35px;
 
 
 }
-
 
 
 
@@ -269,11 +229,29 @@ color:#ddd;
 
 
 
+/* 버튼 공간 */
 
 
-/* =====================
-   카드
-===================== */
+.buttonArea{
+
+
+display:flex;
+
+
+justify-content:center;
+
+
+margin-top:20px;
+
+
+margin-bottom:100px;
+
+
+}
+
+
+
+/* 카드 */
 
 
 .cards{
@@ -285,50 +263,16 @@ display:flex;
 justify-content:center;
 
 
-gap:30px;
-
-
-padding-top:100px;
-
-
-padding-bottom:120px;
-
-
-width:100%;
-
-
-
-background:
-
-
-radial-gradient(
-
-circle at center,
-
-rgba(123,44,255,.18),
-
-transparent 60%
-
-),
-
-
-linear-gradient(
-
-180deg,
-
-transparent,
-
-rgba(20,0,40,.9)
-
-);
-
+gap:35px;
 
 
 flex-wrap:wrap;
 
 
-}
+padding:50px 0;
 
+
+}
 
 
 
@@ -345,16 +289,16 @@ padding:35px;
 border-radius:25px;
 
 
-
 background:
 
-rgba(255,255,255,.06);
+
+rgba(255,255,255,.08);
 
 
 
 border:
 
-1px solid rgba(255,255,255,.15);
+1px solid rgba(255,255,255,.18);
 
 
 
@@ -392,20 +336,25 @@ box-shadow:
 
 
 
+
 .icon{
 
 
 font-size:55px;
 
 
-margin-bottom:20px;
+text-align:center;
 
 
 }
 
 
 
+
 .cardTitle{
+
+
+color:white;
 
 
 font-family:'Noto Sans KR';
@@ -414,13 +363,13 @@ font-family:'Noto Sans KR';
 font-size:25px;
 
 
-font-weight:700;
+font-weight:bold;
 
 
-color:white;
+text-align:center;
 
 
-margin-bottom:15px;
+margin:20px 0;
 
 
 }
@@ -431,19 +380,20 @@ margin-bottom:15px;
 .cardText{
 
 
+color:#ddd;
+
+
 font-family:'Noto Sans KR';
 
 
-font-size:15px;
+text-align:center;
 
 
 line-height:1.7;
 
 
-color:#ccc;
-
-
 }
+
 
 
 </style>
@@ -453,12 +403,16 @@ color:#ccc;
 
 
 
+
 # =========================
-# 메인
+# 전체 시작
 # =========================
 
 
 st.markdown("""
+<div class="page">
+
+
 <div class="hero">
 
 
@@ -486,6 +440,7 @@ AGENCY
 
 
 
+
 <div class="desc">
 
 진실은 언제나 흔적을 남깁니다.<br>
@@ -495,37 +450,40 @@ AGENCY
 </div>
 
 
+
 </div>
+
+
+
+<div class="buttonArea">
+
+</div>
+
 
 """, unsafe_allow_html=True)
 
 
 
 # =========================
-# 의뢰 버튼
+# 버튼
 # =========================
 
-
 components.html(
-
 """
 
 <style>
 
-
 body{
 
-margin:0;
-
 background:transparent;
+
+margin:0;
 
 display:flex;
 
 justify-content:center;
 
 align-items:center;
-
-height:130px;
 
 }
 
@@ -539,59 +497,44 @@ width:280px;
 height:80px;
 
 
-
 display:flex;
-
 
 align-items:center;
 
-
 justify-content:center;
-
-
-
-position:relative;
 
 
 
 border-radius:18px;
 
 
+position:relative;
+
+
 
 background:
 
 linear-gradient(
-
 135deg,
-
 rgba(255,255,255,.15),
-
 rgba(255,255,255,.03)
-
 );
 
 
 
-border:
-
-1px solid #FFD369;
-
+border:1px solid #FFD369;
 
 
 color:#FFD369;
 
 
-
 font-family:'Noto Sans KR';
-
 
 
 font-size:22px;
 
 
-
-font-weight:700;
-
+font-weight:bold;
 
 
 letter-spacing:4px;
@@ -602,18 +545,9 @@ overflow:hidden;
 
 
 
-cursor:pointer;
-
-
-
 box-shadow:
 
-
 0 0 25px rgba(255,211,105,.3);
-
-
-
-transition:.5s;
 
 
 
@@ -621,20 +555,19 @@ transition:.5s;
 
 
 
-
-.caseButton::before{
+.caseButton:before{
 
 
 content:"";
 
+
 position:absolute;
-
-
-top:0;
 
 
 left:-120%;
 
+
+top:0;
 
 
 width:70%;
@@ -647,21 +580,15 @@ height:100%;
 background:
 
 linear-gradient(
-
 120deg,
-
 transparent,
-
-rgba(255,255,255,.9),
-
+white,
 transparent
-
 );
 
 
 
 transform:skewX(-25deg);
-
 
 
 animation:shine 3s infinite;
@@ -695,35 +622,6 @@ left:130%;
 
 }
 
-
-}
-
-
-
-.caseButton:hover{
-
-
-transform:translateY(-6px);
-
-
-
-color:white;
-
-
-
-border-color:#7B2CFF;
-
-
-
-box-shadow:
-
-
-0 0 40px #7B2CFF,
-
-
-0 0 90px rgba(123,44,255,.6);
-
-
 }
 
 
@@ -740,17 +638,14 @@ box-shadow:
 
 
 """,
-
-height=130
-
+height=120
 )
 
 
 
 # =========================
-# 서비스 카드
+# 카드
 # =========================
-
 
 st.markdown("""
 
@@ -759,7 +654,12 @@ st.markdown("""
 
 <div class="card">
 
-<div class="icon">🔍</div>
+<div class="icon">
+
+🔍
+
+</div>
+
 
 <div class="cardTitle">
 
@@ -770,19 +670,26 @@ st.markdown("""
 
 <div class="cardText">
 
-실종자 및 연락 두절 관련<br>
+실종 및 연락 두절 관련<br>
 
 상담 서비스를 제공합니다.
 
 </div>
 
+
 </div>
+
 
 
 
 <div class="card">
 
-<div class="icon">📁</div>
+<div class="icon">
+
+📁
+
+</div>
+
 
 <div class="cardTitle">
 
@@ -799,13 +706,20 @@ st.markdown("""
 
 </div>
 
+
 </div>
+
 
 
 
 <div class="card">
 
-<div class="icon">💻</div>
+<div class="icon">
+
+💻
+
+</div>
+
 
 <div class="cardTitle">
 
@@ -822,13 +736,20 @@ st.markdown("""
 
 </div>
 
+
 </div>
+
 
 
 
 <div class="card">
 
-<div class="icon">🏢</div>
+<div class="icon">
+
+🏢
+
+</div>
+
 
 <div class="cardTitle">
 
@@ -844,6 +765,10 @@ st.markdown("""
 분석합니다.
 
 </div>
+
+
+</div>
+
 
 </div>
 
