@@ -959,49 +959,32 @@ with center:
     # 접수 버튼
     # =========================
 
-    if st.button("🔐 의뢰 접수하기"):
+  if st.button("🔐 의뢰 접수하기"):
 
-        if (
-            name.strip() == ""
-            or contact.strip() == ""
-            or detail.strip() == ""
-            or not agree
-        ):
+    if (
+        name.strip() == ""
+        or contact.strip() == ""
+        or detail.strip() == ""
+        or not agree
+    ):
 
-            st.warning(
-                "모든 항목을 작성하고 동의해주세요."
-            )
+        st.warning(
+            "모든 항목을 작성하고 개인정보 보호 동의 후 접수해주세요."
+        )
 
-        else:
+    else:
 
-            db.collection("requests").add({
+        db.collection("requests").add({
 
-                "category": category,
-                "name": name,
-                "contact": contact,
-                "detail": detail,
-                "status": "접수 완료"
+            "category": category,
+            "name": name,
+            "contact": contact,
+            "detail": detail,
+            "status": "접수 완료"
 
-            })
+        })
 
-
-            st.success(
-                "✅ 의뢰가 접수되었습니다.\n\n"
-                "Jessica Detective Agency가 "
-                "의뢰 내용을 안전하게 확인하겠습니다."
-            )
-        st.markdown("""
-<div class="success-box">
-
-<div class="success-title">
-✅ 의뢰가 접수되었습니다
-</div>
-
-<div class="success-text">
-Jessica Detective Agency가<br>
-의뢰 내용을 안전하게 확인하겠습니다.<br>
-빠른 시일 내에 연락드리겠습니다.
-</div>
-
-</div>
+        st.success(
+            "✅ 의뢰가 접수되었습니다."
+        )
 """, unsafe_allow_html=True)
