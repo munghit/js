@@ -1,5 +1,4 @@
 import streamlit as st
-import streamlit.components.v1 as components
 
 
 # =========================
@@ -76,17 +75,20 @@ st.markdown("""
 
 background:
 
+
 radial-gradient(
 ellipse at 50% 10%,
 rgba(123,44,255,.4),
 transparent 45%
 ),
 
+
 radial-gradient(
 ellipse at 50% 70%,
 rgba(90,0,180,.25),
 transparent 55%
 ),
+
 
 linear-gradient(
 180deg,
@@ -98,7 +100,9 @@ linear-gradient(
 
 min-height:100vh;
 
-padding-bottom:150px;
+width:100%;
+
+padding-bottom:180px;
 
 }
 
@@ -108,7 +112,7 @@ padding-bottom:150px;
 
 .hero{
 
-height:75vh;
+min-height:75vh;
 
 display:flex;
 
@@ -121,6 +125,7 @@ align-items:center;
 text-align:center;
 
 }
+
 
 
 
@@ -137,6 +142,7 @@ color:#FFD369;
 margin-bottom:30px;
 
 }
+
 
 
 
@@ -159,6 +165,7 @@ text-shadow:
 
 
 
+
 .subtitle{
 
 font-family:'Orbitron';
@@ -169,11 +176,13 @@ letter-spacing:12px;
 
 color:#9b55ff;
 
+
 margin-top:20px;
 
 margin-bottom:40px;
 
 }
+
 
 
 
@@ -186,6 +195,107 @@ font-size:22px;
 line-height:1.8;
 
 color:#ddd;
+
+}
+
+
+
+/* 버튼 영역 */
+
+.button-area{
+
+margin-top:35px;
+
+display:flex;
+
+justify-content:center;
+
+}
+
+
+
+/* Streamlit 버튼 */
+
+.button-area button{
+
+
+width:300px !important;
+
+height:75px !important;
+
+
+border-radius:20px !important;
+
+
+background:
+
+linear-gradient(
+
+135deg,
+
+rgba(255,211,105,.25),
+
+rgba(123,44,255,.35)
+
+) !important;
+
+
+
+border:
+
+1px solid #FFD369 !important;
+
+
+
+color:#FFD369 !important;
+
+
+
+font-size:24px !important;
+
+
+
+font-weight:700 !important;
+
+
+
+letter-spacing:5px;
+
+
+
+box-shadow:
+
+0 0 25px rgba(255,211,105,.5);
+
+
+
+transition:.4s;
+
+
+
+}
+
+
+
+.button-area button:hover{
+
+
+transform:
+
+translateY(-8px)
+
+scale(1.05);
+
+
+
+box-shadow:
+
+0 0 50px #FFD369,
+
+
+0 0 100px rgba(123,44,255,.8);
+
+
 
 }
 
@@ -207,11 +317,13 @@ flex-wrap:wrap;
 
 
 
+
 .card{
 
 width:250px;
 
 padding:35px;
+
 
 border-radius:25px;
 
@@ -237,6 +349,7 @@ transition:.4s;
 
 .card:hover{
 
+
 transform:translateY(-12px);
 
 
@@ -246,6 +359,8 @@ border-color:#7B2CFF;
 box-shadow:
 
 0 0 40px rgba(123,44,255,.7);
+
+
 
 }
 
@@ -258,6 +373,7 @@ font-size:55px;
 margin-bottom:20px;
 
 }
+
 
 
 
@@ -277,6 +393,7 @@ margin-bottom:15px;
 
 
 
+
 .cardText{
 
 font-family:'Noto Sans KR';
@@ -291,13 +408,12 @@ color:#ccc;
 
 
 </style>
-
 """, unsafe_allow_html=True)
 
 
 
 # =========================
-# 메인 화면
+# 전체 페이지
 # =========================
 
 st.markdown("""
@@ -308,24 +424,19 @@ st.markdown("""
 
 
 <div class="logo">
-
 JESSICA
-
 </div>
 
 
 <div class="title">
-
 DETECTIVE
-
 </div>
 
 
 <div class="subtitle">
-
 AGENCY
-
 </div>
+
 
 
 <div class="desc">
@@ -336,162 +447,42 @@ AGENCY
 
 </div>
 
+
 """, unsafe_allow_html=True)
 
 
 
 # =========================
-# 의뢰 버튼 (HTML)
+# 버튼
 # =========================
 
-components.html(
+st.markdown(
 """
+<div class="button-area">
+""",
+unsafe_allow_html=True
+)
 
-<style>
 
-body{
+if st.button("🔐 의뢰하기"):
 
-margin:0;
+    st.switch_page("pages/1_의뢰하기.py")
 
-background:transparent;
 
-display:flex;
-
-justify-content:center;
-
-}
-
-
-
-.btn{
-
-
-width:300px;
-
-height:75px;
-
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-
-border-radius:20px;
-
-
-background:
-
-
-linear-gradient(
-
-135deg,
-
-rgba(255,211,105,.25),
-
-rgba(123,44,255,.35)
-
-);
-
-
-
-border:
-
-1px solid #FFD369;
-
-
-
-color:#FFD369;
-
-
-
-font-family:'Noto Sans KR';
-
-
-
-font-size:24px;
-
-
-
-font-weight:700;
-
-
-
-letter-spacing:5px;
-
-
-
-box-shadow:
-
-
-0 0 25px rgba(255,211,105,.5);
-
-
-
-transition:.4s;
-
-
-
-}
-
-
-
-.btn:hover{
-
-
-transform:
-
-translateY(-8px)
-
-scale(1.05);
-
-
-
-box-shadow:
-
-
-0 0 50px #FFD369,
-
-
-0 0 100px rgba(123,44,255,.8);
-
-
-
-}
-
-
-</style>
-
-
-
-<a href="/1_의뢰하기" style="text-decoration:none;">
-
-<div class="btn">
-
-🔐 의뢰하기
-
+st.markdown(
+"""
 </div>
 
 
-</a>
-
-
+</div>
 """,
-height=120
+unsafe_allow_html=True
 )
 
 
 
-st.markdown("""
-</div>
-
-""", unsafe_allow_html=True)
-
-
-
 # =========================
-# 카드 영역
+# 카드
 # =========================
 
 st.markdown("""
@@ -573,8 +564,8 @@ st.markdown("""
 </div>
 
 
-</div>
 
+</div>
 
 </div>
 
