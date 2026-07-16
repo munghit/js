@@ -1,5 +1,4 @@
 import streamlit as st
-import streamlit.components.v1 as components
 
 
 # =========================
@@ -16,14 +15,23 @@ st.set_page_config(
 
 
 # =========================
-# 기본 설정
+# 기본 UI
 # =========================
 
 st.markdown("""
 <style>
 
-#MainMenu,
-header,
+
+#MainMenu{
+display:none;
+}
+
+
+header{
+display:none;
+}
+
+
 footer{
 display:none;
 }
@@ -35,7 +43,9 @@ display:none;
 
 
 .block-container{
+
 padding:0;
+
 }
 
 
@@ -53,11 +63,13 @@ transparent 45%
 ),
 
 
+
 radial-gradient(
 ellipse at 50% 70%,
 rgba(90,0,180,.25),
 transparent 55%
 ),
+
 
 
 linear-gradient(
@@ -68,12 +80,15 @@ linear-gradient(
 );
 
 
+
 background-attachment:fixed;
 
 
 min-height:100vh;
 
+
 }
+
 
 
 </style>
@@ -82,7 +97,7 @@ min-height:100vh;
 
 
 # =========================
-# CSS
+# 디자인
 # =========================
 
 st.markdown("""
@@ -95,36 +110,19 @@ st.markdown("""
 
 
 
-.page{
-
-width:100%;
-
-padding-bottom:180px;
-
-}
-
-
-
 .hero{
-
 
 min-height:75vh;
 
-
 display:flex;
-
 
 flex-direction:column;
 
-
 justify-content:center;
-
 
 align-items:center;
 
-
 text-align:center;
-
 
 }
 
@@ -143,7 +141,6 @@ color:#FFD369;
 margin-bottom:30px;
 
 }
-
 
 
 
@@ -166,7 +163,6 @@ text-shadow:
 
 
 
-
 .subtitle{
 
 font-family:'Orbitron';
@@ -185,7 +181,6 @@ margin-bottom:40px;
 
 
 
-
 .desc{
 
 font-family:'Noto Sans KR';
@@ -200,25 +195,23 @@ color:#ddd;
 
 
 
-/* 버튼 */
+/* 페이지 링크 버튼 */
 
-button[kind="secondary"]{
+[data-testid="stPageLink"]{
 
-display:none;
+display:flex;
+
+justify-content:center;
+
+text-decoration:none;
+
+margin-top:40px;
 
 }
 
 
-.stButton{
 
-display:none;
-
-}
-
-
-
-.request-btn a{
-
+[data-testid="stPageLink"] a{
 
 text-decoration:none;
 
@@ -226,7 +219,7 @@ text-decoration:none;
 
 
 
-.request-btn{
+[data-testid="stPageLink"] div{
 
 
 width:300px;
@@ -246,11 +239,17 @@ border-radius:20px;
 
 background:
 
+
 linear-gradient(
+
 135deg,
+
 rgba(255,211,105,.25),
+
 rgba(123,44,255,.35)
+
 );
+
 
 
 border:1px solid #FFD369;
@@ -271,6 +270,7 @@ font-weight:700;
 letter-spacing:5px;
 
 
+
 box-shadow:
 
 0 0 25px rgba(255,211,105,.5);
@@ -283,7 +283,7 @@ transition:.4s;
 
 
 
-.request-btn:hover{
+[data-testid="stPageLink"] div:hover{
 
 
 transform:
@@ -298,11 +298,15 @@ box-shadow:
 
 0 0 50px #FFD369,
 
+
 0 0 100px rgba(123,44,255,.8);
+
 
 }
 
 
+
+/* 카드 */
 
 
 .cards{
@@ -343,28 +347,6 @@ border:
 
 
 backdrop-filter:blur(20px);
-
-
-transition:.4s;
-
-
-}
-
-
-
-.card:hover{
-
-
-transform:translateY(-12px);
-
-
-border-color:#7B2CFF;
-
-
-
-box-shadow:
-
-0 0 40px rgba(123,44,255,.7);
 
 
 }
@@ -410,21 +392,16 @@ color:#ccc;
 }
 
 
-
 </style>
-
 """, unsafe_allow_html=True)
 
 
 
 # =========================
-# 메인 화면
+# 메인
 # =========================
 
 st.markdown("""
-<div class="page">
-
-
 <div class="hero">
 
 
@@ -461,23 +438,20 @@ AGENCY
 </div>
 
 
-<br>
-
-
-<a href="/request">
-
-<div class="request-btn">
-
-🔐 의뢰하기
-
-</div>
-
-</a>
-
-
 </div>
 
 """, unsafe_allow_html=True)
+
+
+
+# =========================
+# 의뢰하기 버튼
+# =========================
+
+st.page_link(
+    "pages/request.py",
+    label="🔐 의뢰하기"
+)
 
 
 
@@ -493,23 +467,18 @@ st.markdown("""
 <div class="card">
 
 <div class="icon">
-
 🔍
-
 </div>
 
 
 <div class="cardTitle">
-
 사람 찾기
-
 </div>
 
 
 <div class="cardText">
 
 실종자 및 연락 두절 관련<br>
-
 상담 서비스를 제공합니다.
 
 </div>
@@ -518,26 +487,22 @@ st.markdown("""
 
 
 
+
 <div class="card">
 
 <div class="icon">
-
 📁
-
 </div>
 
 
 <div class="cardTitle">
-
 사실 조사
-
 </div>
 
 
 <div class="cardText">
 
 공개 자료 기반<br>
-
 사실관계를 분석합니다.
 
 </div>
@@ -546,26 +511,22 @@ st.markdown("""
 
 
 
+
 <div class="card">
 
 <div class="icon">
-
 💻
-
 </div>
 
 
 <div class="cardTitle">
-
 디지털 분석
-
 </div>
 
 
 <div class="cardText">
 
 디지털 자료 분석과<br>
-
 상담을 제공합니다.
 
 </div>
@@ -574,32 +535,25 @@ st.markdown("""
 
 
 
+
 <div class="card">
 
 <div class="icon">
-
 🏢
-
 </div>
 
 
 <div class="cardTitle">
-
 기업 조사
-
 </div>
 
 
 <div class="cardText">
 
 기업 관련 공개 정보를<br>
-
 분석합니다.
 
 </div>
-
-</div>
-
 
 </div>
 
