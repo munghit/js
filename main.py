@@ -553,13 +553,39 @@ margin:auto;
 
 /* placeholder */
 
-.stTextInput input::placeholder,
-.stTextArea textarea::placeholder {
+/* 의뢰 내용 입력창 */
 
-    color: rgba(255,255,255,.5) !important;
+div[data-baseweb="textarea"] textarea {
+
+    background-color: #111111 !important;
+
+    color: white !important;
+
+    border: 1px solid #FFD369 !important;
+
+    border-radius: 12px !important;
 
 }
 
+
+/* 입력 전 안내 글씨 */
+
+div[data-baseweb="textarea"] textarea::placeholder {
+
+    color: #aaaaaa !important;
+
+}
+
+
+/* 클릭했을 때 */
+
+div[data-baseweb="textarea"]:focus-within textarea {
+
+    border: 1px solid #FFD369 !important;
+
+    box-shadow: 0 0 15px rgba(255,211,105,0.5) !important;
+
+}
 
 
 /* textarea(의뢰 내용 칸) */
