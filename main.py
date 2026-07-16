@@ -955,33 +955,38 @@ with center:
 
 
 
-   if st.button("🔐 의뢰 접수하기"):
+     # =========================
+    # 접수 버튼
+    # =========================
 
-    if (
-        name.strip() == ""
-        or contact.strip() == ""
-        or detail.strip() == ""
-        or not agree
-    ):
+    if st.button("🔐 의뢰 접수하기"):
 
-        st.warning(
-            "모든 항목을 작성하고 동의해주세요."
-        )
+        if (
+            name.strip() == ""
+            or contact.strip() == ""
+            or detail.strip() == ""
+            or not agree
+        ):
 
-    else:
+            st.warning(
+                "모든 항목을 작성하고 동의해주세요."
+            )
 
-        db.collection("requests").add({
+        else:
 
-            "category": category,
-            "name": name,
-            "contact": contact,
-            "detail": detail,
-            "status": "접수 완료"
+            db.collection("requests").add({
 
-        })
+                "category": category,
+                "name": name,
+                "contact": contact,
+                "detail": detail,
+                "status": "접수 완료"
 
-        st.success(
-            "✅ 의뢰가 접수되었습니다.\n\n"
-            "Jessica Detective Agency가 "
-            "의뢰 내용을 안전하게 확인하겠습니다."
-        )
+            })
+
+
+            st.success(
+                "✅ 의뢰가 접수되었습니다.\n\n"
+                "Jessica Detective Agency가 "
+                "의뢰 내용을 안전하게 확인하겠습니다."
+            )
