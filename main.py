@@ -886,115 +886,114 @@ st.write("")
 # 의뢰 입력 영역
 # =========================
 
-st.markdown("""
-<div class="form-area">
-</div>
-""", unsafe_allow_html=True)
+
+left, center, right = st.columns([1, 1.5, 1])
+
+
+with center:
+
+
+    category = st.selectbox(
+        "의뢰 유형",
+        [
+            "사람 찾기",
+            "사실 조사",
+            "디지털 분석",
+            "기업 조사",
+            "기타"
+        ]
+    )
 
 
 
-category = st.selectbox(
-    "의뢰 유형",
-    [
-        "사람 찾기",
-        "사실 조사",
-        "디지털 분석",
-        "기업 조사",
-        "기타"
-    ]
-)
+    name = st.text_input(
+        "의뢰인 이름",
+        placeholder="이름을 입력해주세요"
+    )
 
 
 
-name = st.text_input(
-    "의뢰인 이름"
-)
+    contact = st.text_input(
+        "연락 방법",
+        placeholder="전화번호 또는 이메일"
+    )
 
 
 
-contact = st.text_input(
-    "연락 방법"
-)
+    detail = st.text_area(
+        "의뢰 내용",
+        height=120,
+        placeholder="상세한 의뢰 내용을 입력해주세요."
+    )
 
 
 
-detail = st.text_area(
-    "의뢰 내용",
-    height=120,
-    placeholder="상세한 의뢰 내용을 입력해주세요."
-)
-
-
-
-agree = st.checkbox(
-    "개인정보 보호 및 의뢰 접수에 동의합니다."
-)
+    agree = st.checkbox(
+        "개인정보 보호 및 의뢰 접수에 동의합니다."
+    )
 
 
 
 
-
-# =========================
-# 접수 버튼
-# =========================
-
-if st.button("🔐 의뢰 접수하기"):
+    # =========================
+    # 접수 버튼
+    # =========================
 
 
-    if not agree:
+    if st.button("🔐 의뢰 접수하기"):
 
 
-        st.warning(
-            "개인정보 보호 및 의뢰 접수 동의가 필요합니다."
-        )
+        if (
+            name.strip() == ""
+            or contact.strip() == ""
+            or detail.strip() == ""
+            or not agree
+        ):
+
+
+            st.warning(
+                "모든 항목을 작성하고 동의해주세요."
+            )
+
+
+        else:
+
+
+            st.markdown("""
+            <div class="success-box">
+
+
+            <div style="
+            font-size:50px;
+            margin-bottom:15px;
+            ">
+            🔐
+            </div>
 
 
 
-    elif name == "" or contact == "":
+            <div class="success-title">
+
+            의뢰가 접수되었습니다
+
+            </div>
 
 
-        st.warning(
-            "의뢰인 이름과 연락 방법을 입력해주세요."
-        )
+
+            <div class="success-text">
+
+            Jessica Detective Agency가<br>
+
+            의뢰 내용을 안전하게 확인하겠습니다.<br>
+
+            빠른 시일 내에 연락드리겠습니다.
+
+            </div>
 
 
 
-    else:
+            </div>
 
+            """,
+            unsafe_allow_html=True)
 
-        st.markdown("""
-        <div class="success-box">
-
-
-        <div style="
-        font-size:50px;
-        margin-bottom:15px;
-        ">
-
-        🔐
-
-        </div>
-
-
-        <div class="success-title">
-
-        의뢰가 접수되었습니다
-
-        </div>
-
-
-        <div class="success-text">
-
-        Jessica Detective Agency가<br>
-
-        의뢰 내용을 안전하게 확인하겠습니다.<br>
-
-        빠른 시일 내에 연락드리겠습니다.
-
-        </div>
-
-
-        </div>
-
-        """,
-        unsafe_allow_html=True)
