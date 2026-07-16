@@ -1,4 +1,5 @@
 import streamlit as st
+import streamlit.components.v1 as components
 
 
 # =========================
@@ -13,8 +14,9 @@ st.set_page_config(
 )
 
 
+
 # =========================
-# 기본 설정
+# 기본 UI 제거
 # =========================
 
 st.markdown("""
@@ -44,140 +46,23 @@ padding:0;
 }
 
 
-
 .main{
 
-background:
-
-linear-gradient(
-180deg,
-#050505,
-#090018,
-#050505
-);
+background:#050505;
 
 }
-
-
-
-/* =========================
-   버튼 중앙 정렬
-========================= */
-
-
-.stButton{
-
-width:100% !important;
-
-display:flex !important;
-
-justify-content:center !important;
-
-align-items:center !important;
-
-margin-top:40px !important;
-
-margin-bottom:100px !important;
-
-}
-
-
-
-.stButton > button{
-
-
-width:280px !important;
-
-height:80px !important;
-
-
-border-radius:18px !important;
-
-
-background:
-
-linear-gradient(
-
-135deg,
-
-rgba(255,255,255,.15),
-
-rgba(255,255,255,.03)
-
-)!important;
-
-
-
-border:
-
-1px solid #FFD369 !important;
-
-
-
-color:#FFD369 !important;
-
-
-
-font-size:22px !important;
-
-
-font-weight:700 !important;
-
-
-letter-spacing:4px;
-
-
-
-box-shadow:
-
-0 0 25px rgba(255,211,105,.3);
-
-
-
-transition:.5s;
-
-
-
-}
-
-
-
-.stButton > button:hover{
-
-
-transform:translateY(-6px);
-
-
-color:white !important;
-
-
-border-color:#7B2CFF !important;
-
-
-
-box-shadow:
-
-0 0 40px #7B2CFF,
-
-0 0 90px rgba(123,44,255,.6);
-
-
-}
-
 
 
 </style>
-
 """, unsafe_allow_html=True)
 
 
 
 # =========================
-# 디자인
+# 전체 CSS
 # =========================
 
 st.markdown("""
-
 <style>
 
 
@@ -195,13 +80,71 @@ background:#050505;
 
 
 
+/* 전체 배경 */
+
+.page{
+
+
+background:
+
+
+radial-gradient(
+
+ellipse at 50% 10%,
+
+rgba(123,44,255,.4),
+
+transparent 45%
+
+),
+
+
+
+radial-gradient(
+
+ellipse at 50% 70%,
+
+rgba(90,0,180,.25),
+
+transparent 55%
+
+),
+
+
+
+linear-gradient(
+
+180deg,
+
+#050505,
+
+#100020,
+
+#050505
+
+);
+
+
+
+min-height:100vh;
+
+
+
+padding-bottom:120px;
+
+
+}
+
+
+
+
 /* HERO */
 
 
 .hero{
 
 
-min-height:100vh;
+height:85vh;
 
 
 display:flex;
@@ -217,48 +160,11 @@ align-items:center;
 
 
 
-background:
-
-
-radial-gradient(
-
-ellipse at 50% 20%,
-
-rgba(123,44,255,.35),
-
-transparent 45%
-
-),
-
-
-radial-gradient(
-
-ellipse at 50% 80%,
-
-rgba(90,0,180,.25),
-
-transparent 60%
-
-),
-
-
-linear-gradient(
-
-180deg,
-
-#050505,
-
-#090018,
-
-#050505
-
-);
-
-
-
 text-align:center;
 
+
 }
+
 
 
 
@@ -272,7 +178,7 @@ font-family:'Orbitron';
 font-size:22px;
 
 
-letter-spacing:10px;
+letter-spacing:12px;
 
 
 color:#FFD369;
@@ -286,7 +192,6 @@ margin-bottom:30px;
 
 
 
-
 .title{
 
 
@@ -296,18 +201,18 @@ font-family:'Cinzel';
 font-size:100px;
 
 
-font-weight:700;
-
-
-letter-spacing:15px;
+letter-spacing:18px;
 
 
 color:white;
 
 
+
 text-shadow:
 
-0 0 20px rgba(255,255,255,.3);
+
+0 0 25px rgba(255,255,255,.4);
+
 
 
 }
@@ -342,7 +247,6 @@ margin-bottom:40px;
 
 
 
-
 .desc{
 
 
@@ -362,6 +266,31 @@ color:#ddd;
 
 
 
+
+
+/* 버튼 위치 */
+
+
+.buttonArea{
+
+
+display:flex;
+
+
+justify-content:center;
+
+
+align-items:center;
+
+
+margin-bottom:100px;
+
+
+}
+
+
+
+
 /* 카드 */
 
 
@@ -377,32 +306,11 @@ justify-content:center;
 gap:30px;
 
 
-padding:100px 0 120px;
-
-
-width:100%;
-
-
-
-background:
-
-
-radial-gradient(
-
-circle at center,
-
-rgba(123,44,255,.18),
-
-transparent 60%
-
-);
-
-
-
 flex-wrap:wrap;
 
-}
 
+
+}
 
 
 
@@ -416,25 +324,24 @@ width:250px;
 padding:35px;
 
 
+
 border-radius:25px;
 
 
 
 background:
 
-rgba(255,255,255,.06);
+rgba(255,255,255,.07);
 
 
 
 border:
 
-1px solid rgba(255,255,255,.15);
+1px solid rgba(255,255,255,.18);
 
 
 
-backdrop-filter:
-
-blur(20px);
+backdrop-filter:blur(20px);
 
 
 
@@ -445,20 +352,21 @@ transition:.4s;
 
 
 
-
-
 .card:hover{
 
 
 transform:translateY(-12px);
 
 
+
 border-color:#7B2CFF;
+
 
 
 box-shadow:
 
 0 0 40px rgba(123,44,255,.7);
+
 
 
 }
@@ -503,7 +411,6 @@ margin-bottom:15px;
 
 
 
-
 .cardText{
 
 
@@ -524,17 +431,20 @@ color:#ccc;
 
 </style>
 
-
 """, unsafe_allow_html=True)
 
 
 
+
 # =========================
-# 메인
+# 시작
 # =========================
 
 
 st.markdown("""
+<div class="page">
+
+
 <div class="hero">
 
 
@@ -545,11 +455,13 @@ JESSICA
 </div>
 
 
+
 <div class="title">
 
 DETECTIVE
 
 </div>
+
 
 
 <div class="subtitle">
@@ -571,7 +483,13 @@ AGENCY
 
 </div>
 
+
+<div class="buttonArea">
+
+</div>
+
 """, unsafe_allow_html=True)
+
 
 
 
@@ -579,20 +497,252 @@ AGENCY
 # 의뢰 버튼
 # =========================
 
-if st.button(
-    "🔐 의뢰하기",
-    use_container_width=False
-):
 
-    st.switch_page(
-        "pages/1_의뢰하기.py"
-    )
+components.html(
+"""
+
+<style>
+
+
+body{
+
+margin:0;
+
+background:transparent;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+}
+
+
+
+.caseButton{
+
+
+width:280px;
+
+
+height:80px;
+
+
+
+display:flex;
+
+
+align-items:center;
+
+
+justify-content:center;
+
+
+
+border-radius:18px;
+
+
+
+background:
+
+
+linear-gradient(
+
+135deg,
+
+rgba(255,255,255,.15),
+
+rgba(255,255,255,.03)
+
+);
+
+
+
+border:1px solid #FFD369;
+
+
+
+color:#FFD369;
+
+
+
+font-family:'Noto Sans KR';
+
+
+
+font-size:22px;
+
+
+
+font-weight:700;
+
+
+
+letter-spacing:4px;
+
+
+
+overflow:hidden;
+
+
+
+position:relative;
+
+
+
+cursor:pointer;
+
+
+
+box-shadow:
+
+
+0 0 25px rgba(255,211,105,.3);
+
+
+
+transition:.5s;
+
+
+}
+
+
+
+.caseButton::before{
+
+
+content:"";
+
+
+position:absolute;
+
+
+top:0;
+
+
+left:-120%;
+
+
+
+width:70%;
+
+
+height:100%;
+
+
+
+background:
+
+
+linear-gradient(
+
+120deg,
+
+transparent,
+
+rgba(255,255,255,.9),
+
+transparent
+
+);
+
+
+
+transform:skewX(-25deg);
+
+
+
+animation:shine 3s infinite;
+
+
+}
+
+
+
+
+@keyframes shine{
+
+
+0%{
+
+left:-120%;
+
+}
+
+
+40%{
+
+left:130%;
+
+}
+
+
+100%{
+
+left:130%;
+
+}
+
+
+}
+
+
+
+.caseButton:hover{
+
+
+transform:translateY(-6px);
+
+
+
+border-color:#7B2CFF;
+
+
+
+box-shadow:
+
+
+0 0 40px #7B2CFF,
+
+
+0 0 90px rgba(123,44,255,.6);
+
+
+
+}
+
+
+</style>
+
+
+
+<a href="/1_의뢰하기" style="text-decoration:none">
+
+
+<div class="caseButton">
+
+🔐 의뢰하기
+
+</div>
+
+
+</a>
+
+
+""",
+
+height=150
+
+)
+
 
 
 
 # =========================
 # 카드
 # =========================
+
 
 st.markdown("""
 
@@ -601,7 +751,12 @@ st.markdown("""
 
 <div class="card">
 
-<div class="icon">🔍</div>
+<div class="icon">
+
+🔍
+
+</div>
+
 
 <div class="cardTitle">
 
@@ -618,13 +773,20 @@ st.markdown("""
 
 </div>
 
+
 </div>
+
 
 
 
 <div class="card">
 
-<div class="icon">📁</div>
+<div class="icon">
+
+📁
+
+</div>
+
 
 <div class="cardTitle">
 
@@ -641,13 +803,20 @@ st.markdown("""
 
 </div>
 
+
 </div>
+
 
 
 
 <div class="card">
 
-<div class="icon">💻</div>
+<div class="icon">
+
+💻
+
+</div>
+
 
 <div class="cardTitle">
 
@@ -664,13 +833,20 @@ st.markdown("""
 
 </div>
 
+
 </div>
+
 
 
 
 <div class="card">
 
-<div class="icon">🏢</div>
+<div class="icon">
+
+🏢
+
+</div>
+
 
 <div class="cardTitle">
 
@@ -686,6 +862,11 @@ st.markdown("""
 분석합니다.
 
 </div>
+
+
+</div>
+
+
 
 </div>
 
