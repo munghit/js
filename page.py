@@ -11,7 +11,7 @@ st.set_page_config(
 )
 
 # =========================
-# 전체 디자인 CSS
+# 전체 CSS
 # =========================
 st.markdown("""
 <style>
@@ -20,20 +20,22 @@ st.markdown("""
 #MainMenu{ visibility:hidden; }
 footer{ visibility:hidden; }
 header{ visibility:hidden; }
-.block-container{ padding:0; }
 
-/* 폰트 및 배경 */
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Orbitron:wght@500;700&family=Noto+Sans+KR:wght@300;500;700&display=swap');
+/* 핵심: 전체 컨테이너를 화면 끝까지 채우기 */
+.stApp {
+    background: #050505 !important;
+}
 
-html, body { background:#050505; }
-
-.page {
+.main-container {
     background: radial-gradient(ellipse at 50% 10%, rgba(123,44,255,.4), transparent 45%),
                 radial-gradient(ellipse at 50% 70%, rgba(90,0,180,.25), transparent 55%),
                 linear-gradient(180deg, #050505, #100020, #050505);
     min-height: 100vh;
-    padding-bottom: 80px;
+    padding-bottom: 100px;
 }
+
+/* 폰트 및 기타 스타일 */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Orbitron:wght@500;700&family=Noto+Sans+KR:wght@300;500;700&display=swap');
 
 .hero { height:75vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; }
 .logo { font-family:'Orbitron'; font-size:22px; letter-spacing:12px; color:#FFD369; margin-bottom:30px; }
@@ -41,7 +43,8 @@ html, body { background:#050505; }
 .subtitle { font-family:'Orbitron'; font-size:38px; letter-spacing:12px; color:#9b55ff; margin-top:20px; margin-bottom:40px; }
 .desc { font-family:'Noto Sans KR'; font-size:22px; line-height:1.8; color:#ddd; }
 
-/* 버튼 커스텀 스타일 (st.button 적용) */
+/* 버튼 중앙 정렬 강제 및 스타일 */
+div[data-testid="column"] { display: flex; justify-content: center; }
 div[data-testid="stButton"] button {
     width: 280px !important;
     height: 80px !important;
@@ -56,16 +59,10 @@ div[data-testid="stButton"] button {
     box-shadow: 0 0 25px rgba(255,211,105,.3);
     transition: .5s;
 }
-
-div[data-testid="stButton"] button:hover {
-    transform: translateY(-6px);
-    border-color: #7B2CFF !important;
-    color: white !important;
-    box-shadow: 0 0 40px #7B2CFF, 0 0 90px rgba(123,44,255,.6);
-}
+div[data-testid="stButton"] button:hover { transform: translateY(-6px); border-color: #7B2CFF !important; color: white !important; box-shadow: 0 0 40px #7B2CFF, 0 0 90px rgba(123,44,255,.6); }
 
 /* 카드 */
-.cards { display:flex; justify-content:center; gap:30px; flex-wrap:wrap; }
+.cards { display:flex; justify-content:center; gap:30px; flex-wrap:wrap; margin-top: 50px; }
 .card { width:250px; padding:35px; border-radius:25px; background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.18); backdrop-filter:blur(20px); transition:.4s; }
 .card:hover { transform:translateY(-12px); border-color:#7B2CFF; box-shadow:0 0 40px rgba(123,44,255,.7); }
 .icon { font-size:55px; margin-bottom:20px; }
@@ -75,10 +72,11 @@ div[data-testid="stButton"] button:hover {
 """, unsafe_allow_html=True)
 
 # =========================
-# 메인 화면
+# 메인 레이아웃 (전체 div로 감쌈)
 # =========================
+st.markdown('<div class="main-container">', unsafe_allow_html=True)
+
 st.markdown("""
-<div class="page">
     <div class="hero">
         <div class="logo">JESSICA</div>
         <div class="title">DETECTIVE</div>
@@ -87,39 +85,19 @@ st.markdown("""
     </div>
 """, unsafe_allow_html=True)
 
-# =========================
-# 중앙 정렬 버튼 영역
-# =========================
-col1, col2, col3 = st.columns([1, 2, 1])
+# 버튼 중앙 정렬 (컬럼 내 스타일 강제 적용)
+col1, col2, col3 = st.columns([1, 1, 1])
 with col2:
     if st.button("🔐 의뢰하기"):
         st.switch_page("pages/1_의뢰하기.py")
 
-# =========================
 # 카드 영역
-# =========================
 st.markdown("""
     <div class="cards">
-        <div class="card">
-            <div class="icon">🔍</div>
-            <div class="cardTitle">사람 찾기</div>
-            <div class="cardText">실종자 및 연락 두절 관련<br>상담 서비스를 제공합니다.</div>
-        </div>
-        <div class="card">
-            <div class="icon">📁</div>
-            <div class="cardTitle">사실 조사</div>
-            <div class="cardText">공개 자료 기반<br>사실관계를 분석합니다.</div>
-        </div>
-        <div class="card">
-            <div class="icon">💻</div>
-            <div class="cardTitle">디지털 분석</div>
-            <div class="cardText">디지털 자료 분석과<br>상담을 제공합니다.</div>
-        </div>
-        <div class="card">
-            <div class="icon">🏢</div>
-            <div class="cardTitle">기업 조사</div>
-            <div class="cardText">기업 관련 공개 정보를<br>분석합니다.</div>
-        </div>
+        <div class="card"><div class="icon">🔍</div><div class="cardTitle">사람 찾기</div><div class="cardText">실종자 및 연락 두절 관련<br>상담 서비스를 제공합니다.</div></div>
+        <div class="card"><div class="icon">📁</div><div class="cardTitle">사실 조사</div><div class="cardText">공개 자료 기반<br>사실관계를 분석합니다.</div></div>
+        <div class="card"><div class="icon">💻</div><div class="cardTitle">디지털 분석</div><div class="cardText">디지털 자료 분석과<br>상담을 제공합니다.</div></div>
+        <div class="card"><div class="icon">🏢</div><div class="cardTitle">기업 조사</div><div class="cardText">기업 관련 공개 정보를<br>분석합니다.</div></div>
     </div>
 </div>
 """, unsafe_allow_html=True)
