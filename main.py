@@ -40,36 +40,55 @@ display:none;
 
 
 .block-container{
+
 padding:0;
+
 }
 
 
 
 .stApp{
 
+
 background:
 
 
 radial-gradient(
+
 ellipse at 50% 10%,
+
 rgba(123,44,255,.45),
+
 transparent 45%
+
 ),
+
 
 
 radial-gradient(
+
 ellipse at 50% 70%,
+
 rgba(90,0,180,.3),
+
 transparent 55%
+
 ),
 
 
+
 linear-gradient(
+
 180deg,
+
 #050505,
+
 #100020,
+
 #050505
+
 );
+
 
 
 background-attachment:fixed;
@@ -77,7 +96,9 @@ background-attachment:fixed;
 
 min-height:100vh;
 
+
 }
+
 
 
 </style>
@@ -86,8 +107,9 @@ min-height:100vh;
 
 
 
+
 # =========================
-# 전체 CSS
+# CSS
 # =========================
 
 st.markdown("""
@@ -100,21 +122,30 @@ st.markdown("""
 
 
 
+
 /* HERO */
+
 
 .hero{
 
-height:85vh;
+
+height:80vh;
+
 
 display:flex;
 
+
 flex-direction:column;
+
 
 justify-content:center;
 
+
 align-items:center;
 
+
 text-align:center;
+
 
 }
 
@@ -156,6 +187,7 @@ letter-spacing:18px;
 
 
 color:white;
+
 
 
 text-shadow:
@@ -217,6 +249,7 @@ color:#ddd;
 
 
 
+
 /* 카드 */
 
 
@@ -235,7 +268,7 @@ gap:30px;
 flex-wrap:wrap;
 
 
-margin-bottom:150px;
+margin-bottom:120px;
 
 
 }
@@ -284,7 +317,6 @@ transition:.4s;
 
 
 transform:translateY(-12px);
-
 
 
 border-color:#7B2CFF;
@@ -337,7 +369,6 @@ margin-bottom:15px;
 
 
 
-
 .cardText{
 
 
@@ -359,24 +390,35 @@ color:#ccc;
 
 
 
-
-/* 의뢰 영역 */
-
-
-.request-box{
+/* 의뢰 제목 박스 */
 
 
-width:70%;
+.request-container{
 
 
-margin:auto;
+display:flex;
 
 
-padding:50px;
+justify-content:center;
 
 
-border-radius:30px;
+margin-top:80px;
 
+
+}
+
+
+
+.request-card{
+
+
+width:520px;
+
+
+padding:35px;
+
+
+border-radius:25px;
 
 
 background:
@@ -393,64 +435,56 @@ border:
 
 
 
-backdrop-filter:blur(25px);
+backdrop-filter:blur(20px);
 
 
 
 box-shadow:
 
 
-0 0 50px rgba(123,44,255,.35);
+0 0 40px rgba(123,44,255,.35);
+
+
+
+text-align:center;
 
 
 }
-
-
 
 
 
 .request-title{
 
 
-text-align:center;
-
-
 font-family:'Cinzel';
 
 
-font-size:55px;
+font-size:45px;
+
+
+letter-spacing:6px;
 
 
 color:#FFD369;
 
 
-letter-spacing:8px;
-
-
-margin-bottom:20px;
-
-
 }
-
 
 
 
 .request-desc{
 
 
-text-align:center;
+margin-top:15px;
 
 
 font-family:'Noto Sans KR';
 
 
-font-size:20px;
+font-size:18px;
 
 
 color:#ddd;
-
-
-margin-bottom:40px;
 
 
 }
@@ -460,7 +494,21 @@ margin-bottom:40px;
 
 
 
-/* 입력창 */
+/* 입력 영역 */
+
+
+.form-area{
+
+
+max-width:520px;
+
+
+margin:auto;
+
+
+}
+
+
 
 
 .stTextInput input,
@@ -473,7 +521,9 @@ background:
 rgba(255,255,255,.1)!important;
 
 
+
 color:white!important;
+
 
 
 border-radius:12px!important;
@@ -484,22 +534,16 @@ border-radius:12px!important;
 
 
 
-
 label{
 
 
 color:#FFD369!important;
 
 
-font-size:17px!important;
-
-
 font-weight:700!important;
 
 
 }
-
-
 
 
 
@@ -513,7 +557,7 @@ font-weight:700!important;
 width:100%;
 
 
-height:65px;
+height:60px;
 
 
 border-radius:18px;
@@ -534,10 +578,7 @@ rgba(123,44,255,.55)
 
 
 
-border:
-
-
-1px solid #FFD369;
+border:1px solid #FFD369;
 
 
 
@@ -553,7 +594,7 @@ font-weight:700;
 
 
 
-letter-spacing:5px;
+letter-spacing:4px;
 
 
 }
@@ -561,8 +602,94 @@ letter-spacing:5px;
 
 
 
+/* 성공 메시지 */
+
+
+.success-box{
+
+
+margin-top:30px;
+
+
+padding:30px;
+
+
+border-radius:25px;
+
+
+
+background:
+
+
+linear-gradient(
+
+135deg,
+
+rgba(255,211,105,.25),
+
+rgba(123,44,255,.45)
+
+);
+
+
+
+border:1px solid #FFD369;
+
+
+
+box-shadow:
+
+
+0 0 40px rgba(255,211,105,.5);
+
+
+
+text-align:center;
+
+
+
+}
+
+
+
+.success-title{
+
+
+font-size:30px;
+
+
+font-weight:700;
+
+
+color:#FFD369;
+
+
+}
+
+
+
+.success-text{
+
+
+margin-top:15px;
+
+
+color:white;
+
+
+font-size:17px;
+
+
+line-height:1.8;
+
+
+}
+
+
+
 </style>
 """, unsafe_allow_html=True)
+
 
 
 
@@ -612,8 +739,6 @@ AGENCY
 </div>
 
 """, unsafe_allow_html=True)
-
-
 # =========================
 # 서비스 카드
 # =========================
@@ -645,7 +770,6 @@ st.markdown("""
 
 
 
-
 <div class="card">
 
 <div class="icon">
@@ -669,7 +793,6 @@ st.markdown("""
 
 
 
-
 <div class="card">
 
 <div class="icon">
@@ -689,7 +812,6 @@ st.markdown("""
 </div>
 
 </div>
-
 
 
 
@@ -724,26 +846,32 @@ st.markdown("""
 
 
 # =========================
-# 의뢰하기 영역
+# 의뢰하기 타이틀
 # =========================
 
-
 st.markdown("""
-<div class="request-box">
+<div class="request-container">
+
+
+<div class="request-card">
 
 
 <div class="request-title">
 
-REQUEST
+🔐 REQUEST
 
 </div>
 
 
+
 <div class="request-desc">
 
-🔐 의뢰하기<br><br>
+당신의 의뢰는 안전하게 보호됩니다.<br>
 
-당신의 의뢰 내용은 안전하게 보호됩니다.
+필요한 정보를 작성해주세요.
+
+</div>
+
 
 </div>
 
@@ -754,12 +882,15 @@ REQUEST
 
 
 st.write("")
-
-
-
 # =========================
-# 입력
+# 의뢰 입력 영역
 # =========================
+
+st.markdown("""
+<div class="form-area">
+</div>
+""", unsafe_allow_html=True)
+
 
 
 category = st.selectbox(
@@ -789,7 +920,7 @@ contact = st.text_input(
 
 detail = st.text_area(
     "의뢰 내용",
-    height=200,
+    height=120,
     placeholder="상세한 의뢰 내용을 입력해주세요."
 )
 
@@ -806,7 +937,6 @@ agree = st.checkbox(
 # =========================
 # 접수 버튼
 # =========================
-
 
 if st.button("🔐 의뢰 접수하기"):
 
@@ -833,52 +963,12 @@ if st.button("🔐 의뢰 접수하기"):
 
 
         st.markdown("""
-        <div style="
-
-        margin-top:40px;
-
-        padding:35px;
-
-        border-radius:30px;
-
-
-        background:
-
-        linear-gradient(
-
-        135deg,
-
-        rgba(255,211,105,.25),
-
-        rgba(123,44,255,.45)
-
-        );
-
-
-        border:1px solid #FFD369;
-
-
-        box-shadow:
-
-        0 0 40px rgba(255,211,105,.5);
-
-
-        text-align:center;
-
-
-        font-family:'Noto Sans KR';
-
-
-        ">
-
+        <div class="success-box">
 
 
         <div style="
-
         font-size:50px;
-
         margin-bottom:15px;
-
         ">
 
         🔐
@@ -886,37 +976,14 @@ if st.button("🔐 의뢰 접수하기"):
         </div>
 
 
-
-
-        <div style="
-
-        font-size:30px;
-
-        font-weight:700;
-
-        color:#FFD369;
-
-        ">
+        <div class="success-title">
 
         의뢰가 접수되었습니다
 
         </div>
 
 
-
-
-        <div style="
-
-        margin-top:20px;
-
-        font-size:18px;
-
-        color:white;
-
-        line-height:1.8;
-
-        ">
-
+        <div class="success-text">
 
         Jessica Detective Agency가<br>
 
@@ -924,11 +991,10 @@ if st.button("🔐 의뢰 접수하기"):
 
         빠른 시일 내에 연락드리겠습니다.
 
-
         </div>
 
 
-
         </div>
 
-        """, unsafe_allow_html=True)
+        """,
+        unsafe_allow_html=True)
