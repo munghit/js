@@ -18,7 +18,6 @@ html,body{ background:#050505; }
                 radial-gradient(ellipse at 50% 70%, rgba(90,0,180,.25), transparent 55%),
                 linear-gradient(180deg, #050505, #100020, #050505);
     min-height:100vh; padding-bottom:80px;
-    position: relative;
 }
 .hero{ height:60vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; }
 .logo{ font-family:'Orbitron'; font-size:22px; letter-spacing:12px; color:#FFD369; margin-bottom:30px; }
@@ -33,13 +32,7 @@ html,body{ background:#050505; }
 .cardTitle{ font-family:'Noto Sans KR'; font-size:25px; font-weight:700; color:white; margin-bottom:15px; }
 .cardText{ font-family:'Noto Sans KR'; font-size:15px; line-height:1.7; color:#ccc; }
 
-/* 🌟 버튼을 메인 화면 정중앙에 배치하고 퍼플 네온 그라데이션 컬러 적용 */
-div[data-testid="stButton"] {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
-
+/* 버튼 스타일 (다크 퍼플 네온) */
 div[data-testid="stButton"] button {
     width: 280px !important;
     height: 65px !important;
@@ -48,23 +41,10 @@ div[data-testid="stButton"] button {
     font-family: 'Noto Sans KR', sans-serif !important;
     letter-spacing: 3px !important;
     border-radius: 50px !important;
-    
-    /* 어두운 보랏빛 네온 그라데이션 색감 */
     background: linear-gradient(135deg, #4A1291 0%, #1A0033 100%) !important;
     color: #E2D5F5 !important;
     border: 2px solid #7B2CFF !important;
-    box-shadow: 0 0 20px rgba(123, 44, 255, 0.4), inset 0 0 10px rgba(123, 44, 255, 0.2) !important;
-    
-    transition: all 0.3s ease-in-out !important;
-    cursor: pointer !important;
-}
-
-div[data-testid="stButton"] button:hover {
-    background: linear-gradient(135deg, #5D19B5 0%, #29004F 100%) !important;
-    color: #ffffff !important;
-    border-color: #9B55FF !important;
-    box-shadow: 0 0 35px rgba(155, 85, 255, 0.8), inset 0 0 15px rgba(155, 85, 255, 0.4) !important;
-    transform: scale(1.03) !important;
+    box-shadow: 0 0 20px rgba(123, 44, 255, 0.4) !important;
 }
 </style>
 """, unsafe_allow_html=True)
@@ -78,8 +58,11 @@ st.markdown("""
         <div class="desc">진실은 언제나 흔적을 남깁니다.<br>당신의 의뢰는 안전하게 보호됩니다.</div>
 """, unsafe_allow_html=True)
 
-if st.button("🔐 의뢰하기"):
-    st.switch_page("pages/1_의뢰하기.py")
+# 강제 중앙 정렬 구조
+_, col_center, _ = st.columns([1, 2, 1])
+with col_center:
+    if st.button("🔐 의뢰하기"):
+        st.switch_page("pages/1_의뢰하기.py")
 
 st.markdown("""
     </div>
