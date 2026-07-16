@@ -956,8 +956,8 @@ with center:
                     "_subject": "🔍 Jessica Detective Agency 새로운 의뢰"
                 }
             )
-st.write(response.status_code)
-st.write(response.text)
+            st.write(response.status_code)
+            st.write(response.text)
 
 
             if response.status_code == 200:
