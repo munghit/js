@@ -515,23 +515,74 @@ margin:auto;
 
 
 
+/* =========================
+   입력 영역 디자인 수정
+========================= */
+
+
 .stTextInput input,
-.stTextArea textarea,
-.stSelectbox div{
+.stTextArea textarea {
+
+    background-color: rgba(255,255,255,0.08) !important;
+
+    color: white !important;
+
+    border: 1px solid rgba(255,211,105,0.5) !important;
+
+    border-radius: 12px !important;
+
+    padding: 12px !important;
+
+}
 
 
-background:
 
-rgba(255,255,255,.1)!important;
+/* 입력 중 글자 */
+
+.stTextInput input:focus,
+.stTextArea textarea:focus {
+
+    border: 1px solid #FFD369 !important;
+
+    box-shadow:
+    0 0 15px rgba(255,211,105,.5) !important;
+
+}
 
 
 
-color:white!important;
+/* placeholder */
+
+.stTextInput input::placeholder,
+.stTextArea textarea::placeholder {
+
+    color: rgba(255,255,255,.5) !important;
+
+}
 
 
 
-border-radius:12px!important;
+/* textarea(의뢰 내용 칸) */
 
+textarea {
+
+    background-color: rgba(255,255,255,0.08) !important;
+
+    color:white !important;
+
+}
+
+
+
+/* selectbox */
+
+.stSelectbox div[data-baseweb="select"] {
+
+    background-color: rgba(255,255,255,0.08) !important;
+
+    color:white !important;
+
+    border-radius:12px !important;
 
 }
 
