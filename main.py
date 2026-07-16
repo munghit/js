@@ -951,16 +951,19 @@ with center:
 
         else:
 
-            requests.post(
-                "https://formsubmit.co/ruddms080924@gmail.com",
-                data={
-                    "의뢰 유형": category,
-                    "의뢰인 이름": name,
-                    "연락 방법": contact,
-                    "의뢰 내용": detail
-                }
-            )
+            response = requests.post(
+    "https://formsubmit.co/ajax/내이메일@gmail.com",
+    data={
+        "의뢰 유형": category,
+        "의뢰인 이름": name,
+        "연락 방법": contact,
+        "의뢰 내용": detail,
+        "_subject": "🔍 Jessica Detective Agency 새로운 의뢰"
+    }
+)
 
+st.write(response.status_code)
+st.write(response.text)
 
             st.success(
                 "🔍 새로운 사건이 등록되었습니다. "
