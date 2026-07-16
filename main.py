@@ -944,24 +944,24 @@ with center:
                 "모든 항목을 작성하고 동의해주세요."
             )
 
-        else:
+           else:
 
-            requests.post(
-    "https://formsubmit.co/ruddms080924@gmail.com",
-    data={
-        "의뢰 유형": category,
-        "의뢰인 이름": name,
-        "연락 방법": contact,
-        "의뢰 내용": detail
-    }
-)
-           
+        requests.post(
+            "https://formsubmit.co/받을이메일주소",
+            data={
+                "의뢰 유형": category,
+                "의뢰인 이름": name,
+                "연락 방법": contact,
+                "의뢰 내용": detail
+            }
+        )
 
-           st.success(
-    """
-    🔐 사건 접수가 완료되었습니다.
 
-    Jessica Detective Agency가
-    진실을 향한 첫 번째 분석을 시작합니다.
-    """
-)
+        st.success(
+            """
+            🔍 새로운 사건이 등록되었습니다.
+
+            남겨주신 정보는 안전하게 보호되며,
+            Jessica Detective Agency가 분석을 시작합니다.
+            """
+        )
