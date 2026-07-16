@@ -948,43 +948,36 @@ with center:
 
 
 
-    agree = st.checkbox(
+      agree = st.checkbox(
         "개인정보 보호 및 의뢰 접수에 동의합니다."
     )
 
 
+    if st.button("🔐 의뢰 접수하기"):
 
+        if (
+            name.strip() == ""
+            or contact.strip() == ""
+            or detail.strip() == ""
+            or not agree
+        ):
 
-     # =========================
-    # 접수 버튼
-    # =========================
+            st.warning(
+                "모든 항목을 작성하고 개인정보 보호 동의 후 접수해주세요."
+            )
 
-  if st.button("🔐 의뢰 접수하기"):
+        else:
 
-    if (
-        name.strip() == ""
-        or contact.strip() == ""
-        or detail.strip() == ""
-        or not agree
-    ):
+            db.collection("requests").add({
 
-        st.warning(
-            "모든 항목을 작성하고 개인정보 보호 동의 후 접수해주세요."
-        )
+                "category": category,
+                "name": name,
+                "contact": contact,
+                "detail": detail,
+                "status": "접수 완료"
 
-    else:
+            })
 
-        db.collection("requests").add({
-
-            "category": category,
-            "name": name,
-            "contact": contact,
-            "detail": detail,
-            "status": "접수 완료"
-
-        })
-
-        st.success(
-            "✅ 의뢰가 접수되었습니다."
-        )
-""", unsafe_allow_html=True)
+            st.success(
+                "✅ 의뢰가 접수되었습니다."
+            )
