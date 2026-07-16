@@ -3,10 +3,14 @@ import streamlit.components.v1 as components
 
 
 # =========================
-# 페이지 이동 함수
+# 페이지 이동
 # =========================
 
-def go_request():
+if "go_request" not in st.session_state:
+    st.session_state.go_request = False
+
+
+if st.session_state.go_request:
     st.switch_page("pages/의뢰하기.py")
 
 
@@ -25,31 +29,27 @@ st.set_page_config(
 
 
 # =========================
-# 기본 UI + 배경
+# 기본 설정 + 배경
 # =========================
 
 st.markdown("""
 <style>
 
 
-#MainMenu{
-display:none;
-}
-
-
+#MainMenu,
+header,
 footer{
-display:none;
-}
 
-
-header{
 display:none;
+
 }
 
 
 
 [data-testid="stSidebar"]{
+
 display:none;
+
 }
 
 
@@ -69,47 +69,28 @@ background:
 
 
 radial-gradient(
-
 ellipse at 50% 10%,
-
 rgba(123,44,255,.4),
-
 transparent 45%
-
 ),
-
 
 
 radial-gradient(
-
 ellipse at 50% 70%,
-
 rgba(90,0,180,.25),
-
 transparent 55%
-
 ),
 
 
-
 linear-gradient(
-
 180deg,
-
 #050505,
-
 #100020,
-
 #050505
-
 );
 
 
-
 background-attachment:fixed;
-
-
-min-height:100vh;
 
 
 }
@@ -122,7 +103,7 @@ min-height:100vh;
 
 
 # =========================
-# 디자인 CSS
+# CSS
 # =========================
 
 st.markdown("""
@@ -165,9 +146,7 @@ align-items:center;
 
 text-align:center;
 
-
 }
-
 
 
 
@@ -176,18 +155,13 @@ text-align:center;
 
 font-family:'Orbitron';
 
-
 font-size:22px;
-
 
 letter-spacing:12px;
 
-
 color:#FFD369;
 
-
 margin-bottom:30px;
-
 
 }
 
@@ -198,22 +172,16 @@ margin-bottom:30px;
 
 font-family:'Cinzel';
 
-
 font-size:100px;
 
-
 letter-spacing:18px;
-
 
 color:white;
 
 
-
 text-shadow:
 
-
 0 0 25px rgba(255,255,255,.4);
-
 
 }
 
@@ -224,21 +192,15 @@ text-shadow:
 
 font-family:'Orbitron';
 
-
 font-size:38px;
-
 
 letter-spacing:12px;
 
-
 color:#9b55ff;
-
 
 margin-top:20px;
 
-
 margin-bottom:40px;
-
 
 }
 
@@ -249,28 +211,17 @@ margin-bottom:40px;
 
 font-family:'Noto Sans KR';
 
-
 font-size:22px;
-
 
 line-height:1.8;
 
-
 color:#ddd;
 
-
 }
 
 
 
-/* 숨김 버튼 */
-
-div[data-testid="stButton"] button{
-
-display:none;
-
-}
-
+/* 카드 */
 
 
 .cards{
@@ -278,15 +229,11 @@ display:none;
 
 display:flex;
 
-
 justify-content:center;
-
 
 gap:30px;
 
-
 flex-wrap:wrap;
-
 
 }
 
@@ -297,12 +244,9 @@ flex-wrap:wrap;
 
 width:250px;
 
-
 padding:35px;
 
-
 border-radius:25px;
-
 
 
 background:
@@ -310,15 +254,12 @@ background:
 rgba(255,255,255,.07);
 
 
-
 border:
 
 1px solid rgba(255,255,255,.18);
 
 
-
 backdrop-filter:blur(20px);
-
 
 
 transition:.4s;
@@ -337,12 +278,9 @@ transform:translateY(-12px);
 border-color:#7B2CFF;
 
 
-
 box-shadow:
 
-
 0 0 40px rgba(123,44,255,.7);
-
 
 }
 
@@ -388,4 +326,239 @@ color:#ccc;
 
 
 </style>
+""", unsafe_allow_html=True)
+
+
+
+# =========================
+# 메인 화면
+# =========================
+
+st.markdown("""
+<div class="page">
+
+
+<div class="hero">
+
+
+<div class="logo">
+
+JESSICA
+
+</div>
+
+
+<div class="title">
+
+DETECTIVE
+
+</div>
+
+
+<div class="subtitle">
+
+AGENCY
+
+</div>
+
+
+<div class="desc">
+
+진실은 언제나 흔적을 남깁니다.<br>
+
+당신의 의뢰는 안전하게 보호됩니다.
+
+</div>
+
+""", unsafe_allow_html=True)
+
+
+
+# =========================
+# 이동 버튼 (숨김)
+# =========================
+
+hidden = st.button(
+    "의뢰 이동",
+    key="request_move"
+)
+
+
+if hidden:
+    st.session_state.go_request = True
+
+
+
+# =========================
+# 화면 버튼
+# =========================
+
+components.html(
+"""
+<style>
+
+body{
+
+margin:0;
+
+background:transparent;
+
+display:flex;
+
+justify-content:center;
+
+}
+
+
+
+.btn{
+
+
+width:300px;
+
+height:75px;
+
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+
+border-radius:20px;
+
+
+background:
+
+linear-gradient(
+135deg,
+rgba(255,211,105,.25),
+rgba(123,44,255,.35)
+);
+
+
+border:1px solid #FFD369;
+
+
+color:#FFD369;
+
+
+font-family:'Noto Sans KR';
+
+
+font-size:24px;
+
+
+font-weight:700;
+
+
+letter-spacing:5px;
+
+
+cursor:pointer;
+
+
+box-shadow:
+
+0 0 25px rgba(255,211,105,.5);
+
+}
+
+
+</style>
+
+
+
+<div class="btn">
+
+🔐 의뢰하기
+
+</div>
+
+""",
+height=120
+)
+
+
+
+st.markdown("""
+</div>
+
+
+<div class="cards">
+
+
+<div class="card">
+
+<div class="icon">🔍</div>
+
+<div class="cardTitle">
+사람 찾기
+</div>
+
+<div class="cardText">
+실종자 및 연락 두절 관련<br>
+상담 서비스를 제공합니다.
+</div>
+
+</div>
+
+
+
+<div class="card">
+
+<div class="icon">📁</div>
+
+<div class="cardTitle">
+사실 조사
+</div>
+
+<div class="cardText">
+공개 자료 기반<br>
+사실관계를 분석합니다.
+</div>
+
+</div>
+
+
+
+<div class="card">
+
+<div class="icon">💻</div>
+
+<div class="cardTitle">
+디지털 분석
+</div>
+
+<div class="cardText">
+디지털 자료 분석과<br>
+상담을 제공합니다.
+</div>
+
+</div>
+
+
+
+<div class="card">
+
+<div class="icon">🏢</div>
+
+<div class="cardTitle">
+기업 조사
+</div>
+
+<div class="cardText">
+기업 관련 공개 정보를<br>
+분석합니다.
+</div>
+
+</div>
+
+
+</div>
+
+
+</div>
+
 """, unsafe_allow_html=True)
