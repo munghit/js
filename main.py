@@ -944,7 +944,7 @@ with center:
                 "모든 항목을 작성하고 동의해주세요."
             )
 
-        else:
+               else:
 
             requests.post(
                 "https://formsubmit.co/받을이메일주소",
@@ -956,14 +956,7 @@ with center:
                 }
             )
 
-
             st.success(
-                """
-                🔍 새로운 사건이 등록되었습니다.
-
-                남겨주신 정보는 안전하게 보호되며,
-                Jessica Detective Agency가 분석을 시작합니다.
-                """
-            )
-                """
+                "🔍 새로운 사건이 등록되었습니다. "
+                "Jessica Detective Agency가 분석을 시작합니다."
             )
