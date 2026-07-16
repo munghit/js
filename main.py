@@ -960,17 +960,15 @@ with center:
     # =========================
 
 
-    if st.button("🔐 의뢰 접수하기"):
+  if st.button("🔐 의뢰 접수하기"):
 
 
-    # 필수 입력 확인
-
-        if (
-            name.strip() == ""
-            or contact.strip() == ""
-            or detail.strip() == ""
-            or not agree
-        ):
+    if (
+        name.strip() == ""
+        or contact.strip() == ""
+        or detail.strip() == ""
+        or not agree
+    ):
 
         st.warning(
             "모든 항목을 작성하고 동의해주세요."
@@ -980,33 +978,23 @@ with center:
     else:
 
 
-        # Firebase Firestore 저장
-
         db.collection(
             "requests"
         ).add({
 
             "category": category,
-
             "name": name,
-
             "contact": contact,
-
             "detail": detail,
-
             "status": "접수 완료"
 
         })
 
 
-        st.markdown("""
-        <div class="success-box">
-
-
-        <div class="success-title">
-
-        의뢰가 접수되었습니다
-
+        st.success(
+            "의뢰가 접수되었습니다."
+        )
+      
         </div>
 
 
