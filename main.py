@@ -906,7 +906,6 @@ st.write("")
 # 의뢰 입력 영역
 # =========================
 
-
 left, center, right = st.columns([1, 1.5, 1])
 
 
@@ -923,18 +922,15 @@ with center:
         ]
     )
 
-
     name = st.text_input(
         "의뢰인 이름",
         placeholder="이름을 입력해주세요"
     )
 
-
     contact = st.text_input(
         "연락 방법",
         placeholder="전화번호 또는 이메일"
     )
-
 
     detail = st.text_area(
         "의뢰 내용",
@@ -942,27 +938,40 @@ with center:
         placeholder="상세한 의뢰 내용을 입력해주세요."
     )
 
-
     agree = st.checkbox(
         "개인정보 보호 및 의뢰 접수에 동의합니다."
     )
 
 
-    if st.button("🔐 의뢰 접수하기"):
+submit = st.button("🔐 의뢰 접수하기")
 
-        if (
-            name.strip() == ""
-            or contact.strip() == ""
-            or detail.strip() == ""
-            or not agree
-        ):
 
-            st.warning(
-                "모든 항목을 작성하고 개인정보 보호 동의 후 접수해주세요."
-            )
+if submit:
 
-               else:
+    if (
+        name.strip() == ""
+        or contact.strip() == ""
+        or detail.strip() == ""
+        or not agree
+    ):
 
-            st.success(
-                "✅ 의뢰가 접수되었습니다."
-            )
+        st.warning(
+            "모든 항목을 작성하고 동의해주세요."
+        )
+
+    else:
+
+        db.collection("requests").add({
+
+            "category": category,
+            "name": name,
+            "contact": contact,
+            "detail": detail,
+            "status": "접수 완료"
+
+        })
+
+
+        st.success(
+            "✅ 의뢰가 접수되었습니다."
+        )
