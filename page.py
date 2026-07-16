@@ -13,7 +13,6 @@ st.set_page_config(
 )
 
 
-
 # =========================
 # 기본 UI 제거
 # =========================
@@ -39,23 +38,18 @@ visibility:hidden;
 
 
 .block-container{
+
 padding:0;
+
 }
-
-
-.main{
-background:#050505;
-}
-
 
 </style>
 """, unsafe_allow_html=True)
 
 
 
-
 # =========================
-# CSS
+# 전체 디자인 CSS
 # =========================
 
 st.markdown("""
@@ -87,11 +81,13 @@ rgba(123,44,255,.4),
 transparent 45%
 ),
 
+
 radial-gradient(
 ellipse at 50% 70%,
 rgba(90,0,180,.25),
 transparent 55%
 ),
+
 
 linear-gradient(
 180deg,
@@ -103,7 +99,7 @@ linear-gradient(
 
 min-height:100vh;
 
-padding-bottom:120px;
+padding-bottom:80px;
 
 }
 
@@ -127,7 +123,6 @@ align-items:center;
 
 text-align:center;
 
-
 }
 
 
@@ -146,9 +141,7 @@ color:#FFD369;
 
 margin-bottom:30px;
 
-
 }
-
 
 
 
@@ -167,7 +160,7 @@ color:white;
 
 text-shadow:
 
-0 0 25px rgba(255,255,255,.4);
+0 0 25px rgba(255,255,255,.5);
 
 
 }
@@ -198,6 +191,7 @@ margin-bottom:40px;
 
 
 
+
 .desc{
 
 
@@ -215,20 +209,27 @@ color:#ddd;
 
 
 
+/* =========================
+버튼 완전 중앙
+========================= */
 
-/* 버튼 중앙 */
 
 div[data-testid="stButton"]{
 
 
-display:flex !important;
-
-justify-content:center !important;
-
-width:100% !important;
+position:relative !important;
 
 
-margin-bottom:100px;
+left:50% !important;
+
+
+transform:translateX(-50%) !important;
+
+
+width:280px !important;
+
+
+margin-bottom:100px !important;
 
 
 }
@@ -239,6 +240,7 @@ div[data-testid="stButton"] button{
 
 
 width:280px !important;
+
 
 height:80px !important;
 
@@ -259,12 +261,21 @@ rgba(255,255,255,.03)
 border:1px solid #FFD369 !important;
 
 
+
 color:#FFD369 !important;
+
+
+
+font-family:'Noto Sans KR';
+
 
 
 font-size:22px !important;
 
+
+
 font-weight:700 !important;
+
 
 
 letter-spacing:4px !important;
@@ -276,12 +287,12 @@ box-shadow:
 0 0 25px rgba(255,211,105,.3);
 
 
+
 transition:.5s;
 
 
+
 }
-
-
 
 
 
@@ -291,7 +302,9 @@ div[data-testid="stButton"] button:hover{
 transform:translateY(-6px);
 
 
+
 border-color:#7B2CFF !important;
+
 
 
 color:white !important;
@@ -305,13 +318,17 @@ box-shadow:
 0 0 90px rgba(123,44,255,.6);
 
 
+
 }
 
 
 
 
 
-/* 카드 */
+/* =========================
+카드
+========================= */
+
 
 .cards{
 
@@ -347,6 +364,7 @@ background:
 rgba(255,255,255,.07);
 
 
+
 border:
 
 1px solid rgba(255,255,255,.18);
@@ -373,6 +391,7 @@ transform:translateY(-12px);
 border-color:#7B2CFF;
 
 
+
 box-shadow:
 
 0 0 40px rgba(123,44,255,.7);
@@ -389,6 +408,7 @@ box-shadow:
 
 font-size:55px;
 
+
 margin-bottom:20px;
 
 
@@ -402,11 +422,15 @@ margin-bottom:20px;
 
 font-family:'Noto Sans KR';
 
+
 font-size:25px;
+
 
 font-weight:700;
 
+
 color:white;
+
 
 margin-bottom:15px;
 
@@ -422,9 +446,12 @@ margin-bottom:15px;
 
 font-family:'Noto Sans KR';
 
+
 font-size:15px;
 
+
 line-height:1.7;
+
 
 color:#ccc;
 
@@ -432,8 +459,8 @@ color:#ccc;
 }
 
 
-
 </style>
+
 """, unsafe_allow_html=True)
 
 
@@ -441,9 +468,8 @@ color:#ccc;
 
 
 # =========================
-# 메인
+# 메인 화면
 # =========================
-
 
 st.markdown("""
 <div class="page">
@@ -485,7 +511,6 @@ AGENCY
 </div>
 
 
-
 </div>
 
 
@@ -497,28 +522,23 @@ AGENCY
 
 
 # =========================
-# 중앙 버튼
+# 버튼
 # =========================
 
 
-col1, col2, col3 = st.columns([1,1,1])
+if st.button("🔐 의뢰하기"):
 
+    st.switch_page(
+        "pages/1_의뢰하기.py"
+    )
 
-with col2:
-
-    if st.button(
-        "🔐 의뢰하기"
-    ):
-        st.switch_page(
-            "pages/1_의뢰하기.py"
-        )
 
 
 
 
 
 # =========================
-# 카드
+# 카드 영역
 # =========================
 
 
@@ -527,6 +547,7 @@ st.markdown("""
 
 
 <div class="card">
+
 
 <div class="icon">
 
@@ -550,13 +571,14 @@ st.markdown("""
 
 </div>
 
+
 </div>
 
 
 
 
-
 <div class="card">
+
 
 <div class="icon">
 
@@ -580,13 +602,14 @@ st.markdown("""
 
 </div>
 
+
 </div>
 
 
 
 
-
 <div class="card">
+
 
 <div class="icon">
 
@@ -610,13 +633,14 @@ st.markdown("""
 
 </div>
 
+
 </div>
 
 
 
 
-
 <div class="card">
+
 
 <div class="icon">
 
@@ -639,6 +663,7 @@ st.markdown("""
 분석합니다.
 
 </div>
+
 
 </div>
 
