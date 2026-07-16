@@ -153,58 +153,81 @@ margin-bottom:50px;
 /* 버튼 */
 
 /* =========================
-   의뢰하기 버튼
+   Jessica 의뢰하기 버튼
 ========================= */
 
 .mainButton{
 
-position:relative;
-
 display:flex !important;
 
-align-items:center !important;
+width:280px !important;
+height:80px !important;
 
+align-items:center !important;
 justify-content:center !important;
 
-width:260px;
+position:relative;
 
-height:75px;
+box-sizing:border-box;
 
-padding:0 !important;
+margin:auto;
 
-border-radius:15px;
+border-radius:18px;
 
 background:
+
 linear-gradient(
 135deg,
-rgba(255,255,255,0.12),
+rgba(255,255,255,0.15),
 rgba(255,255,255,0.03)
 );
 
-border:1px solid rgba(255,211,105,0.8);
+
+border:1px solid rgba(255,211,105,0.9);
+
 
 color:#FFD369 !important;
 
-text-decoration:none !important;
-
 font-family:'Noto Sans KR', sans-serif;
 
-font-size:22px;
+font-size:22px !important;
 
 font-weight:700;
 
-letter-spacing:3px;
+letter-spacing:4px;
+
+
+text-decoration:none !important;
+
 
 overflow:hidden;
 
-backdrop-filter:blur(15px);
+
+backdrop-filter:blur(20px);
+
 
 box-shadow:
-0 0 20px rgba(255,211,105,0.25);
 
-transition:0.5s;
+0 0 25px rgba(255,211,105,0.25);
+
+
+transition:.5s;
 
 }
+
+
+
+/* 링크 기본 스타일 제거 */
+
+.mainButton,
+.mainButton:hover,
+.mainButton:visited,
+.mainButton:active{
+
+text-decoration:none !important;
+
+}
+
 
 
 /* 글자 */
@@ -213,15 +236,13 @@ transition:0.5s;
 
 position:relative;
 
-z-index:5;
+z-index:10;
 
 display:block;
 
-color:#FFD369;
+color:#FFD369 !important;
 
-line-height:1;
-
-transform:translateY(1px);
+white-space:nowrap;
 
 }
 
@@ -231,70 +252,97 @@ transform:translateY(1px);
 
 .mainButton::before{
 
+
 content:"";
 
 position:absolute;
+
 
 top:0;
 
 left:-120%;
 
-width:80%;
+
+width:60%;
 
 height:100%;
+
 
 background:
 
 linear-gradient(
 120deg,
 transparent,
-rgba(255,255,255,0.7),
+rgba(255,255,255,0.8),
 transparent
 );
 
+
 transform:skewX(-25deg);
 
-animation:buttonShine 3s infinite;
+
+animation:shine 3s infinite;
+
 
 }
 
 
-@keyframes buttonShine{
+
+
+@keyframes shine{
+
 
 0%{
+
 left:-120%;
+
 }
+
 
 40%{
-left:120%;
+
+left:130%;
+
 }
+
 
 100%{
-left:120%;
-}
+
+left:130%;
 
 }
 
 
-/* 마우스 효과 */
+}
+
+
+
+
 
 .mainButton:hover{
 
-transform:translateY(-5px);
+
+transform:translateY(-6px);
+
 
 border-color:#7B2CFF;
 
+
 box-shadow:
 
-0 0 30px #7B2CFF,
-0 0 70px rgba(123,44,255,.6);
+0 0 35px #7B2CFF,
+0 0 80px rgba(123,44,255,.6);
+
 
 }
+
 
 
 .mainButton:hover span{
 
-color:white;
+
+color:white !important;
+
 
 }
 
