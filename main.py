@@ -19,11 +19,11 @@ html,body{ background:#050505; }
                 linear-gradient(180deg, #050505, #100020, #050505);
     min-height:100vh; padding-bottom:80px;
 }
-.hero{ height:75vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; }
+.hero{ height:60vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; }
 .logo{ font-family:'Orbitron'; font-size:22px; letter-spacing:12px; color:#FFD369; margin-bottom:30px; }
 .title{ font-family:'Cinzel'; font-size:100px; letter-spacing:18px; color:white; text-shadow:0 0 25px rgba(255,255,255,.5); }
 .subtitle{ font-family:'Orbitron'; font-size:38px; letter-spacing:12px; color:#9b55ff; margin-top:20px; margin-bottom:40px; }
-.desc{ font-family:'Noto Sans KR'; font-size:22px; line-height:1.8; color:#ddd; }
+.desc{ font-family:'Noto Sans KR'; font-size:22px; line-height:1.8; color:#ddd; margin-bottom: 20px; }
 
 .cards{ display:flex; justify-content:center; gap:30px; flex-wrap:wrap; }
 .card{ width:250px; padding:35px; border-radius:25px; background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.18); backdrop-filter:blur(20px); transition:.4s; }
@@ -31,6 +31,19 @@ html,body{ background:#050505; }
 .icon{ font-size:55px; margin-bottom:20px; }
 .cardTitle{ font-family:'Noto Sans KR'; font-size:25px; font-weight:700; color:white; margin-bottom:15px; }
 .cardText{ font-family:'Noto Sans KR'; font-size:15px; line-height:1.7; color:#ccc; }
+
+/* 버튼 강제 스타일: 크고 중앙에 위치 */
+div[data-testid="stButton"] button {
+    width: 250px !important;
+    height: 60px !important;
+    font-size: 18px !important;
+    font-weight: bold !important;
+    background-color: #FFD369 !important;
+    color: black !important;
+    border-radius: 30px !important;
+    margin: 20px auto !important;
+    display: block !important;
+}
 </style>
 """, unsafe_allow_html=True)
 
@@ -43,7 +56,6 @@ st.markdown("""
         <div class="desc">진실은 언제나 흔적을 남깁니다.<br>당신의 의뢰는 안전하게 보호됩니다.</div>
 """, unsafe_allow_html=True)
 
-# 여기에 버튼 추가 (hero 영역 내 배치)
 if st.button("🔐 의뢰하기"):
     st.switch_page("pages/1_의뢰하기.py")
 
