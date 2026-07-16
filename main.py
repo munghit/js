@@ -957,8 +957,11 @@ with center:
 )
            
 
-            st.success(
-                "🔐 사건 접수가 완료되었습니다.
-Jessica Detective Agency가
-진실을 향한 첫 번째 분석을 시작합니다."
-            )
+           st.success(
+    """
+    🔐 사건 접수가 완료되었습니다.
+
+    Jessica Detective Agency가
+    진실을 향한 첫 번째 분석을 시작합니다.
+    """
+)
