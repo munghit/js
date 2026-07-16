@@ -922,15 +922,18 @@ with center:
         ]
     )
 
+
     name = st.text_input(
         "의뢰인 이름",
         placeholder="이름을 입력해주세요"
     )
 
+
     contact = st.text_input(
         "연락 방법",
         placeholder="전화번호 또는 이메일"
     )
+
 
     detail = st.text_area(
         "의뢰 내용",
@@ -938,12 +941,15 @@ with center:
         placeholder="상세한 의뢰 내용을 입력해주세요."
     )
 
+
     agree = st.checkbox(
         "개인정보 보호 및 의뢰 접수에 동의합니다."
     )
 
 
-submit = st.button("🔐 의뢰 접수하기")
+    submit = st.button(
+        "🔐 의뢰 접수하기"
+    )
 
 
 if submit:
