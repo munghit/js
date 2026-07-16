@@ -1,71 +1,76 @@
 import streamlit as st
 
-# 페이지 설정
 st.set_page_config(
-    page_title="의뢰하기 | Jessica Detective Agency",
+    page_title="Jessica Detective Agency",
     page_icon="🕵️",
-    layout="centered"
+    layout="wide",
+    initial_sidebar_state="collapsed"
 )
 
-# 디자인 CSS
 st.markdown("""
 <style>
-    [data-testid="stSidebar"] { display: none; }
-    
-    /* 전체 배경 */
-    .stApp { background-color: #050505 !important; }
-    
-    /* 제목 */
-    .title {
-        font-family: 'Cinzel', serif;
-        color: white;
-        text-align: center;
-        font-size: 50px;
-        margin-top: 50px;
-        margin-bottom: 50px;
-    }
-    
-    /* 라벨 색상 */
-    label { color: #FFD369 !important; font-weight: bold !important; }
-    
-    /* 버튼 스타일 */
-    div.stButton > button {
-        width: 100%;
-        background: linear-gradient(135deg, rgba(255,255,255,.15), rgba(255,255,255,.03));
-        border: 1px solid #FFD369;
-        color: #FFD369;
-        font-weight: 700;
-    }
+[data-testid="stSidebar"]{ display:none; }
+#MainMenu{ visibility:hidden; }
+footer{ visibility:hidden; }
+header{ visibility:hidden; }
+.block-container{ padding:0; }
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Orbitron:wght@500;700&family=Noto+Sans+KR:wght@300;500;700&display=swap');
+html,body{ background:#050505; }
+
+.page{
+    background: radial-gradient(ellipse at 50% 10%, rgba(123,44,255,.4), transparent 45%),
+                radial-gradient(ellipse at 50% 70%, rgba(90,0,180,.25), transparent 55%),
+                linear-gradient(180deg, #050505, #100020, #050505);
+    min-height:100vh; padding-bottom:80px;
+}
+.hero{ height:75vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; }
+.logo{ font-family:'Orbitron'; font-size:22px; letter-spacing:12px; color:#FFD369; margin-bottom:30px; }
+.title{ font-family:'Cinzel'; font-size:100px; letter-spacing:18px; color:white; text-shadow:0 0 25px rgba(255,255,255,.5); }
+.subtitle{ font-family:'Orbitron'; font-size:38px; letter-spacing:12px; color:#9b55ff; margin-top:20px; margin-bottom:40px; }
+.desc{ font-family:'Noto Sans KR'; font-size:22px; line-height:1.8; color:#ddd; }
+
+.cards{ display:flex; justify-content:center; gap:30px; flex-wrap:wrap; }
+.card{ width:250px; padding:35px; border-radius:25px; background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.18); backdrop-filter:blur(20px); transition:.4s; }
+.card:hover{ transform:translateY(-12px); border-color:#7B2CFF; box-shadow:0 0 40px rgba(123,44,255,.7); }
+.icon{ font-size:55px; margin-bottom:20px; }
+.cardTitle{ font-family:'Noto Sans KR'; font-size:25px; font-weight:700; color:white; margin-bottom:15px; }
+.cardText{ font-family:'Noto Sans KR'; font-size:15px; line-height:1.7; color:#ccc; }
+
+/* 버튼 디자인 */
+div[data-testid="stButton"] button {
+    width: 280px !important; height: 80px !important; border-radius: 18px !important;
+    background: linear-gradient(135deg, rgba(255,255,255,.15), rgba(255,255,255,.03)) !important;
+    border: 1px solid #FFD369 !important; color: #FFD369 !important;
+    font-family: 'Noto Sans KR'; font-size: 22px !important; font-weight: 700 !important;
+    letter-spacing: 4px !important; box-shadow: 0 0 25px rgba(255,211,105,.3); transition: .5s;
+}
+div[data-testid="stButton"] button:hover { transform: translateY(-6px); border-color: #7B2CFF !important; color: white !important; box-shadow: 0 0 40px #7B2CFF, 0 0 90px rgba(123,44,255,.6); }
 </style>
 """, unsafe_allow_html=True)
 
+st.markdown("""
+<div class="page">
+    <div class="hero">
+        <div class="logo">JESSICA</div>
+        <div class="title">DETECTIVE</div>
+        <div class="subtitle">AGENCY</div>
+        <div class="desc">진실은 언제나 흔적을 남깁니다.<br>당신의 의뢰는 안전하게 보호됩니다.</div>
+    </div>
+""", unsafe_allow_html=True)
 
-
-# =========================
-# 의뢰하기 페이지 이동 버튼
-# =========================
+# 의뢰하기 버튼
 col1, col2, col3 = st.columns([1, 2, 1])
 with col2:
     if st.button("🔐 의뢰하기"):
         st.switch_page("pages/1_의뢰하기.py")
-        
-# 페이지 내용
-st.markdown('<div class="title">REQUEST</div>', unsafe_allow_html=True)
 
-with st.form("request_form"):
-    name = st.text_input("의뢰인 성함")
-    contact = st.text_input("연락처 (이메일 또는 전화번호)")
-    category = st.selectbox("의뢰 유형", ["사람 찾기", "사실 조사", "디지털 분석", "기업 조사", "기타"])
-    details = st.text_area("상세 내용", height=200, placeholder="의뢰하실 내용을 상세히 적어주세요.")
-    
-    submitted = st.form_submit_button("의뢰 제출하기")
-    
-    if submitted:
-        if name and details:
-            st.success("의뢰가 안전하게 접수되었습니다.")
-        else:
-            st.error("성함과 상세 내용을 모두 입력해주세요.")
-
-# 홈으로 돌아가기 버튼
-if st.button("홈으로 돌아가기"):
-    st.switch_page("main.py")
+st.markdown("""
+    <div class="cards">
+        <div class="card"><div class="icon">🔍</div><div class="cardTitle">사람 찾기</div><div class="cardText">실종자 및 연락 두절 관련<br>상담 서비스를 제공합니다.</div></div>
+        <div class="card"><div class="icon">📁</div><div class="cardTitle">사실 조사</div><div class="cardText">공개 자료 기반<br>사실관계를 분석합니다.</div></div>
+        <div class="card"><div class="icon">💻</div><div class="cardTitle">디지털 분석</div><div class="cardText">디지털 자료 분석과<br>상담을 제공합니다.</div></div>
+        <div class="card"><div class="icon">🏢</div><div class="cardTitle">기업 조사</div><div class="cardText">기업 관련 공개 정보를<br>분석합니다.</div></div>
+    </div>
+</div>
+""", unsafe_allow_html=True)
