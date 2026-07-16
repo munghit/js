@@ -947,7 +947,7 @@ with center:
         else:
 
             response = requests.post(
-                "https://formsubmit.co/ajax/사용자이메일주소",
+                "https://formsubmit.co/ajax/ruddms080924@gmail.com",
                 data={
                     "의뢰 유형": category,
                     "의뢰인 이름": name,
