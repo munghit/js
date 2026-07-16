@@ -28,7 +28,7 @@ html,body{ background:#050505; }
 .logo{ font-family:'Orbitron'; font-size:22px; letter-spacing:12px; color:#FFD369; margin-bottom:30px; }
 .title{ font-family:'Cinzel'; font-size:100px; letter-spacing:18px; color:white; text-shadow:0 0 25px rgba(255,255,255,.5); }
 .subtitle{ font-family:'Orbitron'; font-size:38px; letter-spacing:12px; color:#9b55ff; margin-top:20px; margin-bottom:40px; }
-.desc{ font-family:'Noto Sans KR'; font-size:22px; line-height:1.8; color:#ddd; }
+.desc{ font-family:'Noto Sans KR'; font-size:22px; line-height:1.8; color:#ddd; margin-bottom: 30px;}
 
 .cards{ display:flex; justify-content:center; gap:30px; flex-wrap:wrap; }
 .card{ width:250px; padding:35px; border-radius:25px; background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.18); backdrop-filter:blur(20px); transition:.4s; }
@@ -49,23 +49,21 @@ div[data-testid="stButton"] button:hover { transform: translateY(-6px); border-c
 </style>
 """, unsafe_allow_html=True)
 
+st.markdown('<div class="page">', unsafe_allow_html=True)
 st.markdown("""
-<div class="page">
     <div class="hero">
         <div class="logo">JESSICA</div>
         <div class="title">DETECTIVE</div>
         <div class="subtitle">AGENCY</div>
         <div class="desc">진실은 언제나 흔적을 남깁니다.<br>당신의 의뢰는 안전하게 보호됩니다.</div>
-    </div>
 """, unsafe_allow_html=True)
 
-# 의뢰하기 버튼
-col1, col2, col3 = st.columns([1, 2, 1])
-with col2:
-    if st.button("🔐 의뢰하기"):
-        st.switch_page("pages/1_의뢰하기.py")
+# 버튼이 hero 영역 안에 위치하도록 명시적 추가
+if st.button("🔐 의뢰하기"):
+    st.switch_page("pages/1_의뢰하기.py")
 
 st.markdown("""
+    </div>
     <div class="cards">
         <div class="card"><div class="icon">🔍</div><div class="cardTitle">사람 찾기</div><div class="cardText">실종자 및 연락 두절 관련<br>상담 서비스를 제공합니다.</div></div>
         <div class="card"><div class="icon">📁</div><div class="cardTitle">사실 조사</div><div class="cardText">공개 자료 기반<br>사실관계를 분석합니다.</div></div>
