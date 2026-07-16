@@ -6,31 +6,33 @@ import streamlit as st
 # =========================
 
 st.set_page_config(
-    page_title="Jessica Detective Agency",
-    page_icon="🕵️",
-    layout="wide",
-    initial_sidebar_state="collapsed"
+    page_title="의뢰하기 | Jessica Detective Agency",
+    page_icon="🔐",
+    layout="wide"
 )
 
 
 
 # =========================
-# 기본 UI 제거
+# 기본 설정
 # =========================
 
 st.markdown("""
 <style>
 
+
 #MainMenu{
-visibility:hidden;
+display:none;
 }
+
 
 footer{
-visibility:hidden;
+display:none;
 }
 
+
 header{
-visibility:hidden;
+display:none;
 }
 
 
@@ -39,39 +41,16 @@ display:none;
 }
 
 
-.stApp{
-
-background:#050505;
-
-}
-
 
 .block-container{
 
-padding:0;
+padding-top:0;
 
 }
 
-</style>
-""", unsafe_allow_html=True)
 
 
-
-# =========================
-# 전체 CSS
-# =========================
-
-st.markdown("""
-<style>
-
-
-@import url(
-'https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Orbitron:wght@500;700&family=Noto+Sans+KR:wght@300;500;700&display=swap'
-);
-
-
-
-.page{
+.stApp{
 
 
 background:
@@ -81,7 +60,7 @@ radial-gradient(
 
 ellipse at 50% 10%,
 
-rgba(123,44,255,.4),
+rgba(123,44,255,.45),
 
 transparent 45%
 
@@ -91,7 +70,7 @@ transparent 45%
 
 radial-gradient(
 
-ellipse at 50% 70%,
+ellipse at 50% 80%,
 
 rgba(90,0,180,.25),
 
@@ -115,172 +94,157 @@ linear-gradient(
 
 
 
-min-height:100vh;
-
-padding-bottom:150px;
-
-}
-
-
-
-
-/* HERO */
-
-
-.hero{
-
-
-height:80vh;
-
-
-display:flex;
-
-
-flex-direction:column;
-
-
-justify-content:center;
-
-
-align-items:center;
-
-
-text-align:center;
+background-attachment:fixed;
 
 
 }
 
+
+
+</style>
+""", unsafe_allow_html=True)
+
+
+
+# =========================
+# 디자인
+# =========================
+
+st.markdown("""
+<style>
+
+
+@import url(
+'https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Noto+Sans+KR:wght@300;500;700&display=swap'
+);
+
+
+
+.container{
+
+
+max-width:900px;
+
+margin:auto;
+
+padding-top:80px;
+
+}
 
 
 
 .logo{
 
 
-font-family:'Orbitron';
-
-
-font-size:22px;
-
-
-letter-spacing:12px;
-
-
-color:#FFD369;
-
-
-margin-bottom:30px;
-
-
-}
-
-
-
-
-.title{
-
-
 font-family:'Cinzel';
 
+font-size:65px;
 
-font-size:100px;
-
-
-letter-spacing:18px;
-
+letter-spacing:10px;
 
 color:white;
 
-
+text-align:center;
 
 text-shadow:
 
-
-0 0 25px rgba(255,255,255,.4);
-
-
+0 0 30px rgba(255,255,255,.4);
 
 }
 
 
 
-
-.subtitle{
-
-
-font-family:'Orbitron';
+.sub{
 
 
-font-size:38px;
-
-
-letter-spacing:12px;
-
-
-color:#9b55ff;
-
-
-margin-top:20px;
-
-
-margin-bottom:40px;
-
-
-}
-
-
-
-
-.desc{
-
+text-align:center;
 
 font-family:'Noto Sans KR';
 
+font-size:24px;
 
-font-size:22px;
+color:#9b55ff;
+
+margin-top:20px;
+
+margin-bottom:60px;
+
+}
 
 
-line-height:1.8;
+
+.box{
 
 
-color:#ddd;
+background:
+
+rgba(255,255,255,.08);
 
 
-margin-bottom:55px;
+border:
+
+1px solid rgba(255,255,255,.2);
+
+
+border-radius:30px;
+
+
+padding:45px;
+
+
+backdrop-filter:blur(20px);
+
+
+box-shadow:
+
+0 0 40px rgba(123,44,255,.25);
 
 
 }
 
 
 
-
-/* 의뢰 버튼 */
-
-
-.request-area{
+label{
 
 
-display:flex;
+color:#FFD369 !important;
 
-justify-content:center;
-
-align-items:center;
+font-weight:700;
 
 }
 
 
 
-.request-area button{
+.stTextInput input,
+.stTextArea textarea,
+.stSelectbox div{
 
 
-width:360px !important;
+background:
+
+rgba(255,255,255,.08) !important;
 
 
-height:95px !important;
+color:white !important;
+
+
+border-radius:12px !important;
+
+
+}
 
 
 
-border-radius:25px !important;
+.stButton button{
 
+
+width:100%;
+
+
+height:65px;
+
+
+border-radius:18px;
 
 
 background:
@@ -290,29 +254,23 @@ linear-gradient(
 
 135deg,
 
-rgba(255,211,105,.25),
+rgba(255,211,105,.3),
 
-rgba(123,44,255,.25)
+rgba(123,44,255,.5)
 
-) !important;
-
-
-
-border:
-
-2px solid #FFD369 !important;
+);
 
 
 
-color:#FFD369 !important;
+border:1px solid #FFD369;
 
 
 
-font-family:'Noto Sans KR';
+color:#FFD369;
 
 
 
-font-size:30px !important;
+font-size:22px;
 
 
 
@@ -320,209 +278,44 @@ font-weight:700;
 
 
 
-letter-spacing:6px;
-
-
-
-box-shadow:
-
-
-0 0 30px rgba(255,211,105,.5),
-
-
-0 0 80px rgba(123,44,255,.3);
-
-
-
-transition:.5s;
-
-
-}
-
-
-
-.request-area button:hover{
-
-
-transform:scale(1.08);
-
-
-
-border-color:white !important;
-
-
-
-box-shadow:
-
-
-0 0 50px #FFD369,
-
-
-0 0 120px rgba(123,44,255,.8);
-
-
-
-}
-
-
-
-
-/* 카드 */
-
-
-.cards{
-
-
-display:flex;
-
-
-justify-content:center;
-
-
-gap:30px;
-
-
-flex-wrap:wrap;
-
-
-}
-
-
-
-
-
-.card{
-
-
-width:250px;
-
-
-padding:35px;
-
-
-
-border-radius:25px;
-
-
-
-background:
-
-rgba(255,255,255,.07);
-
-
-
-border:
-
-1px solid rgba(255,255,255,.18);
-
-
-
-backdrop-filter:blur(20px);
+letter-spacing:5px;
 
 
 
 transition:.4s;
 
 
-
 }
 
 
 
-.card:hover{
+.stButton button:hover{
 
 
-transform:translateY(-12px);
-
-
-
-border-color:#7B2CFF;
+transform:translateY(-5px);
 
 
 
 box-shadow:
 
-0 0 40px rgba(123,44,255,.7);
 
-
-
-}
-
-
-
-
-.icon{
-
-
-font-size:55px;
-
-
-margin-bottom:20px;
-
-
-}
-
-
-
-
-
-.cardTitle{
-
-
-font-family:'Noto Sans KR';
-
-
-font-size:25px;
-
-
-font-weight:700;
-
-
-color:white;
-
-
-margin-bottom:15px;
-
-
-}
-
-
-
-
-
-.cardText{
-
-
-font-family:'Noto Sans KR';
-
-
-font-size:15px;
-
-
-line-height:1.7;
-
-
-color:#ccc;
+0 0 40px #FFD369;
 
 
 }
 
 
 </style>
-""", unsafe_allow_string=True)
+""", unsafe_allow_html=True)
 
 
 
 # =========================
-# 메인 영역
+# 화면
 # =========================
 
 st.markdown("""
-<div class="page">
-
-
-<div class="hero">
-
+<div class="container">
 
 <div class="logo">
 
@@ -531,151 +324,100 @@ JESSICA
 </div>
 
 
-<div class="title">
+<div class="sub">
 
-DETECTIVE
-
-</div>
-
-
-
-<div class="subtitle">
-
-AGENCY
+CONFIDENTIAL REQUEST
 
 </div>
 
 
-
-<div class="desc">
-
-진실은 언제나 흔적을 남깁니다.<br>
-
-당신의 의뢰는 안전하게 보호됩니다.
-
-</div>
-
+<div class="box">
 
 """, unsafe_allow_html=True)
 
 
 
-# =========================
-# 버튼
-# =========================
-
-
 st.markdown(
 """
-<div class="request-area">
-""",
-unsafe_allow_html=True
-)
+### 🔐 의뢰 접수
 
-
-if st.button("🔐 의뢰하기"):
-
-    st.switch_page("pages/1_의뢰하기.py")
-
-
-st.markdown(
+당신의 요청은 철저하게 보호됩니다.
 """
-</div>
-
-</div>
-""",
-unsafe_allow_html=True
 )
 
 
 
 # =========================
-# 카드
+# 입력
 # =========================
 
 
-st.markdown("""
-<div class="cards">
-
-
-<div class="card">
-
-<div class="icon">
-🔍
-</div>
-
-<div class="cardTitle">
-사람 찾기
-</div>
-
-<div class="cardText">
-실종자 및 연락 두절 관련<br>
-상담 서비스를 제공합니다.
-</div>
-
-</div>
+category = st.selectbox(
+    "의뢰 유형",
+    [
+        "사람 찾기",
+        "사실 조사",
+        "디지털 분석",
+        "기업 조사",
+        "기타"
+    ]
+)
 
 
 
-<div class="card">
-
-<div class="icon">
-📁
-</div>
-
-<div class="cardTitle">
-사실 조사
-</div>
-
-<div class="cardText">
-공개 자료 기반<br>
-사실관계를 분석합니다.
-</div>
-
-</div>
+name = st.text_input(
+    "의뢰인 이름"
+)
 
 
 
-<div class="card">
-
-<div class="icon">
-💻
-</div>
-
-<div class="cardTitle">
-디지털 분석
-</div>
-
-<div class="cardText">
-디지털 자료 분석과<br>
-상담을 제공합니다.
-</div>
-
-</div>
+contact = st.text_input(
+    "연락 방법"
+)
 
 
 
-<div class="card">
+detail = st.text_area(
+    "의뢰 내용",
+    height=200,
+    placeholder="조사하고 싶은 내용을 자세히 작성해주세요."
+)
 
-<div class="icon">
-🏢
-</div>
 
-<div class="cardTitle">
-기업 조사
-</div>
 
-<div class="cardText">
-기업 관련 공개 정보를<br>
-분석합니다.
+agree = st.checkbox(
+    "개인정보 보호 및 의뢰 접수에 동의합니다."
+)
+
+
+
+if st.button("🔐 의뢰 접수하기"):
+
+    if not agree:
+
+        st.warning(
+            "의뢰 접수를 위해 동의가 필요합니다."
+        )
+
+    elif name == "" or contact == "":
+
+        st.warning(
+            "이름과 연락 방법을 입력해주세요."
+        )
+
+    else:
+
+        st.success(
+            "의뢰가 안전하게 접수되었습니다."
+        )
+
+
+
+st.markdown(
+"""
 </div>
 
 </div>
-
-
-</div>
-
-
-</div>
-
-""", unsafe_allow_html=True)
+""",
+unsafe_allow_html=True
+)
