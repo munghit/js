@@ -931,7 +931,7 @@ with center:
     )
 
 
-       if st.button("🔐 의뢰 접수하기"):
+    if st.button("🔐 의뢰 접수하기"):
 
         if (
             name.strip() == ""
@@ -963,5 +963,7 @@ with center:
 
                 남겨주신 정보는 안전하게 보호되며,
                 Jessica Detective Agency가 분석을 시작합니다.
+                """
+            )
                 """
             )
