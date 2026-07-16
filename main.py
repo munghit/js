@@ -782,9 +782,9 @@ st.markdown("""
 
 <div class="cardText">
 
-공개 자료 기반<br>
+타겟에 대한 모든것<br>
 
-사실관계를 분석합니다.
+진실을 찾습니다.
 
 </div>
 
@@ -828,7 +828,7 @@ st.markdown("""
 
 <div class="cardText">
 
-기업 관련 공개 정보를<br>
+기업 관련 정보를<br>
 
 분석합니다.
 
