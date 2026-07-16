@@ -1,4 +1,5 @@
 import streamlit as st
+import streamlit.components.v1 as components
 
 
 # =========================
@@ -58,7 +59,7 @@ padding:0;
 
 
 # =========================
-# 전체 CSS
+# CSS
 # =========================
 
 st.markdown("""
@@ -75,20 +76,17 @@ st.markdown("""
 
 background:
 
-
 radial-gradient(
 ellipse at 50% 10%,
 rgba(123,44,255,.4),
 transparent 45%
 ),
 
-
 radial-gradient(
 ellipse at 50% 70%,
 rgba(90,0,180,.25),
 transparent 55%
 ),
-
 
 linear-gradient(
 180deg,
@@ -126,7 +124,6 @@ text-align:center;
 
 
 
-
 .logo{
 
 font-family:'Orbitron';
@@ -140,7 +137,6 @@ color:#FFD369;
 margin-bottom:30px;
 
 }
-
 
 
 
@@ -163,7 +159,6 @@ text-shadow:
 
 
 
-
 .subtitle{
 
 font-family:'Orbitron';
@@ -174,13 +169,11 @@ letter-spacing:12px;
 
 color:#9b55ff;
 
-
 margin-top:20px;
 
 margin-bottom:40px;
 
 }
-
 
 
 
@@ -193,116 +186,6 @@ font-size:22px;
 line-height:1.8;
 
 color:#ddd;
-
-}
-
-
-
-/* 버튼 */
-
-.request-area{
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-margin-top:35px;
-
-}
-
-
-
-.request-area button{
-
-
-width:300px !important;
-
-height:75px !important;
-
-
-
-border-radius:20px !important;
-
-
-
-background:
-
-
-linear-gradient(
-
-135deg,
-
-rgba(255,211,105,.18),
-
-rgba(123,44,255,.25)
-
-) !important;
-
-
-
-border:
-
-1px solid #FFD369 !important;
-
-
-
-color:#FFD369 !important;
-
-
-
-font-family:'Noto Sans KR';
-
-
-
-font-size:24px !important;
-
-
-
-font-weight:700;
-
-
-
-letter-spacing:5px;
-
-
-
-box-shadow:
-
-
-0 0 25px rgba(255,211,105,.35);
-
-
-
-transition:.4s;
-
-
-
-}
-
-
-
-.request-area button:hover{
-
-
-transform:
-
-translateY(-8px)
-
-scale(1.05);
-
-
-
-box-shadow:
-
-
-0 0 45px #FFD369,
-
-
-0 0 90px rgba(123,44,255,.6);
-
-
 
 }
 
@@ -330,7 +213,6 @@ width:250px;
 
 padding:35px;
 
-
 border-radius:25px;
 
 
@@ -355,7 +237,6 @@ transition:.4s;
 
 .card:hover{
 
-
 transform:translateY(-12px);
 
 
@@ -365,8 +246,6 @@ border-color:#7B2CFF;
 box-shadow:
 
 0 0 40px rgba(123,44,255,.7);
-
-
 
 }
 
@@ -379,7 +258,6 @@ font-size:55px;
 margin-bottom:20px;
 
 }
-
 
 
 
@@ -399,7 +277,6 @@ margin-bottom:15px;
 
 
 
-
 .cardText{
 
 font-family:'Noto Sans KR';
@@ -414,12 +291,13 @@ color:#ccc;
 
 
 </style>
+
 """, unsafe_allow_html=True)
 
 
 
 # =========================
-# 메인 화면 + 버튼
+# 메인 화면
 # =========================
 
 st.markdown("""
@@ -462,24 +340,150 @@ AGENCY
 
 
 
-# 버튼
+# =========================
+# 의뢰 버튼 (HTML)
+# =========================
 
-st.markdown("""
-<div class="request-area">
-""", unsafe_allow_html=True)
+components.html(
+"""
+
+<style>
+
+body{
+
+margin:0;
+
+background:transparent;
+
+display:flex;
+
+justify-content:center;
+
+}
 
 
 
-if st.button("🔐 의뢰하기"):
-
-    st.switch_page("pages/1_의뢰하기.py")
+.btn{
 
 
+width:300px;
 
-st.markdown("""
+height:75px;
+
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+
+border-radius:20px;
+
+
+background:
+
+
+linear-gradient(
+
+135deg,
+
+rgba(255,211,105,.25),
+
+rgba(123,44,255,.35)
+
+);
+
+
+
+border:
+
+1px solid #FFD369;
+
+
+
+color:#FFD369;
+
+
+
+font-family:'Noto Sans KR';
+
+
+
+font-size:24px;
+
+
+
+font-weight:700;
+
+
+
+letter-spacing:5px;
+
+
+
+box-shadow:
+
+
+0 0 25px rgba(255,211,105,.5);
+
+
+
+transition:.4s;
+
+
+
+}
+
+
+
+.btn:hover{
+
+
+transform:
+
+translateY(-8px)
+
+scale(1.05);
+
+
+
+box-shadow:
+
+
+0 0 50px #FFD369,
+
+
+0 0 100px rgba(123,44,255,.8);
+
+
+
+}
+
+
+</style>
+
+
+
+<a href="/1_의뢰하기" style="text-decoration:none;">
+
+<div class="btn">
+
+🔐 의뢰하기
+
 </div>
 
 
+</a>
+
+
+""",
+height=120
+)
+
+
+
+st.markdown("""
 </div>
 
 """, unsafe_allow_html=True)
