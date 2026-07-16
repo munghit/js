@@ -963,17 +963,6 @@ with center:
 
         else:
 
-            db.collection("requests").add({
-
-                "category": category,
-                "name": name,
-                "contact": contact,
-                "detail": detail,
-                "status": "접수 완료"
-
-            })
-
-
-            st.success(
-                "✅ 의뢰가 접수되었습니다."
-            )
+    st.success(
+        "✅ 의뢰가 접수되었습니다."
+    )
