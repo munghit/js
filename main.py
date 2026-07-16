@@ -1,5 +1,4 @@
 import streamlit as st
-import streamlit.components.v1 as components
 
 
 # =========================
@@ -39,16 +38,16 @@ visibility:hidden;
 }
 
 
-.block-container{
+.stApp{
 
-padding:0;
+background:#050505;
 
 }
 
 
-.main{
+.block-container{
 
-background:#050505;
+padding:0;
 
 }
 
@@ -80,7 +79,6 @@ background:#050505;
 
 
 
-/* 전체 배경 */
 
 .page{
 
@@ -128,17 +126,12 @@ linear-gradient(
 
 min-height:100vh;
 
-
-
-padding-bottom:120px;
+padding-bottom:150px;
 
 
 }
 
 
-
-
-/* HERO */
 
 
 .hero{
@@ -164,7 +157,6 @@ text-align:center;
 
 
 }
-
 
 
 
@@ -220,7 +212,6 @@ text-shadow:
 
 
 
-
 .subtitle{
 
 
@@ -265,33 +256,6 @@ color:#ddd;
 }
 
 
-
-
-
-/* 버튼 위치 */
-
-
-.buttonArea{
-
-
-display:flex;
-
-
-justify-content:center;
-
-
-align-items:center;
-
-
-margin-bottom:100px;
-
-
-}
-
-
-
-
-/* 카드 */
 
 
 .cards{
@@ -348,7 +312,9 @@ backdrop-filter:blur(20px);
 transition:.4s;
 
 
+
 }
+
 
 
 
@@ -385,6 +351,7 @@ margin-bottom:20px;
 
 
 }
+
 
 
 
@@ -429,19 +396,21 @@ color:#ccc;
 }
 
 
-</style>
 
+</style>
 """, unsafe_allow_html=True)
 
 
 
 
+
 # =========================
-# 시작
+# 메인 화면
 # =========================
 
 
 st.markdown("""
+
 <div class="page">
 
 
@@ -484,269 +453,11 @@ AGENCY
 </div>
 
 
-<div class="buttonArea">
 
-</div>
 
-""", unsafe_allow_html=True)
-
-
-
-
-# =========================
-# 의뢰 버튼
-# =========================
-
-
-components.html(
-"""
-
-<style>
-
-
-body{
-
-margin:0;
-
-background:transparent;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-}
-
-
-
-.caseButton{
-
-
-width:280px;
-
-
-height:80px;
-
-
-
-display:flex;
-
-
-align-items:center;
-
-
-justify-content:center;
-
-
-
-border-radius:18px;
-
-
-
-background:
-
-
-linear-gradient(
-
-135deg,
-
-rgba(255,255,255,.15),
-
-rgba(255,255,255,.03)
-
-);
-
-
-
-border:1px solid #FFD369;
-
-
-
-color:#FFD369;
-
-
-
-font-family:'Noto Sans KR';
-
-
-
-font-size:22px;
-
-
-
-font-weight:700;
-
-
-
-letter-spacing:4px;
-
-
-
-overflow:hidden;
-
-
-
-position:relative;
-
-
-
-cursor:pointer;
-
-
-
-box-shadow:
-
-
-0 0 25px rgba(255,211,105,.3);
-
-
-
-transition:.5s;
-
-
-}
-
-
-
-.caseButton::before{
-
-
-content:"";
-
-
-position:absolute;
-
-
-top:0;
-
-
-left:-120%;
-
-
-
-width:70%;
-
-
-height:100%;
-
-
-
-background:
-
-
-linear-gradient(
-
-120deg,
-
-transparent,
-
-rgba(255,255,255,.9),
-
-transparent
-
-);
-
-
-
-transform:skewX(-25deg);
-
-
-
-animation:shine 3s infinite;
-
-
-}
-
-
-
-
-@keyframes shine{
-
-
-0%{
-
-left:-120%;
-
-}
-
-
-40%{
-
-left:130%;
-
-}
-
-
-100%{
-
-left:130%;
-
-}
-
-
-}
-
-
-
-.caseButton:hover{
-
-
-transform:translateY(-6px);
-
-
-
-border-color:#7B2CFF;
-
-
-
-box-shadow:
-
-
-0 0 40px #7B2CFF,
-
-
-0 0 90px rgba(123,44,255,.6);
-
-
-
-}
-
-
-</style>
-
-
-
-<a href="/1_의뢰하기" style="text-decoration:none">
-
-
-<div class="caseButton">
-
-🔐 의뢰하기
-
-</div>
-
-
-</a>
-
-
-""",
-
-height=150
-
-)
-
-
-
-
-# =========================
-# 카드
-# =========================
-
-
-st.markdown("""
 
 <div class="cards">
+
 
 
 <div class="card">
@@ -775,6 +486,7 @@ st.markdown("""
 
 
 </div>
+
 
 
 
@@ -809,6 +521,7 @@ st.markdown("""
 
 
 
+
 <div class="card">
 
 <div class="icon">
@@ -835,6 +548,7 @@ st.markdown("""
 
 
 </div>
+
 
 
 
