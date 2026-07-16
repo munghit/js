@@ -39,64 +39,43 @@ display:none;
 }
 
 
-
 .block-container{
-
 padding:0;
-
 }
 
 
 
 .stApp{
 
-
 background:
 
 
 radial-gradient(
-
 ellipse at 50% 10%,
-
 rgba(123,44,255,.45),
-
 transparent 45%
-
 ),
-
 
 
 radial-gradient(
-
 ellipse at 50% 70%,
-
 rgba(90,0,180,.3),
-
 transparent 55%
-
 ),
 
 
-
 linear-gradient(
-
 180deg,
-
 #050505,
-
 #100020,
-
 #050505
-
 );
-
 
 
 background-attachment:fixed;
 
 
 min-height:100vh;
-
 
 }
 
@@ -108,7 +87,7 @@ min-height:100vh;
 
 
 # =========================
-# CSS
+# 전체 CSS
 # =========================
 
 st.markdown("""
@@ -121,27 +100,21 @@ st.markdown("""
 
 
 
+/* HERO */
 
 .hero{
 
-
 height:85vh;
-
 
 display:flex;
 
-
 flex-direction:column;
-
 
 justify-content:center;
 
-
 align-items:center;
 
-
 text-align:center;
-
 
 }
 
@@ -169,6 +142,7 @@ margin-bottom:30px;
 
 
 
+
 .title{
 
 
@@ -184,15 +158,14 @@ letter-spacing:18px;
 color:white;
 
 
-
 text-shadow:
 
 
 0 0 25px rgba(255,255,255,.4);
 
 
-
 }
+
 
 
 
@@ -221,6 +194,7 @@ margin-bottom:40px;
 
 
 
+
 .desc{
 
 
@@ -237,6 +211,8 @@ color:#ddd;
 
 
 }
+
+
 
 
 
@@ -275,9 +251,7 @@ width:250px;
 padding:35px;
 
 
-
 border-radius:25px;
-
 
 
 background:
@@ -305,10 +279,12 @@ transition:.4s;
 
 
 
+
 .card:hover{
 
 
 transform:translateY(-12px);
+
 
 
 border-color:#7B2CFF;
@@ -322,6 +298,7 @@ box-shadow:
 
 
 }
+
 
 
 
@@ -360,6 +337,7 @@ margin-bottom:15px;
 
 
 
+
 .cardText{
 
 
@@ -376,6 +354,8 @@ color:#ccc;
 
 
 }
+
+
 
 
 
@@ -428,6 +408,7 @@ box-shadow:
 
 
 
+
 .request-title{
 
 
@@ -453,6 +434,7 @@ margin-bottom:20px;
 
 
 
+
 .request-desc{
 
 
@@ -472,6 +454,9 @@ margin-bottom:40px;
 
 
 }
+
+
+
 
 
 
@@ -499,6 +484,7 @@ border-radius:12px!important;
 
 
 
+
 label{
 
 
@@ -516,7 +502,9 @@ font-weight:700!important;
 
 
 
-/* 접수 버튼 */
+
+
+/* 버튼 */
 
 
 .stButton button{
@@ -548,6 +536,7 @@ rgba(123,44,255,.55)
 
 border:
 
+
 1px solid #FFD369;
 
 
@@ -568,6 +557,7 @@ letter-spacing:5px;
 
 
 }
+
 
 
 
@@ -624,13 +614,9 @@ AGENCY
 """, unsafe_allow_html=True)
 
 
-
-
-
 # =========================
 # 서비스 카드
 # =========================
-
 
 st.markdown("""
 <div class="cards">
@@ -647,11 +633,15 @@ st.markdown("""
 </div>
 
 <div class="cardText">
+
 실종자 및 연락 두절 관련<br>
+
 상담 서비스를 제공합니다.
+
 </div>
 
 </div>
+
 
 
 
@@ -667,11 +657,15 @@ st.markdown("""
 </div>
 
 <div class="cardText">
+
 공개 자료 기반<br>
+
 사실관계를 분석합니다.
+
 </div>
 
 </div>
+
 
 
 
@@ -687,11 +681,15 @@ st.markdown("""
 </div>
 
 <div class="cardText">
+
 디지털 자료 분석과<br>
+
 상담을 제공합니다.
+
 </div>
 
 </div>
+
 
 
 
@@ -707,8 +705,11 @@ st.markdown("""
 </div>
 
 <div class="cardText">
+
 기업 관련 공개 정보를<br>
+
 분석합니다.
+
 </div>
 
 </div>
@@ -723,7 +724,7 @@ st.markdown("""
 
 
 # =========================
-# 의뢰하기
+# 의뢰하기 영역
 # =========================
 
 
@@ -756,6 +757,11 @@ st.write("")
 
 
 
+# =========================
+# 입력
+# =========================
+
+
 category = st.selectbox(
     "의뢰 유형",
     [
@@ -784,7 +790,7 @@ contact = st.text_input(
 detail = st.text_area(
     "의뢰 내용",
     height=200,
-    placeholder="상세한 내용을 입력해주세요."
+    placeholder="상세한 의뢰 내용을 입력해주세요."
 )
 
 
@@ -795,22 +801,134 @@ agree = st.checkbox(
 
 
 
+
+
+# =========================
+# 접수 버튼
+# =========================
+
+
 if st.button("🔐 의뢰 접수하기"):
+
 
     if not agree:
 
+
         st.warning(
-            "동의가 필요합니다."
+            "개인정보 보호 및 의뢰 접수 동의가 필요합니다."
         )
+
+
 
     elif name == "" or contact == "":
 
+
         st.warning(
-            "이름과 연락 방법을 입력해주세요."
+            "의뢰인 이름과 연락 방법을 입력해주세요."
         )
+
+
 
     else:
 
-        st.success(
-            "의뢰가 안전하게 접수되었습니다."
-        )
+
+        st.markdown("""
+        <div style="
+
+        margin-top:40px;
+
+        padding:35px;
+
+        border-radius:30px;
+
+
+        background:
+
+        linear-gradient(
+
+        135deg,
+
+        rgba(255,211,105,.25),
+
+        rgba(123,44,255,.45)
+
+        );
+
+
+        border:1px solid #FFD369;
+
+
+        box-shadow:
+
+        0 0 40px rgba(255,211,105,.5);
+
+
+        text-align:center;
+
+
+        font-family:'Noto Sans KR';
+
+
+        ">
+
+
+
+        <div style="
+
+        font-size:50px;
+
+        margin-bottom:15px;
+
+        ">
+
+        🔐
+
+        </div>
+
+
+
+
+        <div style="
+
+        font-size:30px;
+
+        font-weight:700;
+
+        color:#FFD369;
+
+        ">
+
+        의뢰가 접수되었습니다
+
+        </div>
+
+
+
+
+        <div style="
+
+        margin-top:20px;
+
+        font-size:18px;
+
+        color:white;
+
+        line-height:1.8;
+
+        ">
+
+
+        Jessica Detective Agency가<br>
+
+        의뢰 내용을 안전하게 확인하겠습니다.<br>
+
+        빠른 시일 내에 연락드리겠습니다.
+
+
+        </div>
+
+
+
+        </div>
+
+        """, unsafe_allow_html=True)
