@@ -160,13 +160,17 @@ margin-bottom:50px;
 
 position:relative;
 
+display:flex !important;
+
+align-items:center !important;
+
+justify-content:center !important;
+
 width:260px;
+
 height:75px;
 
-display:flex;
-
-align-items:center;
-justify-content:center;
+padding:0 !important;
 
 border-radius:15px;
 
@@ -179,11 +183,11 @@ rgba(255,255,255,0.03)
 
 border:1px solid rgba(255,211,105,0.8);
 
-color:#FFD369;
+color:#FFD369 !important;
 
 text-decoration:none !important;
 
-font-family:'Noto Sans KR';
+font-family:'Noto Sans KR', sans-serif;
 
 font-size:22px;
 
@@ -196,7 +200,6 @@ overflow:hidden;
 backdrop-filter:blur(15px);
 
 box-shadow:
-
 0 0 20px rgba(255,211,105,0.25);
 
 transition:0.5s;
@@ -210,17 +213,18 @@ transition:0.5s;
 
 position:relative;
 
-z-index:2;
+z-index:5;
 
-display:flex;
+display:block;
 
-align-items:center;
+color:#FFD369;
 
-justify-content:center;
+line-height:1;
 
-transform:translateY(2px);
+transform:translateY(1px);
 
 }
+
 
 
 /* 지나가는 빛 */
@@ -233,53 +237,40 @@ position:absolute;
 
 top:0;
 
-left:-150%;
+left:-120%;
 
-width:70%;
+width:80%;
 
 height:100%;
-
 
 background:
 
 linear-gradient(
 120deg,
 transparent,
-rgba(255,255,255,0.8),
+rgba(255,255,255,0.7),
 transparent
 );
 
-
 transform:skewX(-25deg);
 
-animation:shine 3s infinite;
+animation:buttonShine 3s infinite;
 
 }
 
 
-/* 빛 이동 */
-
-@keyframes shine{
-
+@keyframes buttonShine{
 
 0%{
-
-left:-150%;
-
+left:-120%;
 }
-
 
 40%{
-
-left:150%;
-
+left:120%;
 }
 
-
 100%{
-
-left:150%;
-
+left:120%;
 }
 
 }
@@ -289,25 +280,21 @@ left:150%;
 
 .mainButton:hover{
 
-color:white;
+transform:translateY(-5px);
 
 border-color:#7B2CFF;
 
 box-shadow:
 
-0 0 25px #7B2CFF,
-0 0 60px rgba(123,44,255,0.7);
-
-transform:translateY(-5px);
+0 0 30px #7B2CFF,
+0 0 70px rgba(123,44,255,.6);
 
 }
 
 
-/* hover 하면 빛 빨라짐 */
+.mainButton:hover span{
 
-.mainButton:hover::before{
-
-animation-duration:1.2s;
+color:white;
 
 }
 
