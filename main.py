@@ -1,8 +1,5 @@
 import streamlit as st
-import firebase_admin
-from firebase_admin import credentials
-from firebase_admin import firestore
-
+import requests
 
 # =========================
 # 페이지 설정
@@ -18,19 +15,6 @@ st.set_page_config(
 # =========================
 # Firebase 연결
 # =========================
-
-if not firebase_admin._apps:
-
-    cred = credentials.Certificate(
-        "firebase_key.json"
-    )
-
-    firebase_admin.initialize_app(
-        cred
-    )
-
-
-db = firestore.client()
 
 
 
@@ -962,16 +946,16 @@ with center:
 
         else:
 
-            db.collection("requests").add({
-
-                "category": category,
-                "name": name,
-                "contact": contact,
-                "detail": detail,
-                "status": "접수 완료"
-
-            })
-
+            requests.post(
+    "https://formsubmit.co/ruddms080924@gmail.com",
+    data={
+        "의뢰 유형": category,
+        "의뢰인 이름": name,
+        "연락 방법": contact,
+        "의뢰 내용": detail
+    }
+)
+           
 
             st.success(
                 "✅ 의뢰가 접수되었습니다."
