@@ -152,35 +152,115 @@ margin-bottom:50px;
 
 /* 버튼 */
 
+/* 고급 의뢰 버튼 */
+
 .mainButton{
 
-background:#7B2CFF;
+position:relative;
 
-padding:18px 60px;
+display:inline-flex;
 
-border-radius:50px;
+align-items:center;
 
-font-size:22px;
+justify-content:center;
 
-font-weight:bold;
+gap:15px;
 
-color:white;
+padding:20px 75px;
+
+border-radius:8px;
+
+background:
+
+linear-gradient(
+135deg,
+rgba(255,255,255,0.12),
+rgba(255,255,255,0.03)
+);
+
+border:1px solid rgba(255,211,105,0.8);
+
+color:#FFD369;
+
+font-family:'Orbitron';
+
+font-size:18px;
+
+letter-spacing:4px;
 
 text-decoration:none;
 
-transition:.4s;
+overflow:hidden;
 
-box-shadow:0 0 25px #7B2CFF;
+transition:.5s;
+
+backdrop-filter:blur(15px);
+
+box-shadow:
+
+0 0 20px rgba(255,211,105,.2);
 
 }
 
+
+
+/* 빛이 지나가는 효과 */
+
+.mainButton::before{
+
+content:"";
+
+position:absolute;
+
+top:0;
+
+left:-120%;
+
+width:100%;
+
+height:100%;
+
+background:
+
+linear-gradient(
+120deg,
+transparent,
+rgba(255,255,255,.6),
+transparent
+);
+
+transition:.7s;
+
+}
+
+
+
+.mainButton:hover::before{
+
+left:120%;
+
+}
+
+
+
+/* 마우스 올렸을 때 */
+
 .mainButton:hover{
 
-background:white;
+color:white;
 
-color:#7B2CFF;
+border-color:#7B2CFF;
 
-box-shadow:0 0 60px #7B2CFF;
+background:
+
+rgba(123,44,255,.25);
+
+box-shadow:
+
+0 0 30px #7B2CFF,
+0 0 70px rgba(123,44,255,.6);
+
+transform:translateY(-5px);
 
 }
 
