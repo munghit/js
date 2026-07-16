@@ -2,79 +2,70 @@ import streamlit as st
 
 st.set_page_config(page_title="Jessica Detective Agency", layout="wide", initial_sidebar_state="collapsed")
 
-# 스타일 정의
 st.markdown("""
 <style>
-[data-testid="stSidebar"]{ display:none; }
-#MainMenu{ visibility:hidden; }
-footer{ visibility:hidden; }
-header{ visibility:hidden; }
-.block-container{ padding:0 !important; max-width: none !important; }
+/* 기본 스트림릿 초기화 */
+[data-testid="stSidebar"], header, footer, #MainMenu { display: none !important; }
 
-/* 배경 고정 및 전체 적용 */
-.bg {
+/* 배경색과 디자인 효과 완벽 복구 */
+.stApp {
     background: radial-gradient(ellipse at 50% 10%, rgba(123,44,255,.4), transparent 45%),
                 radial-gradient(ellipse at 50% 70%, rgba(90,0,180,.25), transparent 55%),
                 linear-gradient(180deg, #050505, #100020, #050505);
     background-attachment: fixed;
-    min-height: 100vh;
-    padding-bottom: 50px;
-    width: 100%;
 }
 
-.hero{ padding-top: 100px; display:flex; flex-direction:column; align-items:center; text-align:center; }
+/* 폰트 및 히어로 섹션 */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Orbitron:wght@500;700&family=Noto+Sans+KR:wght@300;500;700&display=swap');
+.hero { display:flex; flex-direction:column; align-items:center; text-align:center; padding-top: 150px; }
 .logo{ font-family:'Orbitron'; font-size:22px; letter-spacing:12px; color:#FFD369; margin-bottom:20px; }
 .title{ font-family:'Cinzel'; font-size:100px; letter-spacing:18px; color:white; text-shadow:0 0 25px rgba(255,255,255,.5); }
 .subtitle{ font-family:'Orbitron'; font-size:38px; letter-spacing:12px; color:#9b55ff; margin-top:20px; margin-bottom:20px; }
 .desc{ font-family:'Noto Sans KR'; font-size:22px; color:#ddd; margin-bottom: 40px; }
 
-/* 버튼 디자인 */
-div.stButton > button {
-    width: 250px !important;
-    height: 60px !important;
-    background: linear-gradient(135deg, #4A1291, #1A0033) !important;
-    border: 2px solid #7B2CFF !important;
-    color: #E2D5F5 !important;
-    font-weight: bold !important;
-    border-radius: 50px !important;
-    font-size: 18px !important;
-    transition: 0.3s !important;
+/* 버튼을 중앙으로 보내는 Flex 컨테이너 */
+.btn-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 60px;
 }
-div.stButton > button:hover { transform: scale(1.05); border-color: #9B55FF !important; }
+div.stButton > button {
+    width: 280px !important; height: 65px !important;
+    background: linear-gradient(135deg, #4A1291, #1A0033) !important;
+    color: #E2D5F5 !important; border: 2px solid #7B2CFF !important;
+    font-weight: 700 !important; border-radius: 50px !important;
+    font-size: 19px !important;
+}
 
-.cards{ display:flex; justify-content:center; gap:30px; flex-wrap:wrap; margin-top: 50px; }
-.card{ width:250px; padding:35px; border-radius:25px; background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.18); backdrop-filter:blur(20px); }
-.cardTitle{ color:white; font-size:25px; font-weight:700; margin-bottom:15px; }
-.cardText{ color:#ccc; font-size:15px; }
+/* 카드 */
+.cards { display:flex; justify-content:center; gap:30px; flex-wrap:wrap; }
+.card { width:250px; padding:35px; border-radius:25px; background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.18); }
 </style>
 """, unsafe_allow_html=True)
 
-# 배경 div 시작
-st.markdown('<div class="bg">', unsafe_allow_html=True)
-
-# 메인 섹션
+# 메인 콘텐츠
 st.markdown("""
-    <div class="hero">
-        <div class="logo">JESSICA</div>
-        <div class="title">DETECTIVE</div>
-        <div class="subtitle">AGENCY</div>
-        <div class="desc">진실은 언제나 흔적을 남깁니다.<br>당신의 의뢰는 안전하게 보호됩니다.</div>
-    </div>
+<div class="hero">
+    <div class="logo">JESSICA</div>
+    <div class="title">DETECTIVE</div>
+    <div class="subtitle">AGENCY</div>
+    <div class="desc">진실은 언제나 흔적을 남깁니다.<br>당신의 의뢰는 안전하게 보호됩니다.</div>
+</div>
 """, unsafe_allow_html=True)
 
-# 가장 확실한 정중앙 배치: 3등분 후 가운데 열 사용
-_, col_center, _ = st.columns([1, 1, 1])
-with col_center:
-    if st.button("🔐 의뢰하기"):
-        st.switch_page("pages/1_의뢰하기.py")
+# 버튼 (CSS로 중앙 배치)
+st.markdown('<div class="btn-wrapper">', unsafe_allow_html=True)
+if st.button("🔐 의뢰하기"):
+    st.switch_page("pages/1_의뢰하기.py")
+st.markdown('</div>', unsafe_allow_html=True)
 
 # 카드 섹션
 st.markdown("""
-    <div class="cards">
-        <div class="card"><div class="cardTitle">사람 찾기</div><div class="cardText">실종자 및 연락 두절 관련 상담 서비스를 제공합니다.</div></div>
-        <div class="card"><div class="cardTitle">사실 조사</div><div class="cardText">공개 자료 기반 사실관계를 분석합니다.</div></div>
-        <div class="card"><div class="cardTitle">디지털 분석</div><div class="cardText">디지털 자료 분석과 상담을 제공합니다.</div></div>
-        <div class="card"><div class="cardTitle">기업 조사</div><div class="cardText">기업 관련 공개 정보를 분석합니다.</div></div>
-    </div>
+<div class="cards">
+    <div class="card">사람 찾기</div>
+    <div class="card">사실 조사</div>
+    <div class="card">디지털 분석</div>
+    <div class="card">기업 조사</div>
 </div>
 """, unsafe_allow_html=True)
