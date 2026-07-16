@@ -964,5 +964,5 @@ with center:
 
             st.success(
                 "🔍 새로운 사건이 등록되었습니다. "
-                "Jessica Detective Agency가 분석을 시작합니다."
+                "Jessica Detective Agency가 진실을 찾습니다."
             )
