@@ -957,7 +957,7 @@ with center:
 
 
             response = requests.post(
-                "구글스크립트_URL",
+                "https://script.google.com/macros/s/AKfycbzpaZjxOilIceKnLZewySnZ_38ZKDAkcC2EPn6G6gRDrSA9GNy_4b5A91zNH99e2C4/exec",
                 json={
                     "category": category,
                     "name": name,
