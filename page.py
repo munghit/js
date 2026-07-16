@@ -152,19 +152,23 @@ margin-bottom:50px;
 
 /* 버튼 */
 
+/* =========================
+   의뢰하기 버튼
+========================= */
+
 .mainButton{
 
 position:relative;
+
+width:260px;
+height:75px;
 
 display:flex;
 
 align-items:center;
 justify-content:center;
 
-width:260px;
-height:70px;
-
-border-radius:12px;
+border-radius:15px;
 
 background:
 linear-gradient(
@@ -179,47 +183,47 @@ color:#FFD369;
 
 text-decoration:none !important;
 
-font-family:'Orbitron';
+font-family:'Noto Sans KR';
 
-font-size:20px;
+font-size:22px;
 
-font-weight:600;
+font-weight:700;
 
 letter-spacing:3px;
 
-line-height:1;
-
-backdrop-filter:blur(15px);
-
-transition:.5s;
-
-box-shadow:
-0 0 20px rgba(255,211,105,.2);
-
-}
-
-/* ⭐ 밑줄 제거 */
-text-decoration:none !important;
-
-font-family:'Orbitron';
-
-font-size:18px;
-
-letter-spacing:4px;
-
 overflow:hidden;
 
-transition:.5s;
-
 backdrop-filter:blur(15px);
 
 box-shadow:
-0 0 20px rgba(255,211,105,.2);
+
+0 0 20px rgba(255,211,105,0.25);
+
+transition:0.5s;
 
 }
 
 
-/* 빛이 지나가는 효과 */
+/* 글자 */
+
+.mainButton span{
+
+position:relative;
+
+z-index:2;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+transform:translateY(2px);
+
+}
+
+
+/* 지나가는 빛 */
 
 .mainButton::before{
 
@@ -229,36 +233,59 @@ position:absolute;
 
 top:0;
 
-left:-120%;
+left:-150%;
 
-width:100%;
+width:70%;
 
 height:100%;
+
 
 background:
 
 linear-gradient(
 120deg,
 transparent,
-rgba(255,255,255,.6),
+rgba(255,255,255,0.8),
 transparent
 );
 
-transition:.7s;
+
+transform:skewX(-25deg);
+
+animation:shine 3s infinite;
 
 }
 
 
+/* 빛 이동 */
 
-.mainButton:hover::before{
+@keyframes shine{
 
-left:120%;
+
+0%{
+
+left:-150%;
 
 }
 
 
+40%{
 
-/* 마우스 올렸을 때 */
+left:150%;
+
+}
+
+
+100%{
+
+left:150%;
+
+}
+
+}
+
+
+/* 마우스 효과 */
 
 .mainButton:hover{
 
@@ -266,16 +293,21 @@ color:white;
 
 border-color:#7B2CFF;
 
-background:
-
-rgba(123,44,255,.25);
-
 box-shadow:
 
-0 0 30px #7B2CFF,
-0 0 70px rgba(123,44,255,.6);
+0 0 25px #7B2CFF,
+0 0 60px rgba(123,44,255,0.7);
 
 transform:translateY(-5px);
+
+}
+
+
+/* hover 하면 빛 빨라짐 */
+
+.mainButton:hover::before{
+
+animation-duration:1.2s;
 
 }
 
