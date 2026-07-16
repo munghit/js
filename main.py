@@ -58,7 +58,7 @@ padding:0;
 
 
 # =========================
-# CSS
+# 전체 CSS
 # =========================
 
 st.markdown("""
@@ -74,6 +74,7 @@ st.markdown("""
 .page{
 
 background:
+
 
 radial-gradient(
 ellipse at 50% 10%,
@@ -105,13 +106,11 @@ padding-bottom:150px;
 
 
 
-
 /* HERO */
-
 
 .hero{
 
-height:70vh;
+height:75vh;
 
 display:flex;
 
@@ -175,6 +174,7 @@ letter-spacing:12px;
 
 color:#9b55ff;
 
+
 margin-top:20px;
 
 margin-bottom:40px;
@@ -194,15 +194,11 @@ line-height:1.8;
 
 color:#ddd;
 
-margin-bottom:35px;
-
 }
 
 
 
-
 /* 버튼 */
-
 
 .request-area{
 
@@ -212,9 +208,7 @@ justify-content:center;
 
 align-items:center;
 
-margin-top:-20px;
-
-margin-bottom:80px;
+margin-top:35px;
 
 }
 
@@ -228,7 +222,9 @@ width:300px !important;
 height:75px !important;
 
 
+
 border-radius:20px !important;
+
 
 
 background:
@@ -314,7 +310,6 @@ box-shadow:
 
 /* 카드 */
 
-
 .cards{
 
 display:flex;
@@ -326,7 +321,6 @@ gap:30px;
 flex-wrap:wrap;
 
 }
-
 
 
 
@@ -378,7 +372,6 @@ box-shadow:
 
 
 
-
 .icon{
 
 font-size:55px;
@@ -420,14 +413,13 @@ color:#ccc;
 }
 
 
-
 </style>
 """, unsafe_allow_html=True)
 
 
 
 # =========================
-# 상단 영역
+# 메인 화면 + 버튼
 # =========================
 
 st.markdown("""
@@ -466,23 +458,15 @@ AGENCY
 
 </div>
 
-
-</div>
-
 """, unsafe_allow_html=True)
 
 
 
-# =========================
-# 의뢰하기 버튼
-# =========================
+# 버튼
 
-st.markdown(
-"""
+st.markdown("""
 <div class="request-area">
-""",
-unsafe_allow_html=True
-)
+""", unsafe_allow_html=True)
 
 
 
@@ -492,12 +476,13 @@ if st.button("🔐 의뢰하기"):
 
 
 
-st.markdown(
-"""
+st.markdown("""
 </div>
-""",
-unsafe_allow_html=True
-)
+
+
+</div>
+
+""", unsafe_allow_html=True)
 
 
 
@@ -528,7 +513,6 @@ st.markdown("""
 
 
 
-
 <div class="card">
 
 <div class="icon">
@@ -548,7 +532,6 @@ st.markdown("""
 
 
 
-
 <div class="card">
 
 <div class="icon">
@@ -565,7 +548,6 @@ st.markdown("""
 </div>
 
 </div>
-
 
 
 
