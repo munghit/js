@@ -912,7 +912,6 @@ left, center, right = st.columns([1, 1.5, 1])
 
 with center:
 
-
     category = st.selectbox(
         "의뢰 유형",
         [
@@ -925,19 +924,16 @@ with center:
     )
 
 
-
     name = st.text_input(
         "의뢰인 이름",
         placeholder="이름을 입력해주세요"
     )
 
 
-
     contact = st.text_input(
         "연락 방법",
         placeholder="전화번호 또는 이메일"
     )
-
 
 
     detail = st.text_area(
@@ -947,8 +943,7 @@ with center:
     )
 
 
-
-      agree = st.checkbox(
+    agree = st.checkbox(
         "개인정보 보호 및 의뢰 접수에 동의합니다."
     )
 
@@ -977,6 +972,7 @@ with center:
                 "status": "접수 완료"
 
             })
+
 
             st.success(
                 "✅ 의뢰가 접수되었습니다."
