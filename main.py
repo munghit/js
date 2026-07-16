@@ -15,22 +15,19 @@ st.set_page_config(
 
 
 # =========================
-# 기본 UI
+# 숨김 UI + 배경
 # =========================
 
 st.markdown("""
 <style>
 
-
 #MainMenu{
 display:none;
 }
 
-
 header{
 display:none;
 }
-
 
 footer{
 display:none;
@@ -42,19 +39,16 @@ display:none;
 }
 
 
+
 .block-container{
-
 padding:0;
-
 }
 
 
 
 .stApp{
 
-
 background:
-
 
 radial-gradient(
 ellipse at 50% 10%,
@@ -63,13 +57,11 @@ transparent 45%
 ),
 
 
-
 radial-gradient(
 ellipse at 50% 70%,
 rgba(90,0,180,.25),
 transparent 55%
 ),
-
 
 
 linear-gradient(
@@ -80,15 +72,11 @@ linear-gradient(
 );
 
 
-
 background-attachment:fixed;
-
 
 min-height:100vh;
 
-
 }
-
 
 
 </style>
@@ -103,7 +91,6 @@ min-height:100vh;
 st.markdown("""
 <style>
 
-
 @import url(
 'https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Orbitron:wght@500;700&family=Noto+Sans+KR:wght@300;500;700&display=swap'
 );
@@ -112,7 +99,7 @@ st.markdown("""
 
 .hero{
 
-min-height:75vh;
+height:75vh;
 
 display:flex;
 
@@ -154,7 +141,6 @@ letter-spacing:18px;
 
 color:white;
 
-
 text-shadow:
 
 0 0 25px rgba(255,255,255,.4);
@@ -195,15 +181,13 @@ color:#ddd;
 
 
 
-/* 페이지 링크 버튼 */
+/* Streamlit 버튼 디자인 */
 
-[data-testid="stPageLink"]{
+div.stButton{
 
 display:flex;
 
 justify-content:center;
-
-text-decoration:none;
 
 margin-top:40px;
 
@@ -211,15 +195,7 @@ margin-top:40px;
 
 
 
-[data-testid="stPageLink"] a{
-
-text-decoration:none;
-
-}
-
-
-
-[data-testid="stPageLink"] div{
+div.stButton button{
 
 
 width:300px;
@@ -227,27 +203,15 @@ width:300px;
 height:75px;
 
 
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-
 border-radius:20px;
 
 
 background:
 
-
 linear-gradient(
-
 135deg,
-
 rgba(255,211,105,.25),
-
 rgba(123,44,255,.35)
-
 );
 
 
@@ -270,20 +234,19 @@ font-weight:700;
 letter-spacing:5px;
 
 
-
 box-shadow:
 
 0 0 25px rgba(255,211,105,.5);
 
 
-transition:.4s;
 
+transition:.4s;
 
 }
 
 
 
-[data-testid="stPageLink"] div:hover{
+div.stButton button:hover{
 
 
 transform:
@@ -298,7 +261,6 @@ box-shadow:
 
 0 0 50px #FFD369,
 
-
 0 0 100px rgba(123,44,255,.8);
 
 
@@ -310,7 +272,6 @@ box-shadow:
 
 
 .cards{
-
 
 display:flex;
 
@@ -326,7 +287,6 @@ flex-wrap:wrap;
 
 .card{
 
-
 width:250px;
 
 padding:35px;
@@ -339,15 +299,12 @@ background:
 rgba(255,255,255,.07);
 
 
-
 border:
 
 1px solid rgba(255,255,255,.18);
 
 
-
 backdrop-filter:blur(20px);
-
 
 }
 
@@ -360,7 +317,6 @@ font-size:55px;
 margin-bottom:20px;
 
 }
-
 
 
 .cardTitle{
@@ -376,7 +332,6 @@ color:white;
 margin-bottom:15px;
 
 }
-
 
 
 .cardText{
@@ -398,7 +353,7 @@ color:#ccc;
 
 
 # =========================
-# 메인
+# 메인 화면
 # =========================
 
 st.markdown("""
@@ -439,7 +394,6 @@ AGENCY
 
 
 </div>
-
 """, unsafe_allow_html=True)
 
 
@@ -448,10 +402,14 @@ AGENCY
 # 의뢰하기 버튼
 # =========================
 
-st.page_link(
-    "pages/request.py",
-    label="🔐 의뢰하기"
-)
+if st.button(
+    "🔐 의뢰하기",
+    key="request_button"
+):
+
+    st.switch_page(
+        "pages/request.py"
+    )
 
 
 
@@ -466,93 +424,66 @@ st.markdown("""
 
 <div class="card">
 
-<div class="icon">
-🔍
-</div>
-
+<div class="icon">🔍</div>
 
 <div class="cardTitle">
 사람 찾기
 </div>
 
-
 <div class="cardText">
-
 실종자 및 연락 두절 관련<br>
 상담 서비스를 제공합니다.
-
 </div>
 
 </div>
-
 
 
 
 <div class="card">
 
-<div class="icon">
-📁
-</div>
-
+<div class="icon">📁</div>
 
 <div class="cardTitle">
 사실 조사
 </div>
 
-
 <div class="cardText">
-
 공개 자료 기반<br>
 사실관계를 분석합니다.
-
 </div>
 
 </div>
-
 
 
 
 <div class="card">
 
-<div class="icon">
-💻
-</div>
-
+<div class="icon">💻</div>
 
 <div class="cardTitle">
 디지털 분석
 </div>
 
-
 <div class="cardText">
-
 디지털 자료 분석과<br>
 상담을 제공합니다.
-
 </div>
 
 </div>
-
 
 
 
 <div class="card">
 
-<div class="icon">
-🏢
-</div>
-
+<div class="icon">🏢</div>
 
 <div class="cardTitle">
 기업 조사
 </div>
 
-
 <div class="cardText">
-
 기업 관련 공개 정보를<br>
 분석합니다.
-
 </div>
 
 </div>
