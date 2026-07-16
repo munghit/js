@@ -1,5 +1,4 @@
 import streamlit as st
-import streamlit.components.v1 as components
 
 
 # =========================
@@ -15,7 +14,7 @@ st.set_page_config(
 
 
 # =========================
-# Streamlit 기본 UI 제거
+# 기본 UI 제거
 # =========================
 
 st.markdown("""
@@ -39,9 +38,7 @@ header{
 
 
 .block-container{
-
-padding:0;
-
+    padding:0;
 }
 
 
@@ -59,17 +56,123 @@ linear-gradient(
 }
 
 
+
+/* =========================
+   버튼
+========================= */
+
+
+div.stButton{
+
+display:flex;
+
+justify-content:center;
+
+margin-top:40px;
+
+margin-bottom:100px;
+
+}
+
+
+
+div.stButton button{
+
+
+width:280px;
+
+height:80px;
+
+
+border-radius:18px;
+
+
+background:
+
+linear-gradient(
+
+135deg,
+
+rgba(255,255,255,.15),
+
+rgba(255,255,255,.03)
+
+)!important;
+
+
+
+border:1px solid #FFD369!important;
+
+
+
+color:#FFD369!important;
+
+
+font-family:'Noto Sans KR';
+
+
+font-size:22px!important;
+
+
+font-weight:700;
+
+
+letter-spacing:4px;
+
+
+
+box-shadow:
+
+0 0 25px rgba(255,211,105,.3);
+
+
+
+transition:.5s;
+
+
+
+}
+
+
+
+
+div.stButton button:hover{
+
+
+transform:translateY(-6px);
+
+
+color:white!important;
+
+
+border-color:#7B2CFF!important;
+
+
+
+box-shadow:
+
+
+0 0 40px #7B2CFF,
+
+
+0 0 90px rgba(123,44,255,.6);
+
+
+
+}
+
+
+
 </style>
 """, unsafe_allow_html=True)
 
 
 
 # =========================
-# 전체 디자인 CSS
+# 전체 디자인
 # =========================
 
 st.markdown("""
-
 <style>
 
 
@@ -87,11 +190,7 @@ background:#050505;
 
 
 
-
-
-/* =====================
-   HERO
-===================== */
+/* HERO */
 
 
 .hero{
@@ -127,6 +226,7 @@ transparent 45%
 ),
 
 
+
 radial-gradient(
 
 ellipse at 50% 80%,
@@ -136,6 +236,7 @@ rgba(90,0,180,.25),
 transparent 60%
 
 ),
+
 
 
 linear-gradient(
@@ -153,12 +254,6 @@ linear-gradient(
 
 
 text-align:center;
-
-
-position:relative;
-
-
-overflow:hidden;
 
 
 }
@@ -208,13 +303,10 @@ letter-spacing:15px;
 color:white;
 
 
-line-height:1;
-
-
 text-shadow:
 
-0 0 20px rgba(255,255,255,.3);
 
+0 0 20px rgba(255,255,255,.3);
 
 
 }
@@ -271,9 +363,7 @@ color:#ddd;
 
 
 
-/* =====================
-   카드
-===================== */
+/* 카드 */
 
 
 .cards{
@@ -310,6 +400,7 @@ rgba(123,44,255,.18),
 transparent 60%
 
 ),
+
 
 
 linear-gradient(
@@ -392,6 +483,7 @@ box-shadow:
 
 
 
+
 .icon{
 
 
@@ -428,6 +520,7 @@ margin-bottom:15px;
 
 
 
+
 .cardText{
 
 
@@ -446,9 +539,8 @@ color:#ccc;
 }
 
 
+
 </style>
-
-
 """, unsafe_allow_html=True)
 
 
@@ -456,7 +548,6 @@ color:#ccc;
 # =========================
 # 메인
 # =========================
-
 
 st.markdown("""
 <div class="hero">
@@ -469,13 +560,11 @@ JESSICA
 </div>
 
 
-
 <div class="title">
 
 DETECTIVE
 
 </div>
-
 
 
 <div class="subtitle">
@@ -496,7 +585,6 @@ AGENCY
 
 
 </div>
-
 """, unsafe_allow_html=True)
 
 
@@ -505,252 +593,17 @@ AGENCY
 # 의뢰 버튼
 # =========================
 
-
-components.html(
-
-"""
-
-<style>
-
-
-body{
-
-margin:0;
-
-background:transparent;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-height:130px;
-
-}
-
-
-
-.caseButton{
-
-
-width:280px;
-
-height:80px;
-
-
-
-display:flex;
-
-
-align-items:center;
-
-
-justify-content:center;
-
-
-
-position:relative;
-
-
-
-border-radius:18px;
-
-
-
-background:
-
-linear-gradient(
-
-135deg,
-
-rgba(255,255,255,.15),
-
-rgba(255,255,255,.03)
-
-);
-
-
-
-border:
-
-1px solid #FFD369;
-
-
-
-color:#FFD369;
-
-
-
-font-family:'Noto Sans KR';
-
-
-
-font-size:22px;
-
-
-
-font-weight:700;
-
-
-
-letter-spacing:4px;
-
-
-
-overflow:hidden;
-
-
-
-cursor:pointer;
-
-
-
-box-shadow:
-
-
-0 0 25px rgba(255,211,105,.3);
-
-
-
-transition:.5s;
-
-
-
-}
-
-
-
-
-.caseButton::before{
-
-
-content:"";
-
-position:absolute;
-
-
-top:0;
-
-
-left:-120%;
-
-
-
-width:70%;
-
-
-height:100%;
-
-
-
-background:
-
-linear-gradient(
-
-120deg,
-
-transparent,
-
-rgba(255,255,255,.9),
-
-transparent
-
-);
-
-
-
-transform:skewX(-25deg);
-
-
-
-animation:shine 3s infinite;
-
-
-}
-
-
-
-
-@keyframes shine{
-
-
-0%{
-
-left:-120%;
-
-}
-
-
-40%{
-
-left:130%;
-
-}
-
-
-100%{
-
-left:130%;
-
-}
-
-
-}
-
-
-
-.caseButton:hover{
-
-
-transform:translateY(-6px);
-
-
-
-color:white;
-
-
-
-border-color:#7B2CFF;
-
-
-
-box-shadow:
-
-
-0 0 40px #7B2CFF,
-
-
-0 0 90px rgba(123,44,255,.6);
-
-
-}
-
-
-
-</style>
-
-
-
-<div class="caseButton">
-
-🔐 의뢰하기
-
-</div>
-
-
-""",
-
-height=130
-
-)
+if st.button("🔐 의뢰하기"):
+
+    st.switch_page(
+        "pages/1_의뢰하기.py"
+    )
 
 
 
 # =========================
 # 서비스 카드
 # =========================
-
 
 st.markdown("""
 
