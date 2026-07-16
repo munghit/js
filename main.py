@@ -25,20 +25,18 @@ html,body{ background:#050505; }
 .subtitle{ font-family:'Orbitron'; font-size:38px; letter-spacing:12px; color:#9b55ff; margin-top:20px; margin-bottom:40px; }
 .desc{ font-family:'Noto Sans KR'; font-size:22px; line-height:1.8; color:#ddd; margin-bottom: 20px; }
 
-.cards{ display:flex; justify-content:center; gap:30px; flex-wrap:wrap; margin-top: 50px; }
-.card{ width:250px; padding:35px; border-radius:25px; background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.18); backdrop-filter:blur(20px); transition:.4s; }
-.card:hover{ transform:translateY(-12px); border-color:#7B2CFF; box-shadow:0 0 40px rgba(123,44,255,.7); }
-.icon{ font-size:55px; margin-bottom:20px; }
-.cardTitle{ font-family:'Noto Sans KR'; font-size:25px; font-weight:700; color:white; margin-bottom:15px; }
-.cardText{ font-family:'Noto Sans KR'; font-size:15px; line-height:1.7; color:#ccc; }
-
-/* 버튼 스타일 (다크 퍼플 네온) */
+/* 🌟 버튼 중앙 강제 정렬 스타일 */
+.btn-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 50px;
+}
 div[data-testid="stButton"] button {
     width: 280px !important;
     height: 65px !important;
     font-size: 19px !important;
     font-weight: 700 !important;
-    font-family: 'Noto Sans KR', sans-serif !important;
     letter-spacing: 3px !important;
     border-radius: 50px !important;
     background: linear-gradient(135deg, #4A1291 0%, #1A0033 100%) !important;
@@ -46,6 +44,13 @@ div[data-testid="stButton"] button {
     border: 2px solid #7B2CFF !important;
     box-shadow: 0 0 20px rgba(123, 44, 255, 0.4) !important;
 }
+
+.cards{ display:flex; justify-content:center; gap:30px; flex-wrap:wrap; }
+.card{ width:250px; padding:35px; border-radius:25px; background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.18); backdrop-filter:blur(20px); transition:.4s; }
+.card:hover{ transform:translateY(-12px); border-color:#7B2CFF; box-shadow:0 0 40px rgba(123,44,255,.7); }
+.icon{ font-size:55px; margin-bottom:20px; }
+.cardTitle{ font-family:'Noto Sans KR'; font-size:25px; font-weight:700; color:white; margin-bottom:15px; }
+.cardText{ font-family:'Noto Sans KR'; font-size:15px; line-height:1.7; color:#ccc; }
 </style>
 """, unsafe_allow_html=True)
 
@@ -56,16 +61,16 @@ st.markdown("""
         <div class="title">DETECTIVE</div>
         <div class="subtitle">AGENCY</div>
         <div class="desc">진실은 언제나 흔적을 남깁니다.<br>당신의 의뢰는 안전하게 보호됩니다.</div>
+    </div>
 """, unsafe_allow_html=True)
 
-# 강제 중앙 정렬 구조
-_, col_center, _ = st.columns([1, 2, 1])
-with col_center:
-    if st.button("🔐 의뢰하기"):
-        st.switch_page("pages/1_의뢰하기.py")
+# 버튼 컨테이너 시작
+st.markdown('<div class="btn-container">', unsafe_allow_html=True)
+if st.button("🔐 의뢰하기"):
+    st.switch_page("pages/1_의뢰하기.py")
+st.markdown('</div>', unsafe_allow_html=True)
 
 st.markdown("""
-    </div>
     <div class="cards">
         <div class="card"><div class="icon">🔍</div><div class="cardTitle">사람 찾기</div><div class="cardText">실종자 및 연락 두절 관련<br>상담 서비스를 제공합니다.</div></div>
         <div class="card"><div class="icon">📁</div><div class="cardTitle">사실 조사</div><div class="cardText">공개 자료 기반<br>사실관계를 분석합니다.</div></div>
