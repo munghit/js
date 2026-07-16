@@ -1,8 +1,11 @@
 import streamlit as st
+import streamlit.components.v1 as components
+
 
 # ---------------------------------
 # 페이지 설정
 # ---------------------------------
+
 st.set_page_config(
     page_title="Jessica Detective Agency",
     page_icon="🕵️",
@@ -10,9 +13,14 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# 사이드바 숨기기
+
+# ---------------------------------
+# Streamlit 기본 UI 제거
+# ---------------------------------
+
 st.markdown("""
 <style>
+
 [data-testid="stSidebar"]{
     display:none;
 }
@@ -29,32 +37,41 @@ header{
     visibility:hidden;
 }
 
+
 .block-container{
-    padding-top:0rem;
-    padding-bottom:0rem;
-    padding-left:0rem;
-    padding-right:0rem;
+
+padding:0;
+
 }
+
+
 </style>
+
 """, unsafe_allow_html=True)
 
+
+
 # ---------------------------------
-# 메인 CSS
+# 메인 스타일
 # ---------------------------------
 
 st.markdown("""
-
 <style>
 
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Orbitron:wght@500;700&family=Noto+Sans+KR:wght@300;500;700&display=swap');
+
+@import url(
+'https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Orbitron:wght@500;700&family=Noto+Sans+KR:wght@300;500;700&display=swap'
+);
+
+
 
 html,body{
 
 background:#050505;
 
-overflow-x:hidden;
-
 }
+
+
 
 .main{
 
@@ -62,226 +79,501 @@ background:#050505;
 
 }
 
-/* ---------------- Hero ---------------- */
+
+
+/* HERO */
+
 
 .hero{
 
-height:100vh;
+
+min-height:100vh;
+
 
 display:flex;
 
+
 flex-direction:column;
+
 
 justify-content:center;
 
+
 align-items:center;
 
+
 background:
-radial-gradient(circle at center,
-rgba(117,0,255,.22),
-transparent 60%),
-linear-gradient(#050505,#050505);
+
+radial-gradient(
+circle at center,
+rgba(123,44,255,.25),
+transparent 55%
+),
+
+#050505;
+
 
 text-align:center;
 
+
 }
 
-/* 로고 */
+
+
+
 
 .logo{
 
-font-size:18px;
-
-letter-spacing:6px;
-
-color:white;
 
 font-family:'Orbitron';
 
-margin-bottom:30px;
 
-}
+font-size:20px;
 
-/* 큰 제목 */
-
-.title{
-
-font-size:96px;
-
-font-family:'Cinzel';
-
-font-weight:700;
-
-color:white;
-
-letter-spacing:10px;
-
-margin-bottom:10px;
-
-}
-
-/* 부제목 */
-
-.subtitle{
-
-font-size:30px;
-
-font-family:'Orbitron';
-
-color:#7B2CFF;
 
 letter-spacing:8px;
 
-margin-bottom:40px;
+
+color:#FFD369;
+
+
+margin-bottom:25px;
+
 
 }
 
-/* 설명 */
-
-.desc{
-
-font-size:22px;
-
-font-family:'Noto Sans KR';
-
-color:#dddddd;
-
-margin-bottom:50px;
-
-}
-
-/* 버튼 */
-
-/* =========================
-   Jessica 의뢰하기 버튼
-========================= */
-
-.mainButton{
-
-display:flex !important;
-
-width:280px !important;
-height:80px !important;
-
-align-items:center !important;
-justify-content:center !important;
-
-position:relative;
-
-box-sizing:border-box;
-
-margin:auto;
-
-border-radius:18px;
-
-background:
-
-linear-gradient(
-135deg,
-rgba(255,255,255,0.15),
-rgba(255,255,255,0.03)
-);
 
 
-border:1px solid rgba(255,211,105,0.9);
 
 
-color:#FFD369 !important;
+.title{
 
-font-family:'Noto Sans KR', sans-serif;
 
-font-size:22px !important;
+font-family:'Cinzel';
+
+
+font-size:100px;
+
 
 font-weight:700;
 
-letter-spacing:4px;
+
+letter-spacing:15px;
 
 
-text-decoration:none !important;
+color:white;
 
 
-overflow:hidden;
+line-height:1;
+
+
+}
+
+
+
+
+
+.subtitle{
+
+
+font-family:'Orbitron';
+
+
+font-size:35px;
+
+
+letter-spacing:10px;
+
+
+color:#7B2CFF;
+
+
+margin-top:20px;
+
+
+margin-bottom:35px;
+
+
+}
+
+
+
+
+
+.desc{
+
+
+font-family:'Noto Sans KR';
+
+
+font-size:22px;
+
+
+line-height:1.8;
+
+
+color:#ddd;
+
+
+margin-bottom:35px;
+
+
+}
+
+
+
+
+
+/* 카드 */
+
+
+.cards{
+
+
+display:flex;
+
+
+justify-content:center;
+
+
+gap:30px;
+
+
+margin-top:70px;
+
+
+flex-wrap:wrap;
+
+
+}
+
+
+
+
+
+.card{
+
+
+width:250px;
+
+
+padding:30px;
+
+
+border-radius:25px;
+
+
+background:
+
+rgba(255,255,255,.05);
+
+
+border:
+
+1px solid rgba(255,255,255,.15);
 
 
 backdrop-filter:blur(20px);
 
 
+transition:.4s;
+
+
+}
+
+
+
+
+
+.card:hover{
+
+
+transform:translateY(-12px);
+
+
+border-color:#7B2CFF;
+
+
 box-shadow:
 
-0 0 25px rgba(255,211,105,0.25);
+0 0 40px rgba(123,44,255,.7);
+
+
+}
+
+
+
+
+
+.icon{
+
+
+font-size:50px;
+
+
+margin-bottom:15px;
+
+
+}
+
+
+
+
+
+.cardTitle{
+
+
+font-family:'Noto Sans KR';
+
+
+font-size:25px;
+
+
+font-weight:700;
+
+
+color:white;
+
+
+margin-bottom:15px;
+
+
+}
+
+
+
+
+
+.cardText{
+
+
+font-family:'Noto Sans KR';
+
+
+font-size:15px;
+
+
+color:#ccc;
+
+
+line-height:1.7;
+
+
+}
+
+
+
+</style>
+
+""", unsafe_allow_html=True)
+
+
+
+# ---------------------------------
+# HERO HTML
+# ---------------------------------
+
+st.markdown("""
+<div class="hero">
+
+
+<div class="logo">
+
+JESSICA
+
+</div>
+
+
+<div class="title">
+
+DETECTIVE
+
+</div>
+
+
+<div class="subtitle">
+
+AGENCY
+
+</div>
+
+
+
+<div class="desc">
+
+진실은 언제나 흔적을 남깁니다.<br>
+
+당신의 의뢰는 안전하게 보호됩니다.
+
+</div>
+
+
+</div>
+
+""", unsafe_allow_html=True)
+
+
+
+# ---------------------------------
+# 의뢰 버튼
+# ---------------------------------
+
+components.html(
+
+"""
+
+<style>
+
+
+body{
+
+margin:0;
+
+background:transparent;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+height:120px;
+
+}
+
+
+
+.caseButton{
+
+
+width:280px;
+
+
+height:80px;
+
+
+display:flex;
+
+
+align-items:center;
+
+
+justify-content:center;
+
+
+
+position:relative;
+
+
+border-radius:18px;
+
+
+
+background:
+
+linear-gradient(
+
+135deg,
+
+rgba(255,255,255,.15),
+
+rgba(255,255,255,.03)
+
+);
+
+
+
+border:
+
+1px solid #FFD369;
+
+
+
+color:#FFD369;
+
+
+
+font-family:'Noto Sans KR';
+
+
+font-size:22px;
+
+
+font-weight:700;
+
+
+
+letter-spacing:4px;
+
+
+
+overflow:hidden;
+
+
+
+cursor:pointer;
+
+
+
+box-shadow:
+
+0 0 25px rgba(255,211,105,.3);
+
 
 
 transition:.5s;
 
-}
-
-
-
-/* 링크 기본 스타일 제거 */
-
-.mainButton,
-.mainButton:hover,
-.mainButton:visited,
-.mainButton:active{
-
-text-decoration:none !important;
 
 }
 
 
 
-/* 글자 */
 
-.mainButton span{
-
-position:relative;
-
-z-index:10;
-
-display:block;
-
-color:#FFD369 !important;
-
-white-space:nowrap;
-
-}
-
-
-
-/* 지나가는 빛 */
-
-.mainButton::before{
+.caseButton::before{
 
 
 content:"";
+
 
 position:absolute;
 
 
 top:0;
 
+
 left:-120%;
 
 
-width:60%;
+
+width:70%;
+
 
 height:100%;
+
 
 
 background:
 
 linear-gradient(
+
 120deg,
+
 transparent,
-rgba(255,255,255,0.8),
+
+rgba(255,255,255,.9),
+
 transparent
+
 );
+
 
 
 transform:skewX(-25deg);
 
 
+
 animation:shine 3s infinite;
+
 
 
 }
@@ -299,11 +591,13 @@ left:-120%;
 }
 
 
+
 40%{
 
 left:130%;
 
 }
+
 
 
 100%{
@@ -313,166 +607,73 @@ left:130%;
 }
 
 
+
 }
 
 
 
-
-
-.mainButton:hover{
+.caseButton:hover{
 
 
 transform:translateY(-6px);
 
 
+color:white;
+
+
+
 border-color:#7B2CFF;
+
 
 
 box-shadow:
 
-0 0 35px #7B2CFF,
-0 0 80px rgba(123,44,255,.6);
+
+0 0 40px #7B2CFF,
 
 
-}
+0 0 90px rgba(123,44,255,.6);
 
-
-
-.mainButton:hover span{
-
-
-color:white !important;
 
 
 }
 
-/* 카드 */
-
-.cards{
-
-display:flex;
-
-justify-content:center;
-
-gap:30px;
-
-margin-top:90px;
-
-flex-wrap:wrap;
-
-}
-
-.card{
-
-width:250px;
-
-padding:30px;
-
-border-radius:25px;
-
-background:rgba(255,255,255,.05);
-
-backdrop-filter:blur(20px);
-
-border:1px solid rgba(255,255,255,.15);
-
-transition:.4s;
-
-}
-
-.card:hover{
-
-transform:translateY(-12px);
-
-border:1px solid #7B2CFF;
-
-box-shadow:0 0 35px rgba(123,44,255,.7);
-
-}
-
-.icon{
-
-font-size:55px;
-
-margin-bottom:15px;
-
-}
-
-.cardTitle{
-
-font-size:26px;
-
-font-weight:bold;
-
-color:white;
-
-margin-bottom:15px;
-
-font-family:'Noto Sans KR';
-
-}
-
-.cardText{
-
-font-size:16px;
-
-color:#cccccc;
-
-line-height:1.6;
-
-font-family:'Noto Sans KR';
-
-}
 
 </style>
 
-""", unsafe_allow_html=True)
+
+
+<div class="caseButton">
+
+🔐 의뢰하기
+
+</div>
+
+
+""",
+
+height=120
+
+)
+
+
 
 # ---------------------------------
-# HTML
+# 서비스 카드
 # ---------------------------------
 
 st.markdown("""
-
-<div class="hero">
-
-<div class="logo">
-
-JESSICA
-
-</div>
-
-<div class="title">
-
-DETECTIVE
-
-</div>
-
-<div class="subtitle">
-
-AGENCY
-
-</div>
-
-<div class="desc">
-
-진실은 언제나 흔적을 남깁니다.<br>
-
-당신의 의뢰는 안전하게 보호됩니다.
-
-</div>
-
-<a href="#" class="mainButton">
-
-의뢰하기
-
-</a>
-
 <div class="cards">
+
 
 <div class="card">
 
-<div class="icon">🔍</div>
+<div class="icon">
+
+🔍
+
+</div>
+
 
 <div class="cardTitle">
 
@@ -480,19 +681,27 @@ AGENCY
 
 </div>
 
+
 <div class="cardText">
 
-실종자 및 연락이 끊긴 사람을 찾기 위한<br>
+실종자 및 연락이 끊긴 사람을<br>
 
-합법적인 조사 서비스를 제공합니다.
+찾기 위한 상담 서비스
+
+</div>
 
 </div>
 
-</div>
+
 
 <div class="card">
 
-<div class="icon">📁</div>
+<div class="icon">
+
+📁
+
+</div>
+
 
 <div class="cardTitle">
 
@@ -500,19 +709,27 @@ AGENCY
 
 </div>
 
+
 <div class="cardText">
 
-공개 자료와 증거를 바탕으로<br>
+공개 자료 기반<br>
 
-사실관계를 분석합니다.
+사실관계 분석
+
+</div>
 
 </div>
 
-</div>
+
 
 <div class="card">
 
-<div class="icon">💻</div>
+<div class="icon">
+
+💻
+
+</div>
+
 
 <div class="cardTitle">
 
@@ -520,19 +737,27 @@ AGENCY
 
 </div>
 
+
 <div class="cardText">
 
-디지털 자료와 기록에 대한<br>
+디지털 자료 분석<br>
 
-분석 및 상담을 제공합니다.
+상담 서비스
+
+</div>
 
 </div>
 
-</div>
+
 
 <div class="card">
 
-<div class="icon">🏢</div>
+<div class="icon">
+
+🏢
+
+</div>
+
 
 <div class="cardTitle">
 
@@ -540,17 +765,17 @@ AGENCY
 
 </div>
 
+
 <div class="cardText">
 
-기업 및 계약 관련 공개 정보를<br>
+기업 관련 공개 정보<br>
 
-조사하고 정리합니다.
-
-</div>
+분석 서비스
 
 </div>
 
 </div>
+
 
 </div>
 
