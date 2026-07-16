@@ -1,4 +1,5 @@
 import streamlit as st
+import streamlit.components.v1 as components
 
 
 # =========================
@@ -41,7 +42,9 @@ padding:0;
 
 .stApp{
 
+
 background:
+
 
 radial-gradient(
 ellipse at 50% 10%,
@@ -66,6 +69,7 @@ linear-gradient(
 
 
 background-attachment:fixed;
+
 
 min-height:100vh;
 
@@ -103,17 +107,24 @@ padding-bottom:180px;
 
 .hero{
 
+
 min-height:75vh;
+
 
 display:flex;
 
+
 flex-direction:column;
+
 
 justify-content:center;
 
+
 align-items:center;
 
+
 text-align:center;
+
 
 }
 
@@ -135,6 +146,7 @@ margin-bottom:30px;
 
 
 
+
 .title{
 
 font-family:'Cinzel';
@@ -145,11 +157,13 @@ letter-spacing:18px;
 
 color:white;
 
+
 text-shadow:
 
 0 0 25px rgba(255,255,255,.4);
 
 }
+
 
 
 
@@ -171,6 +185,7 @@ margin-bottom:40px;
 
 
 
+
 .desc{
 
 font-family:'Noto Sans KR';
@@ -185,23 +200,34 @@ color:#ddd;
 
 
 
-/* 페이지 링크 버튼 */
+/* 버튼 */
 
-a[data-testid="stPageLink"]{
+button[kind="secondary"]{
 
-display:flex;
+display:none;
 
-justify-content:center;
+}
 
-text-decoration:none;
 
-margin-top:40px;
+.stButton{
+
+display:none;
 
 }
 
 
 
-a[data-testid="stPageLink"] div{
+.request-btn a{
+
+
+text-decoration:none;
+
+}
+
+
+
+.request-btn{
+
 
 width:300px;
 
@@ -252,17 +278,20 @@ box-shadow:
 
 transition:.4s;
 
+
 }
 
 
 
-a[data-testid="stPageLink"] div:hover{
+.request-btn:hover{
+
 
 transform:
 
 translateY(-8px)
 
 scale(1.05);
+
 
 
 box-shadow:
@@ -275,9 +304,9 @@ box-shadow:
 
 
 
-/* 카드 */
 
 .cards{
+
 
 display:flex;
 
@@ -293,6 +322,7 @@ flex-wrap:wrap;
 
 .card{
 
+
 width:250px;
 
 padding:35px;
@@ -305,9 +335,11 @@ background:
 rgba(255,255,255,.07);
 
 
+
 border:
 
 1px solid rgba(255,255,255,.18);
+
 
 
 backdrop-filter:blur(20px);
@@ -315,20 +347,25 @@ backdrop-filter:blur(20px);
 
 transition:.4s;
 
+
 }
 
 
 
 .card:hover{
 
+
 transform:translateY(-12px);
 
+
 border-color:#7B2CFF;
+
 
 
 box-shadow:
 
 0 0 40px rgba(123,44,255,.7);
+
 
 }
 
@@ -372,17 +409,21 @@ color:#ccc;
 
 }
 
+
+
 </style>
+
 """, unsafe_allow_html=True)
 
 
 
 # =========================
-# 메인
+# 메인 화면
 # =========================
 
 st.markdown("""
 <div class="page">
+
 
 <div class="hero">
 
@@ -394,6 +435,7 @@ JESSICA
 </div>
 
 
+
 <div class="title">
 
 DETECTIVE
@@ -401,11 +443,13 @@ DETECTIVE
 </div>
 
 
+
 <div class="subtitle">
 
 AGENCY
 
 </div>
+
 
 
 <div class="desc">
@@ -416,7 +460,20 @@ AGENCY
 
 </div>
 
+
+<br>
+
+
+<a href="/request">
+
+<div class="request-btn">
+
+🔐 의뢰하기
+
 </div>
+
+</a>
+
 
 </div>
 
@@ -425,33 +482,29 @@ AGENCY
 
 
 # =========================
-# 진짜 이동 버튼
-# =========================
-
-st.page_link(
-    "pages/의뢰하기.py",
-    label="🔐 의뢰하기"
-)
-
-
-
-# =========================
 # 카드
 # =========================
 
 st.markdown("""
+
 <div class="cards">
 
 
 <div class="card">
 
-<div class="icon">🔍</div>
+<div class="icon">
+
+🔍
+
+</div>
+
 
 <div class="cardTitle">
 
 사람 찾기
 
 </div>
+
 
 <div class="cardText">
 
@@ -467,13 +520,19 @@ st.markdown("""
 
 <div class="card">
 
-<div class="icon">📁</div>
+<div class="icon">
+
+📁
+
+</div>
+
 
 <div class="cardTitle">
 
 사실 조사
 
 </div>
+
 
 <div class="cardText">
 
@@ -489,13 +548,19 @@ st.markdown("""
 
 <div class="card">
 
-<div class="icon">💻</div>
+<div class="icon">
+
+💻
+
+</div>
+
 
 <div class="cardTitle">
 
 디지털 분석
 
 </div>
+
 
 <div class="cardText">
 
@@ -511,13 +576,19 @@ st.markdown("""
 
 <div class="card">
 
-<div class="icon">🏢</div>
+<div class="icon">
+
+🏢
+
+</div>
+
 
 <div class="cardTitle">
 
 기업 조사
 
 </div>
+
 
 <div class="cardText">
 
@@ -531,4 +602,8 @@ st.markdown("""
 
 
 </div>
+
+
+</div>
+
 """, unsafe_allow_html=True)
