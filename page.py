@@ -14,32 +14,35 @@ st.set_page_config(
 
 
 # =========================
-# 기본 UI 제거
+# 기본 설정
 # =========================
 
 st.markdown("""
 <style>
 
 [data-testid="stSidebar"]{
-    display:none;
+display:none;
 }
 
 #MainMenu{
-    visibility:hidden;
+visibility:hidden;
 }
 
 footer{
-    visibility:hidden;
+visibility:hidden;
 }
 
 header{
-    visibility:hidden;
+visibility:hidden;
 }
 
 
 .block-container{
-    padding:0;
+
+padding:0;
+
 }
+
 
 
 .main{
@@ -48,9 +51,9 @@ background:
 
 linear-gradient(
 180deg,
-#050505 0%,
-#090018 45%,
-#050505 100%
+#050505,
+#090018,
+#050505
 );
 
 }
@@ -58,33 +61,37 @@ linear-gradient(
 
 
 /* =========================
-   버튼
+   버튼 중앙 정렬
 ========================= */
 
 
-div.stButton{
+.stButton{
 
-display:flex;
+width:100% !important;
 
-justify-content:center;
+display:flex !important;
 
-margin-top:40px;
+justify-content:center !important;
 
-margin-bottom:100px;
+align-items:center !important;
+
+margin-top:40px !important;
+
+margin-bottom:100px !important;
 
 }
 
 
 
-div.stButton button{
+.stButton > button{
 
 
-width:280px;
+width:280px !important;
 
-height:80px;
+height:80px !important;
 
 
-border-radius:18px;
+border-radius:18px !important;
 
 
 background:
@@ -101,20 +108,20 @@ rgba(255,255,255,.03)
 
 
 
-border:1px solid #FFD369!important;
+border:
+
+1px solid #FFD369 !important;
 
 
 
-color:#FFD369!important;
+color:#FFD369 !important;
 
 
-font-family:'Noto Sans KR';
+
+font-size:22px !important;
 
 
-font-size:22px!important;
-
-
-font-weight:700;
+font-weight:700 !important;
 
 
 letter-spacing:4px;
@@ -135,28 +142,24 @@ transition:.5s;
 
 
 
-
-div.stButton button:hover{
+.stButton > button:hover{
 
 
 transform:translateY(-6px);
 
 
-color:white!important;
+color:white !important;
 
 
-border-color:#7B2CFF!important;
+border-color:#7B2CFF !important;
 
 
 
 box-shadow:
 
-
 0 0 40px #7B2CFF,
 
-
 0 0 90px rgba(123,44,255,.6);
-
 
 
 }
@@ -164,20 +167,22 @@ box-shadow:
 
 
 </style>
+
 """, unsafe_allow_html=True)
 
 
 
 # =========================
-# 전체 디자인
+# 디자인
 # =========================
 
 st.markdown("""
+
 <style>
 
 
 @import url(
-'https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Orbitron:wght@500;700&family=Noto+Sans+KR:wght@300;500;700&display=swap'
+'https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Orbitron:wght@500;700&family=Noto+Sans+KR:wght@300;500;700&display=swap'
 );
 
 
@@ -226,7 +231,6 @@ transparent 45%
 ),
 
 
-
 radial-gradient(
 
 ellipse at 50% 80%,
@@ -236,7 +240,6 @@ rgba(90,0,180,.25),
 transparent 60%
 
 ),
-
 
 
 linear-gradient(
@@ -254,7 +257,6 @@ linear-gradient(
 
 
 text-align:center;
-
 
 }
 
@@ -304,7 +306,6 @@ color:white;
 
 
 text-shadow:
-
 
 0 0 20px rgba(255,255,255,.3);
 
@@ -361,8 +362,6 @@ color:#ddd;
 
 
 
-
-
 /* 카드 */
 
 
@@ -378,10 +377,7 @@ justify-content:center;
 gap:30px;
 
 
-padding-top:100px;
-
-
-padding-bottom:120px;
+padding:100px 0 120px;
 
 
 width:100%;
@@ -399,24 +395,11 @@ rgba(123,44,255,.18),
 
 transparent 60%
 
-),
-
-
-
-linear-gradient(
-
-180deg,
-
-transparent,
-
-rgba(20,0,40,.9)
-
 );
 
 
 
 flex-wrap:wrap;
-
 
 }
 
@@ -539,8 +522,9 @@ color:#ccc;
 }
 
 
-
 </style>
+
+
 """, unsafe_allow_html=True)
 
 
@@ -548,6 +532,7 @@ color:#ccc;
 # =========================
 # 메인
 # =========================
+
 
 st.markdown("""
 <div class="hero">
@@ -585,6 +570,7 @@ AGENCY
 
 
 </div>
+
 """, unsafe_allow_html=True)
 
 
@@ -593,7 +579,10 @@ AGENCY
 # 의뢰 버튼
 # =========================
 
-if st.button("🔐 의뢰하기"):
+if st.button(
+    "🔐 의뢰하기",
+    use_container_width=False
+):
 
     st.switch_page(
         "pages/1_의뢰하기.py"
@@ -602,7 +591,7 @@ if st.button("🔐 의뢰하기"):
 
 
 # =========================
-# 서비스 카드
+# 카드
 # =========================
 
 st.markdown("""
