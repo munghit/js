@@ -15,6 +15,23 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
+# =========================
+# Firebase 연결
+# =========================
+
+if not firebase_admin._apps:
+
+    cred = credentials.Certificate(
+        "firebase_key.json"
+    )
+
+    firebase_admin.initialize_app(
+        cred
+    )
+
+
+db = firestore.client()
+
 
 
 # =========================
