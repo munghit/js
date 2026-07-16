@@ -965,12 +965,12 @@ with center:
 
     # 필수 입력 확인
 
-    if (
-        name.strip() == ""
-        or contact.strip() == ""
-        or detail.strip() == ""
-        or not agree
-    ):
+        if (
+            name.strip() == ""
+            or contact.strip() == ""
+            or detail.strip() == ""
+            or not agree
+        ):
 
         st.warning(
             "모든 항목을 작성하고 동의해주세요."
