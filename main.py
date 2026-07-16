@@ -952,7 +952,7 @@ with center:
         else:
 
             requests.post(
-                "https://formsubmit.co/받을이메일주소",
+                "https://formsubmit.co/ruddms080924@gmail.com",
                 data={
                     "의뢰 유형": category,
                     "의뢰인 이름": name,
