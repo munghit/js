@@ -65,6 +65,7 @@ padding:0;
 st.markdown("""
 <style>
 
+
 @import url(
 'https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Orbitron:wght@500;700&family=Noto+Sans+KR:wght@300;500;700&display=swap'
 );
@@ -75,6 +76,7 @@ st.markdown("""
 
 
 background:
+
 
 radial-gradient(
 ellipse at 50% 10%,
@@ -99,9 +101,9 @@ linear-gradient(
 
 
 
-width:100%;
-
 min-height:100vh;
+
+width:100%;
 
 padding-bottom:180px;
 
@@ -109,7 +111,8 @@ padding-bottom:180px;
 
 
 
-/* 상단 */
+/* HERO */
+
 
 .hero{
 
@@ -175,7 +178,9 @@ letter-spacing:18px;
 color:white;
 
 
+
 text-shadow:
+
 
 0 0 25px rgba(255,255,255,.4);
 
@@ -231,14 +236,7 @@ color:#ddd;
 
 
 
-/* 버튼 */
-
-.button-space{
-
-
-margin-top:40px;
-
-}
+/* 카드 */
 
 
 .cards{
@@ -270,18 +268,19 @@ width:250px;
 padding:35px;
 
 
-
 border-radius:25px;
 
 
 
 background:
 
+
 rgba(255,255,255,.07);
 
 
 
 border:
+
 
 1px solid rgba(255,255,255,.18);
 
@@ -292,7 +291,6 @@ backdrop-filter:blur(20px);
 
 
 transition:.4s;
-
 
 
 }
@@ -309,9 +307,12 @@ transform:translateY(-12px);
 border-color:#7B2CFF;
 
 
+
 box-shadow:
 
+
 0 0 40px rgba(123,44,255,.7);
+
 
 
 }
@@ -375,15 +376,13 @@ color:#ccc;
 
 
 </style>
-
 """, unsafe_allow_html=True)
 
 
 
 # =========================
-# 페이지 시작
+# 상단 영역
 # =========================
-
 
 st.markdown("""
 <div class="page">
@@ -424,22 +423,19 @@ AGENCY
 
 </div>
 
-
-
-<div class="button-space">
-
 """, unsafe_allow_html=True)
 
 
 
 # =========================
-# HTML 버튼
+# 버튼
 # =========================
 
 components.html(
 """
 
 <style>
+
 
 body{
 
@@ -452,6 +448,7 @@ display:flex;
 justify-content:center;
 
 }
+
 
 
 .btn{
@@ -494,6 +491,7 @@ rgba(123,44,255,.35)
 
 border:
 
+
 1px solid #FFD369;
 
 
@@ -528,6 +526,10 @@ box-shadow:
 transition:.4s;
 
 
+
+cursor:pointer;
+
+
 }
 
 
@@ -552,20 +554,23 @@ box-shadow:
 0 0 100px rgba(123,44,255,.8);
 
 
+
 }
+
 
 </style>
 
 
-<a href="/1_의뢰하기" style="text-decoration:none">
 
-<div class="btn">
+<div 
+class="btn"
+onclick="window.parent.location.href='/1_의뢰하기';"
+>
 
 🔐 의뢰하기
 
 </div>
 
-</a>
 
 """,
 height=120
@@ -574,8 +579,6 @@ height=120
 
 
 st.markdown("""
-</div>
-
 </div>
 
 
@@ -591,11 +594,13 @@ st.markdown("""
 
 </div>
 
+
 <div class="cardTitle">
 
 사람 찾기
 
 </div>
+
 
 <div class="cardText">
 
@@ -605,8 +610,8 @@ st.markdown("""
 
 </div>
 
-</div>
 
+</div>
 
 
 
@@ -618,11 +623,13 @@ st.markdown("""
 
 </div>
 
+
 <div class="cardTitle">
 
 사실 조사
 
 </div>
+
 
 <div class="cardText">
 
@@ -632,8 +639,8 @@ st.markdown("""
 
 </div>
 
-</div>
 
+</div>
 
 
 
@@ -645,11 +652,13 @@ st.markdown("""
 
 </div>
 
+
 <div class="cardTitle">
 
 디지털 분석
 
 </div>
+
 
 <div class="cardText">
 
@@ -659,8 +668,8 @@ st.markdown("""
 
 </div>
 
-</div>
 
+</div>
 
 
 
@@ -672,11 +681,13 @@ st.markdown("""
 
 </div>
 
+
 <div class="cardTitle">
 
 기업 조사
 
 </div>
+
 
 <div class="cardText">
 
@@ -685,6 +696,7 @@ st.markdown("""
 분석합니다.
 
 </div>
+
 
 </div>
 
